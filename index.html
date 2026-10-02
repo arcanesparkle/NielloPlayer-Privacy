@@ -1,52 +1,193 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="NielloPlayer privacy policy">
-  <title>NielloPlayer 隐私政策</title>
+  <meta name="description" content="NielloPlayer privacy policy / 隐私政策 / プライバシーポリシー / Datenschutzerklärung">
+  <title>NielloPlayer Privacy Policy</title>
   <style>
     :root { color-scheme: dark; --bg:#101010; --card:#1d1d1d; --text:#f4f1ea; --muted:#b9b3a8; --gold:#d5a64b; }
     * { box-sizing:border-box; }
     body { margin:0; background:var(--bg); color:var(--text); font:16px/1.7 system-ui,-apple-system,"Segoe UI",sans-serif; }
-    main { width:min(760px, calc(100% - 32px)); margin:48px auto; padding:32px; background:var(--card); border:1px solid #4d402a; border-radius:20px; }
-    h1 { margin:0 0 4px; color:var(--gold); font-size:2rem; } h2 { margin-top:32px; font-size:1.2rem; color:var(--gold); }
-    .meta, p, li { color:var(--muted); } strong { color:var(--text); } a { color:#f0c76d; }
+    .bar { width:min(760px, calc(100% - 32px)); margin:20px auto 0; display:flex; justify-content:flex-end; }
+    select { background:var(--card); color:var(--gold); border:1px solid #4d402a; border-radius:10px; padding:8px 12px; font-size:14px; }
+    main { width:min(760px, calc(100% - 32px)); margin:16px auto 48px; padding:32px; background:var(--card); border:1px solid #4d402a; border-radius:20px; }
+    h1 { margin:0 0 4px; color:var(--gold); font-size:2rem; }
+    .meta, p { color:var(--muted); }
+    section[hidden] { display:none; }
+    [dir="rtl"] { text-align:right; }
   </style>
 </head>
-<body><main>
-  <h1>NielloPlayer 隐私政策</h1>
-  <p class="meta">生效日期：2026 年 10 月 3 日 · 最后更新：2026 年 10 月 3 日</p>
-  <p>NielloPlayer 是本地音乐播放器。本政策说明应用如何访问、使用、保存和传输数据。</p>
+<body>
+  <div class="bar">
+    <select id="lang" aria-label="Language / 语言">
+      <option value="en">English</option>
+      <option value="zh-Hans">简体中文</option>
+      <option value="zh-Hant">繁體中文</option>
+      <option value="ja">日本語</option>
+      <option value="ko">한국어</option>
+      <option value="de">Deutsch</option>
+      <option value="fr">Français</option>
+      <option value="nl">Nederlands</option>
+      <option value="sv">Svenska</option>
+      <option value="no">Norsk</option>
+      <option value="da">Dansk</option>
+      <option value="ar">العربية</option>
+    </select>
+  </div>
+<main>
 
-  <h2>我们不收集或出售的数据</h2>
-  <p>NielloPlayer 不要求注册账号，不接入广告、分析、崩溃上报、社交登录或行为追踪服务。我们不将音乐文件、歌词、播放记录、歌单、设置、联系人、位置、广告标识符或其他个人数据上传到开发者或第三方服务器，也不出售或共享这些数据。</p>
+  <!-- ======================== English ======================== -->
+  <section data-lang="en">
+    <h1>NielloPlayer Privacy Policy</h1>
+    <p class="meta">Effective and last updated: October 3, 2026</p>
+    <p>NielloPlayer is a local music player. It has no account system, advertising, analytics, crash-reporting, social-login, or tracking SDKs. We do not collect, upload, sell, or share personal data — music, lyrics, playlists, settings, playback history, contacts, location, or advertising identifiers — with a developer or third-party server.</p>
+    <p>The app accesses local audio after your permission, to scan and play it. Its index, queue, and settings remain on the device. Folders you select are accessed only through Android's system file picker. Wi-Fi, web, and hotspot transfer run only when you start them and send files directly over the local network; files never pass through NielloPlayer servers. Bluetooth is used only for headphone playback and sharing you initiate, not for device scanning.</p>
+    <p>Uninstalling the app deletes its index, queue, and settings. Questions about privacy can be sent to the developer email listed under <em>Developer contact</em> on the Google Play listing.</p>
+  </section>
 
-  <h2>应用访问的数据与用途</h2>
-  <ul>
-    <li><strong>音乐和音频文件：</strong>在你授权后扫描、显示和播放设备上的本地音乐。歌曲索引、播放队列和播放设置仅保存在设备本地。</li>
-    <li><strong>用户选定的文件夹：</strong>通过 Android 系统文件选择器访问你明确选定的目录，用于扫描音频及关联歌词文件；应用无法借此访问未授权位置。</li>
-    <li><strong>局域网信息与文件：</strong>仅在你主动使用 Wi-Fi、网页传歌或热点传歌时，应用在本地网络中与对端设备直接通信。文件不会经过 NielloPlayer 或第三方服务器；网页传歌的访问码只用于本地网络访问验证。</li>
-    <li><strong>蓝牙连接：</strong>仅在蓝牙耳机播放或你主动发起系统蓝牙分享时使用。应用不进行蓝牙设备扫描。</li>
-    <li><strong>通知、前台服务、音频焦点和唤醒锁：</strong>仅用于后台播放和锁屏/通知栏控制。</li>
-  </ul>
+  <!-- ======================== 简体中文 ======================== -->
+  <section data-lang="zh-Hans" hidden>
+    <h1>NielloPlayer 隐私政策</h1>
+    <p class="meta">生效日期与最后更新：2026 年 10 月 3 日</p>
+    <p>NielloPlayer 是本地音乐播放器。无账号系统、无广告、无分析、无崩溃上报、无社交登录、无追踪 SDK。我们不收集、不上传、不出售、不共享个人数据——音乐、歌词、歌单、设置、播放记录、联系人、位置、广告标识符——这些数据不会传至开发者或第三方服务器。</p>
+    <p>应用在你授权后访问本地音频，用于扫描和播放。索引、播放队列与设置仅保存在设备上。你选定的文件夹仅通过 Android 系统文件选择器访问。Wi-Fi、网页与热点传歌仅在你主动发起时运行，文件在局域网内直接传输，不经过任何 NielloPlayer 服务器。蓝牙仅用于耳机播放与你主动发起的分享，不用于设备扫描。</p>
+    <p>卸载应用即删除其索引、队列与设置。隐私问题请通过 Google Play 商品页「开发者联系信息」中列出的邮箱联系开发者。</p>
+  </section>
 
-  <h2>保存、保留与删除</h2>
-  <p>音乐文件仍保留在你的设备中。应用自身的索引、队列和设置保存在 Android 应用沙箱内；卸载应用即可删除这些应用数据。你也可以在应用内清除曲库索引。局域网传输完成后，应用不在开发者服务器保留副本，因为没有此类服务器。</p>
+  <!-- ======================== 繁體中文 ======================== -->
+  <section data-lang="zh-Hant" hidden>
+    <h1>NielloPlayer 隱私權政策</h1>
+    <p class="meta">生效日與最後更新：2026 年 10 月 3 日</p>
+    <p>NielloPlayer 是本機音樂播放器。無帳號系統、無廣告、無分析、無當機回報、無社群登入、無追蹤 SDK。我們不收集、不上傳、不出售、不共享個人資料——音樂、歌詞、播放清單、設定、播放記錄、聯絡人、位置、廣告識別碼——這些資料不會傳至開發者或第三方伺服器。</p>
+    <p>應用程式在你授權後存取本機音訊，用於掃描與播放。索引、佇列與設定僅保存在裝置上。你選定的資料夾僅透過 Android 系統檔案選擇器存取。Wi-Fi、網頁與熱點傳歌僅在你主動發起時執行，檔案在區域網路內直接傳輸，不經過任何 NielloPlayer 伺服器。藍牙僅用於耳機播放與你主動發起的分享，不用於裝置掃描。</p>
+    <p>解除安裝應用程式即刪除其索引、佇列與設定。隱私權問題請透過 Google Play 資訊頁「開發人員聯絡資訊」中列出的電子郵件聯絡開發人員。</p>
+  </section>
 
-  <h2>安全</h2>
-  <p>本地数据受 Android 应用沙箱保护。局域网传输只在你主动开启相应功能时发生；请避免在不受信任的公共网络中传输私人文件。</p>
+  <!-- ======================== 日本語 ======================== -->
+  <section data-lang="ja" hidden>
+    <h1>NielloPlayer プライバシーポリシー</h1>
+    <p class="meta">発効日・最終更新：2026年10月3日</p>
+    <p>NielloPlayer はローカル音楽プレーヤーです。アカウント登録、広告、アナリティクス、クラッシュレポート、ソーシャルログイン、トラッキング SDK は一切使用していません。個人データ——音楽、歌詞、プレイリスト、設定、再生履歴、連絡先、位置情報、広告識別子——を収集・アップロード・販売・共有することはなく、開発者や第三者のサーバーには送られません。</p>
+    <p>アプリは許可を得た後にデバイス内のローカル音声へアクセスし、スキャンと再生を行います。インデックス・キュー・設定はデバイス内に保存されます。選択したフォルダーには Android のシステムファイルピッカー経由でのみアクセスします。Wi-Fi・ウェブ・ホットスポット転送は、あなたが開始したときにのみローカルネットワーク内で直接ファイルを転送し、ファイルが NielloPlayer のサーバーを経由することはありません。Bluetooth はヘッドフォン再生とあなたが開始した共有にのみ使用し、デバイススキャンには使用しません。</p>
+    <p>アプリをアンインストールすると、インデックス・キュー・設定は削除されます。プライバシーに関するご質問は、Google Play の掲載情報「開発者連絡先」に記載のメールアドレスまでお送りください。</p>
+  </section>
 
-  <h2>儿童</h2>
-  <p>应用不收集儿童或成人的个人信息，也不包含针对儿童的数据收集功能。</p>
+  <!-- ======================== 한국어 ======================== -->
+  <section data-lang="ko" hidden>
+    <h1>NielloPlayer 개인정보 처리방침</h1>
+    <p class="meta">시행일 및 마지막 업데이트: 2026년 10월 3일</p>
+    <p>NielloPlayer는 로컬 음악 플레이어입니다. 계정 시스템, 광고, 분석, 크래시 보고, 소셜 로그인, 추적 SDK를 일절 사용하지 않습니다. 개인 데이터——음악, 가사, 재생목록, 설정, 재생 기록, 연락처, 위치, 광고 식별자——를 수집·업로드·판매·공유하지 않으며, 개발자나 제3자 서버로 전송되지 않습니다.</p>
+    <p>앱은 권한을 허가받은 후 기기의 로컬 오디오에 접근하여 스캔하고 재생합니다. 색인, 대기열, 설정은 기기에만 저장됩니다. 선택한 폴더는 Android 시스템 파일 선택기를 통해서만 접근합니다. Wi-Fi·웹·핫스팟 전송은 사용자가 직접 시작할 때만 실행되며 로컬 네트워크에서 파일을 직접 전송하고, 파일이 NielloPlayer 서버를 경유하지 않습니다. 블루투스는 헤드폰 재생과 사용자가 시작한 공유에만 사용되며 기기 스캔에는 사용하지 않습니다.</p>
+    <p>앱을 제거하면 색인, 대기열, 설정이 삭제됩니다. 개인정보 관련 문의는 Google Play 등록 정보의 ‘개발자 연락처’에 있는 이메일로 보내주시기 바랍니다.</p>
+  </section>
 
-  <h2>政策更新与联系</h2>
-  <p>若数据处理方式发生变化，我们会在本页更新政策和日期。隐私问题请使用 Google Play 商品页“开发者联系信息”中列出的邮箱联系开发者。</p>
+  <!-- ======================== Deutsch ======================== -->
+  <section data-lang="de" hidden>
+    <h1>NielloPlayer Datenschutzerklärung</h1>
+    <p class="meta">Gültig und zuletzt aktualisiert: 3. Oktober 2026</p>
+    <p>NielloPlayer ist ein lokaler Musikplayer. Es gibt kein Kontosystem, keine Werbung, keine Analyse- oder Absturzmeldefunktionen, kein Social-Login und keine Tracking-SDKs. Wir erheben, laden nicht hoch, verkaufen und teilen keine personenbezogenen Daten – Musik, Songtexte, Wiedergabelisten, Einstellungen, Wiedergabeverlauf, Kontakte, Standort oder Werbe-IDs – mit keinem Entwickler- oder Drittanbieter-Server.</p>
+    <p>Die App greift nach Erteilung der Berechtigung auf lokale Audiodateien zu, um sie zu scannen und wiederzugeben. Index, Warteschlange und Einstellungen verbleiben auf dem Gerät. Von Ihnen ausgewählte Ordner werden ausschließlich über den Android-Systemdateidialog geöffnet. WLAN-, Web- und Hotspot-Übertragung läuft nur, wenn Sie sie starten, und überträgt Dateien direkt im lokalen Netzwerk; Dateien passieren keine NielloPlayer-Server. Bluetooth wird nur für Kopfhörerwiedergabe und von Ihnen initiiertes Teilen verwendet, nicht zum Scannen von Geräten.</p>
+    <p>Durch Deinstallieren der App werden Index, Warteschlange und Einstellungen gelöscht. Datenschutzfragen richten Sie an die Entwickler-E-Mail unter „Entwicklerkontakt“ im Google Play-Eintrag.</p>
+  </section>
 
-  <hr>
-  <h1 lang="en">Privacy Policy</h1>
-  <p class="meta">Effective and last updated: October 3, 2026</p>
-  <p>NielloPlayer is a local music player. It has no account system, advertising, analytics, crash-reporting, social-login, or tracking SDKs. We do not collect, upload, sell, or share personal data, music, lyrics, playlists, settings, playback history, contacts, location, or advertising identifiers with a developer or third-party server.</p>
-  <p>The app accesses local audio after permission to scan and play it. Its index, queue, and settings remain on the device. User-selected folders are accessed only through Android's system file picker. Wi-Fi, web and hotspot transfer run only when you initiate them and transfer files directly over the local network; files do not pass through NielloPlayer servers. Bluetooth is used only for headphone playback and user-initiated system sharing, not device scanning.</p>
-  <p>Uninstalling the app deletes its local index, queue, and settings. Questions about privacy can be sent to the developer email listed under <em>Developer contact</em> on the Google Play listing.</p>
-</main></body></html>
+  <!-- ======================== Français ======================== -->
+  <section data-lang="fr" hidden>
+    <h1>NielloPlayer Politique de confidentialité</h1>
+    <p class="meta">En vigueur et dernière mise à jour : 3 octobre 2026</p>
+    <p>NielloPlayer est un lecteur de musique local. Il ne comporte ni système de compte, ni publicité, ni analytique, ni rapport de plantage, ni connexion sociale, ni SDK de suivi. Nous ne collectons, ne téléchargeons, ne vendons ni ne partageons de données personnelles — musique, paroles, playlists, réglages, historique de lecture, contacts, localisation ou identifiants publicitaires — avec un serveur du développeur ou d'un tiers.</p>
+    <p>L'application accède à l'audio local après votre autorisation, pour le numériser et le lire. Son index, sa file d'attente et ses réglages restent sur l'appareil. Les dossiers que vous sélectionnez ne sont accessibles que via le sélecteur de fichiers système d'Android. Le transfert Wi-Fi, web et par point d'accès mobile ne fonctionne que lorsque vous l'initiez et envoie les fichiers directement sur le réseau local ; ils ne transitent jamais par des serveurs NielloPlayer. Le Bluetooth ne sert qu'à la lecture sur casque et au partage que vous initiez, pas au balayage d'appareils.</p>
+    <p>La désinstallation de l'application supprime son index, sa file d'attente et ses réglages. Toute question de confidentialité peut être envoyée à l'adresse e-mail du développeur indiquée dans « Contact du développeur » sur la fiche Google Play.</p>
+  </section>
+
+  <!-- ======================== Nederlands ======================== -->
+  <section data-lang="nl" hidden>
+    <h1>NielloPlayer Privacybeleid</h1>
+    <p class="meta">Van kracht en voor het laatst bijgewerkt: 3 oktober 2026</p>
+    <p>NielloPlayer is een lokale muziekspeler. Er is geen accountsysteem, geen advertenties, geen analytics, geen crashrapportage, geen social login en geen tracking-SDK's. We verzamelen, uploaden, verkopen of delen geen persoonsgegevens — muziek, songteksten, afspeellijsten, instellingen, afspeelgeschiedenis, contacten, locatie of advertentie-ID's — met een ontwikkelaarsserver of servers van derden.</p>
+    <p>De app opent lokale audio na uw toestemming om deze te scannen en af te spelen. De index, wachtrij en instellingen blijven op het apparaat. Door u gekozen mappen worden alleen via de Android-systeembestandskiezer benaderd. Wi-Fi-, web- en hotspotoverdracht werken alleen als u ze start en verzenden bestanden rechtstreeks over het lokale netwerk; bestanden gaan nooit via NielloPlayer-servers. Bluetooth wordt alleen gebruikt voor koptelefoonweergave en door u gestart delen, niet voor het scannen van apparaten.</p>
+    <p>Door de app te verwijderen, worden de index, wachtrij en instellingen gewist. Privacyvragen kunt u sturen naar de ontwikkelaars-e-mail onder 'Ontwikkelaarscontact' in de Google Play-vermelding.</p>
+  </section>
+
+  <!-- ======================== Svenska ======================== -->
+  <section data-lang="sv" hidden>
+    <h1>NielloPlayer Integritetspolicy</h1>
+    <p class="meta">Giltig och senast uppdaterad: 3 oktober 2026</p>
+    <p>NielloPlayer är en lokal musikspelare. Det finns inget kontosystem, ingen reklam, ingen analys, ingen krashrapportering, ingen social inloggning och inga spårnings-SDK:er. Vi samlar inte in, laddar inte upp, säljer eller delar personuppgifter — musik, låttexter, spellistor, inställningar, spelhistorik, kontakter, plats eller annonsidentifierare — med en utvecklar- eller tredjepartsserver.</p>
+    <p>Appen får åtkomst till lokalt ljud efter ditt tillstånd för att söka av och spela upp det. Index, kö och inställningar finns kvar på enheten. Valda mappar nås endast via Androids systemfilväljare. Wi-Fi-, webb- och hotspot-överföring körs bara när du startar den och skickar filer direkt i det lokala nätverket; filer går aldrig via NielloPlayer-servrar. Bluetooth används endast för hörlursuppspelning och delning du initierar, inte för att söka efter enheter.</p>
+    <p>När du avinstallerar appen raderas index, kö och inställningar. Integritetsfrågor kan skickas till utvecklarens e-post under ”Utvecklarkontakt” på Google Play-sidan.</p>
+  </section>
+
+  <!-- ======================== Norsk ======================== -->
+  <section data-lang="no" hidden>
+    <h1>NielloPlayer Personvernerklæring</h1>
+    <p class="meta">Gjeldende og sist oppdatert: 3. oktober 2026</p>
+    <p>NielloPlayer er en lokal musikkspiller. Det er ikke noe kontosystem, ingen reklame, ingen analyse, ingen krasjrapportering, ingen sosial innlogging og ingen sporerings-SDK-er. Vi samler ikke inn, laster ikke opp, selger eller deler personopplysninger — musikk, sangtekster, spillelister, innstillinger, avspillingshistorikk, kontakter, posisjon eller annonseidentifikatorer — med en utvikler- eller tredjepartstjener.</p>
+    <p>Appen får tilgang til lokal lyd etter ditt samtykke for å søke gjennom og spille den. Indeks, kø og innstillinger lagres på enheten. Valgte mapper åpnes kun via Androids systemfilvelger. Wi-Fi-, nett- og hotspot-overføring kjører bare når du starter den og sender filer direkte i det lokale nettverket; filer går aldri via NielloPlayer-tjenere. Bluetooth brukes kun til hodetelefonavspilling og deling du starter, ikke til enhetsskanning.</p>
+    <p>Ved å avinstallere appen slettes indeks, kø og innstillinger. Personvernspørsmål kan sendes til utviklerens e-post under «Utviklerkontakt» på Google Play-listingen.</p>
+  </section>
+
+  <!-- ======================== Dansk ======================== -->
+  <section data-lang="da" hidden>
+    <h1>NielloPlayer Privatlivspolitik</h1>
+    <p class="meta">Gældende og senest opdateret: 3. oktober 2026</p>
+    <p>NielloPlayer er en lokal musikafspiller. Der er intet kontosystem, ingen reklamer, ingen analyse, ingen nedbrudsrapportering, ingen social login og ingen sporings-SDK'er. Vi indsamler, uploader, sælger eller deler ikke persondata — musik, sangtekster, afspilningslister, indstillinger, afspilningshistorik, kontakter, placering eller reklame-id'er — med en udvikler- eller tredjepartsserver.</p>
+    <p>Appen tilgår lokal lyd efter din tilladelse for at scanne og afspille den. Indeks, kø og indstillinger forbliver på enheden. Valgte mapper tilgås kun via Androids systemfilvælger. Wi-Fi-, web- og hotspot-overførsel kører kun, når du starter den, og sender filer direkte på det lokale netværk; filer går aldrig via NielloPlayer-servere. Bluetooth bruges kun til hovedtelefonafspilning og deling, du starter, ikke til enhedsscanning.</p>
+    <p>Ved at afinstallere appen slettes indeks, kø og indstillinger. Spørgsmål om privatliv kan sendes til udviklerens e-mail under 'Udviklerkontakt' på Google Play-listingen.</p>
+  </section>
+
+  <!-- ======================== العربية ======================== -->
+  <section data-lang="ar" dir="rtl" lang="ar" hidden>
+    <h1>سياسة خصوصية NielloPlayer</h1>
+    <p class="meta">سارية وآخر تحديث: 3 أكتوبر 2026</p>
+    <p>NielloPlayer مشغّل موسيقى محلي. لا يحتوي على نظام حسابات ولا إعلانات ولا تحليلات ولا تقارير أعطال ولا تسجيل دخول اجتماعي ولا أدوات تتبّع. نحن لا نجمع ولا نرفع ولا نبيع ولا نشارك أي بيانات شخصية — مثل الموسيقى أو كلمات الأغاني أو قوائم التشغيل أو الإعدادات أو سجل التشغيل أو جهات الاتصال أو الموقع أو معرّفات الإعلانات — مع خوادم المطوّر أو أطراف ثالثة.</p>
+    <p>يصل التطبيق إلى الصوت المحلي بعد منحك الإذن، لمسحه ضوئيًا وتشغيله. يبقى الفهرس وقائمة الانتظار والإعدادات على الجهاز. ولا يتم الوصول إلى المجلدات التي تختارها إلا عبر منتقي ملفات نظام Android. يعمل نقل الملفات عبر Wi-Fi والويب ونقطة الاتصال فقط عندما تبدأه بنفسك، وينقل الملفات مباشرة داخل الشبكة المحلية؛ ولا تمر الملفات أبدًا عبر خوادم NielloPlayer. يُستخدم البلوتوث فقط لتشغيل الصوت عبر سماعات الرأس والمشاركة التي تبدأها، وليس لمسح الأجهزة.</p>
+    <p>يؤدي إلغاء تثبيت التطبيق إلى حذف الفهرس وقائمة الانتظار والإعدادات. لأي أسئلة حول الخصوصية، يمكنك مراسلة بريد المطوّر المدرج ضمن «معلومات مطوّر التطبيق» في صفحة التطبيق على Google Play.</p>
+  </section>
+
+</main>
+<script>
+(function () {
+  var LANGS = ['en','zh-Hans','zh-Hant','ja','ko','de','fr','nl','sv','no','da','ar'];
+  var select = document.getElementById('lang');
+  var sections = document.querySelectorAll('section[data-lang]');
+
+  function detect() {
+    var saved = null;
+    try { saved = localStorage.getItem('np-lang'); } catch (e) {}
+    if (saved && LANGS.indexOf(saved) >= 0) return saved;
+    var langs = (navigator.languages && navigator.languages.length)
+      ? navigator.languages : [navigator.language || 'en'];
+    for (var i = 0; i < langs.length; i++) {
+      var l = (langs[i] || '').toLowerCase();
+      if (l.indexOf('zh') === 0) {
+        return /hant|tw|hk|mo/.test(l) ? 'zh-Hant' : 'zh-Hans';
+      }
+      if (l.indexOf('ja') === 0) return 'ja';
+      if (l.indexOf('ko') === 0) return 'ko';
+      if (l.indexOf('de') === 0) return 'de';
+      if (l.indexOf('fr') === 0) return 'fr';
+      if (l.indexOf('nl') === 0) return 'nl';
+      if (l.indexOf('sv') === 0) return 'sv';
+      if (l.indexOf('no') === 0 || l.indexOf('nb') === 0) return 'no';
+      if (l.indexOf('da') === 0) return 'da';
+      if (l.indexOf('ar') === 0) return 'ar';
+    }
+    return 'en';
+  }
+
+  function show(lang) {
+    sections.forEach(function (s) {
+      s.hidden = s.getAttribute('data-lang') !== lang;
+    });
+    document.documentElement.lang = lang;
+    select.value = lang;
+    try { localStorage.setItem('np-lang', lang); } catch (e) {}
+  }
+
+  select.addEventListener('change', function () { show(select.value); });
+  show(detect());
+})();
+</script>
+</body>
+</html>
