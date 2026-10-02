@@ -8,14 +8,26 @@
   <style>
     :root { color-scheme: dark; --bg:#101010; --card:#1d1d1d; --text:#f4f1ea; --muted:#b9b3a8; --gold:#d5a64b; }
     * { box-sizing:border-box; }
-    body { margin:0; background:var(--bg); color:var(--text); font:16px/1.7 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    html { -webkit-text-size-adjust:100%; }
+    body { margin:0; background:var(--bg); color:var(--text); font:16px/1.7 system-ui,-apple-system,"Segoe UI",sans-serif;
+           /* 移动端：长 URL / 长词不撑出横向滚动 */
+           overflow-wrap:anywhere; word-break:break-word; }
     .bar { width:min(760px, calc(100% - 32px)); margin:20px auto 0; display:flex; justify-content:flex-end; }
-    select { background:var(--card); color:var(--gold); border:1px solid #4d402a; border-radius:10px; padding:8px 12px; font-size:14px; }
-    main { width:min(760px, calc(100% - 32px)); margin:16px auto 48px; padding:32px; background:var(--card); border:1px solid #4d402a; border-radius:20px; }
-    h1 { margin:0 0 4px; color:var(--gold); font-size:2rem; }
+    select { background:var(--card); color:var(--gold); border:1px solid #4d402a; border-radius:12px;
+             padding:12px 14px; font-size:16px; /* ≥16px 防 iOS 聚焦缩放 */ min-height:48px; }
+    main { width:min(760px, calc(100% - 32px)); margin:16px auto 48px; padding:32px;
+           background:var(--card); border:1px solid #4d402a; border-radius:20px; }
+    h1 { margin:0 0 4px; color:var(--gold); font-size:clamp(1.5rem, 5vw, 2rem); }
     .meta, p { color:var(--muted); }
     section[hidden] { display:none; }
     [dir="rtl"] { text-align:right; }
+    /* 手机窄屏：减少外边距与内边距，保证一屏可读、底部不贴边 */
+    @media (max-width: 480px) {
+      body { font-size:15.5px; }
+      main { padding:20px 16px; border-radius:16px; margin-bottom:32px; }
+      .bar { margin-top:14px; }
+      h1 { line-height:1.35; }
+    }
   </style>
 </head>
 <body>
