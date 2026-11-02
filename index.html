@@ -2,32 +2,55 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12110f" media="(prefers-color-scheme: dark)">
 <title>NielloPlayer Privacy Policy</title>
 <style>
 :root{color-scheme:light dark}
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;padding:0;background:#faf8f4;color:#1d1b18;
+ -webkit-text-size-adjust:100%;
  font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
  "Helvetica Neue","Noto Sans","Noto Sans CJK SC",sans-serif}
-.wrap{max-width:820px;margin:0 auto;padding:28px 20px 64px}
+.wrap{max-width:820px;margin:0 auto;
+ padding:calc(28px + env(safe-area-inset-top)) calc(20px + env(safe-area-inset-right))
+ calc(64px + env(safe-area-inset-bottom)) calc(20px + env(safe-area-inset-left))}
 header{display:flex;flex-wrap:wrap;gap:14px;align-items:center;
  justify-content:space-between;margin-bottom:22px}
 h1{font-size:26px;line-height:1.35;margin:0;font-weight:700;letter-spacing:.2px}
 .meta{color:#6b6459;font-size:13.5px;margin:6px 0 22px}
 select{font:inherit;font-size:14px;padding:8px 10px;border-radius:8px;
  border:1px solid #d8d0c2;background:#fff;color:#1d1b18;min-width:190px}
-h2{font-size:19px;margin:30px 0 10px;padding-top:6px;font-weight:700}
+h2{font-size:19px;margin:30px 0 10px;padding-top:6px;font-weight:700;
+ scroll-margin-top:14px;border-radius:6px}
+h2:target{background:#f1e3bd;box-shadow:0 0 0 6px #f1e3bd}
 p{margin:0 0 12px}
 ul{padding-inline-start:22px;margin:0 0 12px}
 li{margin:0 0 8px}
 a{color:#8a6a12}
-code{font-size:13.5px;background:#efe9dd;padding:1px 5px;border-radius:4px}
-.toc ul{list-style:none;padding:0;margin:0 0 8px;columns:2;column-gap:26px}
-.toc li{margin:0 0 4px;font-size:14.5px;color:#4a453d}
+code{font-size:13.5px;background:#efe9dd;padding:1px 5px;border-radius:4px;
+ overflow-wrap:anywhere}
+.toc ul{list-style:none;padding:0;margin:0 0 8px;columns:2;column-gap:20px}
+.toc li{margin:0;font-size:14.5px;break-inside:avoid}
+/* 目录项是真链接：整块可点（约 40px 高），不是只有文字那几个像素 */
+.toc a{display:block;padding:10px 6px;border-radius:6px;color:#4a453d;
+ text-decoration:none;line-height:1.4;-webkit-tap-highlight-color:transparent}
+/* hover 只在真有指针的设备上生效：手机上点完会一直粘着 hover 背景，
+   看起来像"这一项被选中了"，而实际上只是手指点过。 */
+@media (hover:hover){.toc a:hover{background:#efe9dd;color:#1d1b18}}
+.toc a:active{background:#e6dcc6}
+.toc a:focus-visible{background:#efe9dd;color:#1d1b18;outline:2px solid #8a6a12;
+ outline-offset:2px}
 hr{border:0;border-top:1px solid #e2dacc;margin:26px 0}
 section[hidden]{display:none}
-@media (max-width:600px){.toc ul{columns:1}h1{font-size:22px}}
+@media (max-width:600px){
+ .toc ul{columns:1}h1{font-size:22px}
+ /* iOS Safari 对字号 <16px 的 select/input 聚焦时会放大整页 */
+ select{font-size:16px}
+}
 @media (prefers-color-scheme:dark){
  body{background:#12110f;color:#efe9dd}
  .meta{color:#a49b8c}
@@ -35,7 +58,11 @@ section[hidden]{display:none}
  code{background:#26221c}
  a{color:#e0b64a}
  hr{border-top-color:#2b2620}
- .toc li{color:#b9b0a0}
+ .toc a{color:#b9b0a0}
+ @media (hover:hover){.toc a:hover{background:#26221c;color:#efe9dd}}
+ .toc a:active{background:#332d25}
+ .toc a:focus-visible{background:#26221c;color:#efe9dd;outline-color:#e0b64a}
+ h2:target{background:#2b2620;box-shadow:0 0 0 6px #2b2620}
 }
 </style>
 </head>
@@ -71,40 +98,40 @@ section[hidden]{display:none}
   <nav class="toc">
     <h2>Contents</h2>
     <ul>
-      <li>Who we are</li>
-      <li>What this policy covers</li>
-      <li>What we do not ask for</li>
-      <li>Information the app processes on your device</li>
-      <li>Permissions the app uses</li>
-      <li>Optional tips</li>
-      <li>Diagnostic information</li>
-      <li>Sharing</li>
-      <li>Security</li>
-      <li>Retention and deletion</li>
-      <li>Your rights</li>
-      <li>Legal bases for processing</li>
-      <li>Children and personal data</li>
-      <li>No sale, no sharing</li>
-      <li>Changes to this policy</li>
-      <li>Contact us</li>
+      <li><a href="#en-who-we-are">Who we are</a></li>
+      <li><a href="#en-what-this-policy-covers">What this policy covers</a></li>
+      <li><a href="#en-what-we-do-not-ask-for">What we do not ask for</a></li>
+      <li><a href="#en-information-the-app-processes">Information the app processes on your device</a></li>
+      <li><a href="#en-permissions">Permissions the app uses</a></li>
+      <li><a href="#en-optional-tips">Optional tips</a></li>
+      <li><a href="#en-diagnostic-information">Diagnostic information</a></li>
+      <li><a href="#en-sharing">Sharing</a></li>
+      <li><a href="#en-security">Security</a></li>
+      <li><a href="#en-retention-and-deletion">Retention and deletion</a></li>
+      <li><a href="#en-your-rights">Your rights</a></li>
+      <li><a href="#en-legal-bases">Legal bases for processing</a></li>
+      <li><a href="#en-children-and-personal-data">Children and personal data</a></li>
+      <li><a href="#en-no-sale-no-sharing">No sale, no sharing</a></li>
+      <li><a href="#en-changes-to-this-policy">Changes to this policy</a></li>
+      <li><a href="#en-contact-us">Contact us</a></li>
     </ul>
   </nav>
   <hr>
-  <h2>Who we are</h2>
+  <h2 id="en-who-we-are">Who we are</h2>
   <p>NielloPlayer (“the app”) is an offline music player for Android, provided by the independent developer of NielloPlayer.</p>
   <p>We are the controller of the processing described in this policy. You can reach us at the email address published under “Developer contact information” on the Google Play listing; any request about this policy or your information can be sent there.</p>
-  <h2>What this policy covers</h2>
+  <h2 id="en-what-this-policy-covers">What this policy covers</h2>
   <p>This policy explains which information the app processes on your device, for what purposes, and what choices you have. It applies to the Android version.</p>
   <p>This policy is provided online only, with no copy stored in the app: what you open inside the app is the current version, never a copy that grew stale alongside an installer.</p>
   <p>It does not cover what happens after you hand a file to another app. From that moment the receiving app’s own policy applies — see “Sharing”.</p>
-  <h2>What we do not ask for</h2>
+  <h2 id="en-what-we-do-not-ask-for">What we do not ask for</h2>
   <p>The app has no account and requires no sign-up or login. We do not ask for your name, email address, phone number or postal address, and we do not collect your contacts, messages or call logs, photos or videos, calendar, location, or advertising identifier.</p>
   <p>There are no ads in the app, and no third-party SDK for analytics, social login or behavioural tracking is integrated. We do not build user profiles, do not make targeted recommendations from your behaviour, and make no automated decisions.</p>
-  <h2>Information the app processes on your device</h2>
+  <h2 id="en-information-the-app-processes">Information the app processes on your device</h2>
   <p><strong>Library and playback state.</strong> To play music, the app reads audio files stored on your device. The library index, playback queue, playback position, audio-quality and equaliser settings, and the links between songs and lyrics are kept in the app’s private storage so your previous state is restored next time. This information stays on your device and is not sent to us.</p>
   <p><strong>Folders you choose.</strong> Folders outside the system media library — a music folder on an SD card, for example — can only be reached through the Android system file picker. The app can read only the folder you personally selected; it cannot read other locations and does not request broad access to all files. Lyrics files you add yourself are authorised through the same picker.</p>
   <p><strong>Receive folder.</strong> Files received over Bluetooth, the local network or the web page are written to the folder you choose in Settings → Library → Receive folder, which defaults to <code>Music/NielloPlayer</code> in shared device storage. What ends up in that folder is yours to manage — see “Sharing”.</p>
-  <h2>Permissions the app uses</h2>
+  <h2 id="en-permissions">Permissions the app uses</h2>
   <p>Each permission takes effect only when the matching feature is used. We do not ask in advance for something you are not using yet, and refusing an optional permission never takes away basic playback.</p>
   <p><strong>Audio files.</strong> Android 13 and later use <code>READ_MEDIA_AUDIO</code>; Android 10 to 12 use <code>READ_EXTERNAL_STORAGE</code>. Both are used to scan and play your music. <code>WRITE_EXTERNAL_STORAGE</code> is declared only for Android 10 and below, to remember the folder you selected. You can revoke these at any time in system settings; afterwards the app shows only what it has already indexed.</p>
   <p><strong>Network.</strong> <code>INTERNET</code> serves four things: hosting a small local web page for transferring songs, discovering the other device on the same local network, talking to Google Play when you choose to tip, and loading the online page for this policy. The app runs no servers of its own and never uploads your library, lyrics or settings.</p>
@@ -113,31 +140,31 @@ section[hidden]{display:none}
   <p>On Android 11 and below the system ties Bluetooth scanning to location permission. The app declares <code>ACCESS_FINE_LOCATION</code> only for those versions, and asks inside the app once, only when you open Bluetooth discovery or the receive page. You may refuse; after refusing you can still send to already-paired devices. The app never reads, stores or uploads any location value.</p>
   <p><strong>Foreground service and notifications.</strong> <code>FOREGROUND_SERVICE</code> and <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code> keep music playing in the background; <code>POST_NOTIFICATIONS</code> shows playback controls on the lock screen and in the notification shade.</p>
   <p><strong>Billing.</strong> <code>com.android.vending.BILLING</code> is required for the optional tipping provided by Google Play.</p>
-  <h2>Optional tips</h2>
+  <h2 id="en-optional-tips">Optional tips</h2>
   <p>Tipping is entirely voluntary and handled entirely by Google Play Billing.</p>
   <p>Google acts as an independent controller and receives and processes your payment information under its own privacy policy (<a href="https://policies.google.com/privacy" rel="noopener">policies.google.com/privacy</a>). We never receive, view or store your card number, billing address or Google account at any point, and purchase records never enter the app.</p>
   <p>The only local record related to tipping is a flag meaning “there is a tip we have not yet thanked you for in person”, used to show the matching thank-you note the next time you open the tipping page. It contains no amount and no payment credential, and it is deleted when you uninstall the app.</p>
   <p>Tipping unlocks no features. Everything works without paying.</p>
-  <h2>Diagnostic information</h2>
+  <h2 id="en-diagnostic-information">Diagnostic information</h2>
   <p>Because the app is distributed through Google Play, Google collects app-quality data at platform level — Android vitals: crashes and stack traces, application-not-responding (ANR) events, start-up time, battery and memory use, permission grants and denials, together with the app version, Android version, device model and country/region at the time. This data is collected by Google Play directly, requires no code inside the app, and does not pass through us. It is used only to assess and improve app quality; we see aggregated results in Play Console and never an individual user’s record.</p>
   <p>That collection is carried out by Google as an independent controller and is governed by Google’s own privacy policy. You can turn off sharing in Settings → Google → Usage & diagnostics; afterwards Google stops collecting this data from your device.</p>
-  <h2>Sharing</h2>
+  <h2 id="en-sharing">Sharing</h2>
   <p>We do not sell, rent or trade your information, and we do not share it for advertising or cross-app tracking.</p>
   <p>There are two situations in which files leave for another app, and you start both:</p>
   <p><strong>Bluetooth transfer.</strong> The app opens the Android system share sheet and you choose the receiving app. Once the file has been handed over, its storage, copying and further distribution are governed by that app’s policy and fall outside this one.</p>
   <p><strong>Receive folder.</strong> The default <code>Music/NielloPlayer</code> sits in shared device storage, where the system lets other apps read its contents. If you move the receive folder elsewhere, what is readable is decided by Android’s storage rules and the permissions you granted — a choice you make.</p>
   <p>Apart from Google Play Billing and the Android vitals described above, we share your information with no third party, and there is no situation in which your library information needs to be transferred abroad. Your library, lyrics, playback history and settings stay on your device and have never been transmitted anywhere.</p>
-  <h2>Security</h2>
+  <h2 id="en-security">Security</h2>
   <p>The app’s private storage is protected by the Android app sandbox; other apps cannot read it.</p>
   <p>We run no back-end service that receives your data, and playback does not depend on the network, so your library and settings cannot be read through any server of ours.</p>
   <p>Data produced by links you open in your own browser is handled by that browser.</p>
   <p>The online page for this policy is hosted on GitHub Pages and opened inside the app as the system browser’s custom tab: the address bar is rendered by the browser, so you can confirm that you really are on <code>arcanesparkle.github.io</code> and not on some in-app shell. GitHub, as host, receives the technical information needed to deliver the page, such as your IP address and the time of the request; the browser may also keep its own record and cache of that visit according to its settings, and the display language you pick on the page is stored by the browser too. All of this happens between the browser and the host: the app does not read the page content and cannot control what the browser retains.</p>
-  <h2>Retention and deletion</h2>
+  <h2 id="en-retention-and-deletion">Retention and deletion</h2>
   <p>As long as you keep the app, your information stays on your device.</p>
   <p>Uninstalling the app deletes the library index, playback queue and all settings in its private storage. We keep no copy — there is no cloud data for you to request deletion of separately.</p>
   <p>The app has no separate “clear library” command. At present the way to rebuild the index from scratch is to uninstall and reinstall.</p>
   <p>The playback state needed for the interface and for background playback lives only in memory and is released when you leave the app.</p>
-  <h2>Your rights</h2>
+  <h2 id="en-your-rights">Your rights</h2>
   <p>Depending on the law where you live, you may have the right to access the information we hold about you, to have inaccurate information corrected, to have it deleted, to restrict or object to processing, and to receive it in a portable form.</p>
   <p>Because your information exists only on your device and we hold no copy, these rights can be exercised directly:</p>
   <ul>
@@ -146,22 +173,22 @@ section[hidden]{display:none}
     <li><strong>Withdrawing consent:</strong> revoke any granted permission at any time in system settings; the matching feature stops working and the rest is unaffected.</li>
   </ul>
   <p>If you believe our processing infringes data protection law, you have the right to complain to a supervisory authority in the place where you live, work, or where the alleged infringement occurred. You are also welcome to contact us first; we will do our best to resolve it directly.</p>
-  <h2>Legal bases for processing</h2>
+  <h2 id="en-legal-bases">Legal bases for processing</h2>
   <p>Where the General Data Protection Regulation (GDPR) applies, we process information on the following bases:</p>
   <ul>
     <li><strong>Performance of a contract</strong> (Article 6(1)(b)): reading your audio in order to play it, remembering your playback position and audio settings, and receiving files into the folder you specify. This processing is necessary to provide the service you asked for.</li>
     <li><strong>Your consent</strong> (Article 6(1)(a)): optional permissions such as Bluetooth discovery. You may withdraw it at any time, without affecting the lawfulness of processing before withdrawal.</li>
   </ul>
   <p>We do not rely on “legitimate interests” for advertising, profiling or behavioural analysis, because the app does none of those things.</p>
-  <h2>Children and personal data</h2>
+  <h2 id="en-children-and-personal-data">Children and personal data</h2>
   <p>The app is not directed to children under 13, and we do not knowingly collect information from them.</p>
   <p>Since the app collects no personal information from anyone, parents need to make no extra arrangements for a child using it.</p>
-  <h2>No sale, no sharing</h2>
+  <h2 id="en-no-sale-no-sharing">No sale, no sharing</h2>
   <p>Under the definitions of “sell” and “share” in the California Consumer Privacy Act as amended (CCPA/CPRA), we do not sell and do not share personal information. The app carries no advertising and integrates no analytics SDK for advertising or profiling; we derive no commercial benefit from your information. This does not change over time.</p>
-  <h2>Changes to this policy</h2>
+  <h2 id="en-changes-to-this-policy">Changes to this policy</h2>
   <p>If this policy changes, we will update this page and the last-updated date above.</p>
   <p>If a change affects how information is processed, we will explain it inside the app or on the store listing before it takes effect, rather than only changing the date.</p>
-  <h2>Contact us</h2>
+  <h2 id="en-contact-us">Contact us</h2>
   <p>For anything about this policy or your information, contact us at the developer email published under “Developer contact information” on the Google Play listing.</p>
 </section>
 
@@ -174,40 +201,40 @@ section[hidden]{display:none}
   <nav class="toc">
     <h2>目录</h2>
     <ul>
-      <li>我们是谁</li>
-      <li>本政策涵盖什么</li>
-      <li>我们不索取的信息</li>
-      <li>应用在你的设备上处理的信息</li>
-      <li>应用使用的权限</li>
-      <li>可选打赏</li>
-      <li>诊断信息</li>
-      <li>信息的共享</li>
-      <li>信息的安全</li>
-      <li>保留与删除</li>
-      <li>你的权利</li>
-      <li>处理的法律依据</li>
-      <li>儿童和个人数据</li>
-      <li>不出售、不共享</li>
-      <li>政策变更</li>
-      <li>与我们联系</li>
+      <li><a href="#zh-who-we-are">我们是谁</a></li>
+      <li><a href="#zh-what-this-policy-covers">本政策涵盖什么</a></li>
+      <li><a href="#zh-what-we-do-not-ask-for">我们不索取的信息</a></li>
+      <li><a href="#zh-information-the-app-processes">应用在你的设备上处理的信息</a></li>
+      <li><a href="#zh-permissions">应用使用的权限</a></li>
+      <li><a href="#zh-optional-tips">可选打赏</a></li>
+      <li><a href="#zh-diagnostic-information">诊断信息</a></li>
+      <li><a href="#zh-sharing">信息的共享</a></li>
+      <li><a href="#zh-security">信息的安全</a></li>
+      <li><a href="#zh-retention-and-deletion">保留与删除</a></li>
+      <li><a href="#zh-your-rights">你的权利</a></li>
+      <li><a href="#zh-legal-bases">处理的法律依据</a></li>
+      <li><a href="#zh-children-and-personal-data">儿童和个人数据</a></li>
+      <li><a href="#zh-no-sale-no-sharing">不出售、不共享</a></li>
+      <li><a href="#zh-changes-to-this-policy">政策变更</a></li>
+      <li><a href="#zh-contact-us">与我们联系</a></li>
     </ul>
   </nav>
   <hr>
-  <h2>我们是谁</h2>
+  <h2 id="zh-who-we-are">我们是谁</h2>
   <p>NielloPlayer（下称「本应用」）是一款 Android 平台的离线音乐播放器，由 NielloPlayer 的独立开发者提供。</p>
   <p>本政策所述处理的控制者是我们。你可以通过 Google Play 商品页「开发者联系信息」中公布的邮箱与我们联系；涉及本政策或你的信息的任何请求，都可以发往该邮箱。</p>
-  <h2>本政策涵盖什么</h2>
+  <h2 id="zh-what-this-policy-covers">本政策涵盖什么</h2>
   <p>本政策说明应用在你的设备上处理哪些信息、出于什么目的，以及你对此拥有哪些选择。它适用于 Android 版本。</p>
   <p>本政策只在线上提供，应用内不保存副本：你在应用里点开的就是当前这一版，不会读到随安装包一起变旧的版本。</p>
   <p>它不涵盖你把文件交给其它应用之后发生的事情。从那一刻起，适用的是接收方应用自己的政策，详见「信息的共享」。</p>
-  <h2>我们不索取的信息</h2>
+  <h2 id="zh-what-we-do-not-ask-for">我们不索取的信息</h2>
   <p>本应用不设账号，无需注册或登录。我们不索取你的姓名、邮箱地址、电话号码或通讯地址，也不收集你的联系人、短信与通话记录、照片与视频、日历、位置或广告标识符。</p>
   <p>应用内没有广告，没有接入分析、社交登录或行为追踪类的第三方 SDK。我们不做用户画像，不依据你的使用行为做定向推荐，也不进行任何自动化决策。</p>
-  <h2>应用在你的设备上处理的信息</h2>
+  <h2 id="zh-information-the-app-processes">应用在你的设备上处理的信息</h2>
   <p><strong>曲库与播放状态。</strong> 为了播放音乐，应用会读取你设备上存储的音频文件。曲库索引、播放队列、播放位置、音质与均衡器设置，以及歌曲与歌词的对应关系，保存在应用私有目录中，以便下次打开时恢复你此前的状态。这些信息留在你的设备上，不会发送给我们。</p>
   <p><strong>你选择的文件夹。</strong> 系统媒体库之外的文件夹，例如 SD 卡上的音乐文件夹，只能通过 Android 系统文件选择器访问。应用只能读取你亲自选中的那个文件夹，读不到其它位置，也不申请全盘文件访问权限。你自行添加的歌词文件同样经由这个选择器授权。</p>
   <p><strong>接收目录。</strong> 通过蓝牙、局域网或网页收到的文件，写入你在「设置 → 曲库 → 接收文件夹」中指定的目录，默认是设备公共存储中的 <code>Music/NielloPlayer</code>。该目录的内容由你自行管理，详见「信息的共享」。</p>
-  <h2>应用使用的权限</h2>
+  <h2 id="zh-permissions">应用使用的权限</h2>
   <p>每一项权限都只在对应功能被使用时才起作用，我们不会在你还未用到该功能时提前索要，也不会因为你拒绝某项可选权限而限制基础播放功能。</p>
   <p><strong>音频文件。</strong> Android 13 及以上使用 <code>READ_MEDIA_AUDIO</code>，Android 10 至 12 使用 <code>READ_EXTERNAL_STORAGE</code>，用于扫描并播放你的音乐。<code>WRITE_EXTERNAL_STORAGE</code> 仅对 Android 10 及以下声明，用于保留你选定的文件夹。你可以在系统设置中随时收回这些权限，收回后应用只显示已经索引过的内容。</p>
   <p><strong>网络。</strong> <code>INTERNET</code> 用于四件事：在本机提供一个局域网网页（网页传歌）、在同一局域网内发现对端设备、在你选择打赏时与 Google Play 通信、以及加载本政策的在线页面。应用不运营任何自有服务器，也不上传你的曲库、歌词或设置。</p>
@@ -216,31 +243,31 @@ section[hidden]{display:none}
   <p>Android 11 及以下，系统把蓝牙扫描与位置权限绑定在一起。应用仅对这些版本声明 <code>ACCESS_FINE_LOCATION</code>，且只在你打开蓝牙发现或接收页时于应用内询问一次。你可以拒绝，拒绝后仍能向已配对的设备发送。应用从不读取、不存储、不上传任何位置值。</p>
   <p><strong>前台服务与通知。</strong> <code>FOREGROUND_SERVICE</code> 与 <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code> 用于让音乐在后台继续播放；<code>POST_NOTIFICATIONS</code> 用于在锁屏与通知栏显示播放控制。</p>
   <p><strong>结算。</strong> <code>com.android.vending.BILLING</code> 是 Google Play 提供可选打赏所必需的权限。</p>
-  <h2>可选打赏</h2>
+  <h2 id="zh-optional-tips">可选打赏</h2>
   <p>打赏完全出于自愿，并完全由 Google Play 结算处理。</p>
   <p>Google 作为独立的控制者，按其自身的隐私政策（<a href="https://policies.google.com/privacy" rel="noopener">policies.google.com/privacy</a>）接收并处理你的支付信息。我们在任何环节都不接收、不查看、不存储你的卡号、账单地址或 Google 账户，购买记录也不会进入本应用。</p>
   <p>与打赏有关的唯一本地记录，是一个「有一笔打赏还没当面道谢」的标记，用于你下次打开打赏页时显示对应的感谢语。它不含金额，也不含任何支付凭据，卸载应用即被删除。</p>
   <p>打赏不解锁任何功能。不付费也能使用全部功能。</p>
-  <h2>诊断信息</h2>
+  <h2 id="zh-diagnostic-information">诊断信息</h2>
   <p>由于应用通过 Google Play 分发，Google 会在系统层面收集应用的质量数据，也就是 Android vitals：崩溃次数与堆栈、无响应（ANR）事件、启动耗时、耗电与内存占用、权限授予与拒绝的情况，以及发生这些问题时的应用版本、Android 版本、设备型号与国家/地区。这些数据由 Google Play 直接收集，不需要应用内嵌任何代码，也不经过我们。它的用途限于评估与改进应用质量，我们只能通过 Play 管理中心看到聚合后的结果，看不到具体某个用户的记录。</p>
   <p>这部分收集由 Google 作为独立的控制者进行，受 Google 自身隐私政策约束。你可以在设备的「设置 → Google → 使用情况和诊断信息」中关闭共享；关闭后 Google 不会再从你这台设备收集这些数据。</p>
-  <h2>信息的共享</h2>
+  <h2 id="zh-sharing">信息的共享</h2>
   <p>我们不出售、不出租、不交换你的信息，也不为广告或跨应用追踪而共享。</p>
   <p>有两种情形会把文件交给别的应用，且都由你发起：</p>
   <p><strong>蓝牙传歌。</strong> 应用会打开 Android 系统的分享面板，接收方应用由你选择。文件交给对方之后，其保存、复制与再分发由该应用的政策约束，不在本政策范围内。</p>
   <p><strong>接收目录。</strong> 默认的 <code>Music/NielloPlayer</code> 位于设备公共存储，系统允许其它应用读取其中的文件。你若把接收目录改到其它位置，可读范围由 Android 的存储规则与你授予的权限决定，这一选择由你作出。</p>
   <p>除 Google Play 结算与上文所述的 Android vitals 之外，我们不与任何第三方共享你的信息，也不存在需要向境外传输你曲库信息的情形。你的曲库、歌词、播放记录与设置始终留在你的设备上，从未被传输到任何地方。</p>
-  <h2>信息的安全</h2>
+  <h2 id="zh-security">信息的安全</h2>
   <p>应用私有目录受 Android 应用沙箱保护，其它应用无法读取。</p>
   <p>我们不运营任何接收你数据的后台服务，播放功能不依赖网络，因此你的曲库与设置不可能经由我们的服务器被读取。</p>
   <p>在你自己的浏览器中打开的链接所产生的数据，由你的浏览器处理。</p>
   <p>本政策的在线页面托管在 GitHub Pages，在应用内以系统浏览器的「自定义标签页」打开：地址栏由浏览器渲染，你可以据此确认自己确实在 <code>arcanesparkle.github.io</code> 上，而不是某个应用内的套壳页面。GitHub 作为托管方会收到这次请求的技术信息，例如 IP 地址与请求时间，用于投递页面；浏览器也可能按它自身的设置保留这次访问的记录与缓存，你在页面里选过的显示语言同样存在浏览器自己那边。这些都发生在浏览器与托管方之间：应用不读取页面内容，也无法控制浏览器保留什么。</p>
-  <h2>保留与删除</h2>
+  <h2 id="zh-retention-and-deletion">保留与删除</h2>
   <p>只要你保留本应用，你的信息就留在你的设备上。</p>
   <p>卸载应用会删除私有目录中的曲库索引、播放队列与全部设置，我们不保留副本——不存在需要你另行申请删除的云端数据。</p>
   <p>应用没有单独的「清除曲库」命令。目前从头重建索引的方式是卸载后重装。</p>
   <p>界面显示与后台播放所需的播放状态只存在于内存中，退出应用后释放。</p>
-  <h2>你的权利</h2>
+  <h2 id="zh-your-rights">你的权利</h2>
   <p>根据你所在地区的法律，你可能拥有下列权利：访问我们持有的与你有关的信息、要求更正不准确的信息、要求删除、限制或反对处理、以及要求以可携带的形式获取这些信息。</p>
   <p>由于你的信息只存在于你的设备上、我们没有任何副本，这些权利可以直接行使：</p>
   <ul>
@@ -249,22 +276,22 @@ section[hidden]{display:none}
     <li><strong>撤回同意</strong>：随时在系统设置中撤销任何已授予的权限，撤销后对应功能停止工作，其余功能不受影响。</li>
   </ul>
   <p>如果你认为我们的处理违反了数据保护法律，你有权向你的居住地、工作地或涉嫌侵权行为发生地的监管机构提出投诉。你也可以先联系我们，我们会尽力直接解决。</p>
-  <h2>处理的法律依据</h2>
+  <h2 id="zh-legal-bases">处理的法律依据</h2>
   <p>在适用《通用数据保护条例》（GDPR）的情况下，我们依据以下基础处理信息：</p>
   <ul>
     <li><strong>履行合同</strong>（第 6(1)(b) 条）：读取你的音频以播放、记住你的播放位置与音质设置、按你指定的目录收取文件。这些处理是提供你请求的服务所必需的。</li>
     <li><strong>你的同意</strong>（第 6(1)(a) 条）：蓝牙发现等可选权限。你可以随时撤回，撤回不影响此前处理的合法性。</li>
   </ul>
   <p>我们不以「合法利益」为依据进行广告、画像或行为分析，因为本应用不做这些事。</p>
-  <h2>儿童和个人数据</h2>
+  <h2 id="zh-children-and-personal-data">儿童和个人数据</h2>
   <p>本应用不面向 13 岁以下儿童，我们也不会有意收集他们的信息。</p>
   <p>由于应用向任何人都不收集个人信息，家长无需为孩子使用本应用做任何额外设置。</p>
-  <h2>不出售、不共享</h2>
+  <h2 id="zh-no-sale-no-sharing">不出售、不共享</h2>
   <p>按《加州消费者隐私法》及其修正案（CCPA/CPRA）对「出售」与「共享」的定义，我们不出售、也不共享个人信息。本应用没有广告，也没有接入用于广告或画像的分析 SDK；我们不从你的信息中获取任何商业收益。这一情况不随时间变化。</p>
-  <h2>政策变更</h2>
+  <h2 id="zh-changes-to-this-policy">政策变更</h2>
   <p>本政策如有变更，我们会更新本页内容与上方的最后更新日期。</p>
   <p>若变更影响信息的处理方式，我们会在生效之前于应用内或商店页面说明，而不是仅更新日期。</p>
-  <h2>与我们联系</h2>
+  <h2 id="zh-contact-us">与我们联系</h2>
   <p>关于本政策或你的信息，可通过 Google Play 商品页「开发者联系信息」中公布的开发者邮箱与我们联系。</p>
 </section>
 
@@ -277,40 +304,40 @@ section[hidden]{display:none}
   <nav class="toc">
     <h2>目錄</h2>
     <ul>
-      <li>我們是誰</li>
-      <li>本政策涵蓋什麼</li>
-      <li>我們不索取的資訊</li>
-      <li>應用程式在你的裝置上處理的資訊</li>
-      <li>應用程式使用的權限</li>
-      <li>選用打賞</li>
-      <li>診斷資訊</li>
-      <li>資訊的分享</li>
-      <li>資訊的安全</li>
-      <li>保留與刪除</li>
-      <li>你的權利</li>
-      <li>處理的法律依據</li>
-      <li>兒童與個人資料</li>
-      <li>不出售、不分享</li>
-      <li>政策變更</li>
-      <li>與我們聯絡</li>
+      <li><a href="#zh-hant-who-we-are">我們是誰</a></li>
+      <li><a href="#zh-hant-what-this-policy-covers">本政策涵蓋什麼</a></li>
+      <li><a href="#zh-hant-what-we-do-not-ask-for">我們不索取的資訊</a></li>
+      <li><a href="#zh-hant-information-the-app-processes">應用程式在你的裝置上處理的資訊</a></li>
+      <li><a href="#zh-hant-permissions">應用程式使用的權限</a></li>
+      <li><a href="#zh-hant-optional-tips">選用打賞</a></li>
+      <li><a href="#zh-hant-diagnostic-information">診斷資訊</a></li>
+      <li><a href="#zh-hant-sharing">資訊的分享</a></li>
+      <li><a href="#zh-hant-security">資訊的安全</a></li>
+      <li><a href="#zh-hant-retention-and-deletion">保留與刪除</a></li>
+      <li><a href="#zh-hant-your-rights">你的權利</a></li>
+      <li><a href="#zh-hant-legal-bases">處理的法律依據</a></li>
+      <li><a href="#zh-hant-children-and-personal-data">兒童與個人資料</a></li>
+      <li><a href="#zh-hant-no-sale-no-sharing">不出售、不分享</a></li>
+      <li><a href="#zh-hant-changes-to-this-policy">政策變更</a></li>
+      <li><a href="#zh-hant-contact-us">與我們聯絡</a></li>
     </ul>
   </nav>
   <hr>
-  <h2>我們是誰</h2>
+  <h2 id="zh-hant-who-we-are">我們是誰</h2>
   <p>NielloPlayer（下稱「本應用程式」）是一款 Android 平台的離線音樂播放器，由 NielloPlayer 的獨立開發者提供。</p>
   <p>本政策所述處理的控制者是我們。你可以透過 Google Play 商品頁「開發人員聯絡資訊」中公布的電子郵件與我們聯絡；涉及本政策或你的資訊的任何請求，都可以寄到該信箱。</p>
-  <h2>本政策涵蓋什麼</h2>
+  <h2 id="zh-hant-what-this-policy-covers">本政策涵蓋什麼</h2>
   <p>本政策說明應用程式在你的裝置上處理哪些資訊、出於什麼目的，以及你對此擁有哪些選擇。它適用於 Android 版本。</p>
   <p>本政策只在線上提供，應用程式內不保存副本：你在應用程式裡點開的就是目前這一版，不會讀到隨安裝檔一起變舊的版本。</p>
   <p>它不涵蓋你把檔案交給其它應用程式之後發生的事情。從那一刻起，適用的是接收方應用程式自己的政策，詳見「資訊的分享」。</p>
-  <h2>我們不索取的資訊</h2>
+  <h2 id="zh-hant-what-we-do-not-ask-for">我們不索取的資訊</h2>
   <p>本應用程式不設帳號，無需註冊或登入。我們不索取你的姓名、電子郵件、電話號碼或通訊地址，也不收集你的聯絡人、簡訊與通話紀錄、相片與影片、行事曆、位置或廣告識別碼。</p>
   <p>應用程式內沒有廣告，沒有接入分析、社交登入或行為追蹤類的第三方 SDK。我們不做使用者輪廓，不依據你的使用行為做定向推薦，也不進行任何自動化決策。</p>
-  <h2>應用程式在你的裝置上處理的資訊</h2>
+  <h2 id="zh-hant-information-the-app-processes">應用程式在你的裝置上處理的資訊</h2>
   <p><strong>曲庫與播放狀態。</strong> 為了播放音樂，應用程式會讀取你裝置上儲存的音訊檔案。曲庫索引、播放佇列、播放位置、音質與等化器設定，以及歌曲與歌詞的對應關係，保存在應用程式私有目錄中，以便下次開啟時恢復你先前的狀態。這些資訊留在你的裝置上，不會傳送給我們。</p>
   <p><strong>你選擇的資料夾。</strong> 系統媒體庫之外的資料夾，例如 SD 卡上的音樂資料夾，只能透過 Android 系統檔案選擇器存取。應用程式只能讀取你親自選取的那個資料夾，讀不到其它位置，也不申請全盤檔案存取權限。你自行加入的歌詞檔案同樣經由這個選擇器授權。</p>
   <p><strong>接收目錄。</strong> 透過藍牙、區域網路或網頁收到的檔案，寫入你在「設定 → 曲庫 → 接收資料夾」中指定的目錄，預設是裝置共用儲存空間中的 <code>Music/NielloPlayer</code>。該目錄的內容由你自行管理，詳見「資訊的分享」。</p>
-  <h2>應用程式使用的權限</h2>
+  <h2 id="zh-hant-permissions">應用程式使用的權限</h2>
   <p>每一項權限都只在對應功能被使用時才起作用，我們不會在你還沒用到該功能時提前索要，也不會因為你拒絕某項選用權限而限制基本播放功能。</p>
   <p><strong>音訊檔案。</strong> Android 13 及以上使用 <code>READ_MEDIA_AUDIO</code>，Android 10 至 12 使用 <code>READ_EXTERNAL_STORAGE</code>，用於掃描並播放你的音樂。<code>WRITE_EXTERNAL_STORAGE</code> 僅對 Android 10 及以下宣告，用於保留你選定的資料夾。你可以在系統設定中隨時收回這些權限，收回後應用程式只顯示已經索引過的內容。</p>
   <p><strong>網路。</strong> <code>INTERNET</code> 用於四件事：在本機提供一個區域網路網頁（網頁傳歌）、在同一區域網路內發現對端裝置、在你選擇打賞時與 Google Play 通訊，以及載入本政策的線上頁面。應用程式不營運任何自有伺服器，也不上傳你的曲庫、歌詞或設定。</p>
@@ -319,31 +346,31 @@ section[hidden]{display:none}
   <p>Android 11 及以下，系統把藍牙掃描與位置權限綁在一起。應用程式僅對這些版本宣告 <code>ACCESS_FINE_LOCATION</code>，且只在你開啟藍牙發現或接收頁時於應用程式內詢問一次。你可以拒絕，拒絕後仍能向已配對的裝置傳送。應用程式從不讀取、不儲存、不上傳任何位置值。</p>
   <p><strong>前景服務與通知。</strong> <code>FOREGROUND_SERVICE</code> 與 <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code> 用於讓音樂在背景繼續播放；<code>POST_NOTIFICATIONS</code> 用於在鎖定畫面與通知欄顯示播放控制。</p>
   <p><strong>結帳。</strong> <code>com.android.vending.BILLING</code> 是 Google Play 提供選用打賞所必需的權限。</p>
-  <h2>選用打賞</h2>
+  <h2 id="zh-hant-optional-tips">選用打賞</h2>
   <p>打賞完全出於自願，並完全由 Google Play 結帳處理。</p>
   <p>Google 作為獨立的控制者，按其自身的隱私政策（<a href="https://policies.google.com/privacy" rel="noopener">policies.google.com/privacy</a>）接收並處理你的付款資訊。我們在任何環節都不接收、不查看、不儲存你的卡號、帳單地址或 Google 帳戶，購買紀錄也不會進入本應用程式。</p>
   <p>與打賞有關的唯一本機紀錄，是一個「有一筆打賞還沒當面道謝」的標記，用於你下次開啟打賞頁時顯示對應的感謝語。它不含金額，也不含任何付款憑證，解除安裝應用程式即被刪除。</p>
   <p>打賞不解鎖任何功能。不付費也能使用全部功能。</p>
-  <h2>診斷資訊</h2>
+  <h2 id="zh-hant-diagnostic-information">診斷資訊</h2>
   <p>由於應用程式透過 Google Play 發佈，Google 會在系統層級收集應用程式的品質資料，也就是 Android vitals：當機次數與堆疊、無回應（ANR）事件、啟動耗時、耗電與記憶體佔用、權限授予與拒絕的情況，以及發生這些問題時的應用程式版本、Android 版本、裝置型號與國家/地區。這些資料由 Google Play 直接收集，不需要應用程式內嵌任何程式碼，也不經過我們。它的用途限於評估與改進應用程式品質，我們只能透過 Play 管理中心看到彙總後的結果，看不到特定某位使用者的紀錄。</p>
   <p>這部分收集由 Google 作為獨立的控制者進行，受 Google 自身隱私政策約束。你可以在裝置的「設定 → Google → 使用情況與診斷資訊」中關閉分享；關閉後 Google 不會再從你這台裝置收集這些資料。</p>
-  <h2>資訊的分享</h2>
+  <h2 id="zh-hant-sharing">資訊的分享</h2>
   <p>我們不出售、不出租、不交換你的資訊，也不為廣告或跨應用程式追蹤而分享。</p>
   <p>有兩種情形會把檔案交給別的應用程式，且都由你發起：</p>
   <p><strong>藍牙傳歌。</strong> 應用程式會開啟 Android 系統的分享面板，接收方應用程式由你選擇。檔案交給對方之後，其保存、複製與再散布由該應用程式的政策約束，不在本政策範圍內。</p>
   <p><strong>接收目錄。</strong> 預設的 <code>Music/NielloPlayer</code> 位於裝置共用儲存空間，系統允許其它應用程式讀取其中的檔案。你若把接收目錄改到其它位置，可讀範圍由 Android 的儲存規則與你授予的權限決定，這一選擇由你作出。</p>
   <p>除 Google Play 結帳與上文所述的 Android vitals 之外，我們不與任何第三方分享你的資訊，也不存在需要向境外傳輸你曲庫資訊的情形。你的曲庫、歌詞、播放紀錄與設定始終留在你的裝置上，從未被傳輸到任何地方。</p>
-  <h2>資訊的安全</h2>
+  <h2 id="zh-hant-security">資訊的安全</h2>
   <p>應用程式私有目錄受 Android 應用程式沙箱保護，其它應用程式無法讀取。</p>
   <p>我們不營運任何接收你資料的後台服務，播放功能不依賴網路，因此你的曲庫與設定不可能經由我們的伺服器被讀取。</p>
   <p>在你自己的瀏覽器中開啟的連結所產生的資料，由你的瀏覽器處理。</p>
   <p>本政策的線上頁面託管在 GitHub Pages，在應用程式內以系統瀏覽器的「自訂分頁」開啟：網址列由瀏覽器繪製，你可以據此確認自己確實在 <code>arcanesparkle.github.io</code> 上，而不是某個應用程式內的包裝頁面。GitHub 作為託管方會收到這次請求的技術資訊，例如 IP 位址與請求時間，用於遞送頁面；瀏覽器也可能按它自身的設定保留這次造訪的紀錄與快取，你在頁面裡選過的顯示語言同樣存在瀏覽器自己那邊。這些都發生在瀏覽器與託管方之間：應用程式不讀取頁面內容，也無法控制瀏覽器保留什麼。</p>
-  <h2>保留與刪除</h2>
+  <h2 id="zh-hant-retention-and-deletion">保留與刪除</h2>
   <p>只要你保留本應用程式，你的資訊就留在你的裝置上。</p>
   <p>解除安裝應用程式會刪除私有目錄中的曲庫索引、播放佇列與全部設定，我們不保留副本——不存在需要你另行申請刪除的雲端資料。</p>
   <p>應用程式沒有獨立的「清除曲庫」指令。目前從頭重建索引的方式是解除安裝後重新安裝。</p>
   <p>介面顯示與背景播放所需的播放狀態只存在於記憶體中，離開應用程式後釋放。</p>
-  <h2>你的權利</h2>
+  <h2 id="zh-hant-your-rights">你的權利</h2>
   <p>根據你所在地區的法律，你可能擁有下列權利：存取我們持有的與你有關的資訊、要求更正不準確的資訊、要求刪除、限制或反對處理、以及要求以可攜的形式取得這些資訊。</p>
   <p>由於你的資訊只存在於你的裝置上、我們沒有任何副本，這些權利可以直接行使：</p>
   <ul>
@@ -352,22 +379,22 @@ section[hidden]{display:none}
     <li><strong>撤回同意</strong>：隨時在系統設定中撤銷任何已授予的權限，撤銷後對應功能停止運作，其餘功能不受影響。</li>
   </ul>
   <p>如果你認為我們的處理違反了資料保護法律，你有權向你的居住地、工作地或涉嫌侵權行為發生地的監管機關提出申訴。你也可以先與我們聯絡，我們會盡力直接解決。</p>
-  <h2>處理的法律依據</h2>
+  <h2 id="zh-hant-legal-bases">處理的法律依據</h2>
   <p>在適用《一般資料保護規則》（GDPR）的情況下，我們依據以下基礎處理資訊：</p>
   <ul>
     <li><strong>履行契約</strong>（第 6(1)(b) 條）：讀取你的音訊以播放、記住你的播放位置與音質設定、按你指定的目錄收取檔案。這些處理是提供你請求的服務所必需的。</li>
     <li><strong>你的同意</strong>（第 6(1)(a) 條）：藍牙發現等選用權限。你可以隨時撤回，撤回不影響此前處理的合法性。</li>
   </ul>
   <p>我們不以「正當利益」為依據進行廣告、輪廓分析或行為分析，因為本應用程式不做這些事。</p>
-  <h2>兒童與個人資料</h2>
+  <h2 id="zh-hant-children-and-personal-data">兒童與個人資料</h2>
   <p>本應用程式不面向 13 歲以下兒童，我們也不會有意收集他們的資訊。</p>
   <p>由於應用程式對任何人都不收集個人資訊，家長無需為孩子使用本應用程式做任何額外設定。</p>
-  <h2>不出售、不分享</h2>
+  <h2 id="zh-hant-no-sale-no-sharing">不出售、不分享</h2>
   <p>按《加州消費者隱私法》及其修正案（CCPA/CPRA）對「出售」與「分享」的定義，我們不出售、也不分享個人資訊。本應用程式沒有廣告，也沒有接入用於廣告或輪廓分析的分析 SDK；我們不從你的資訊中取得任何商業收益。這一情況不隨時間改變。</p>
-  <h2>政策變更</h2>
+  <h2 id="zh-hant-changes-to-this-policy">政策變更</h2>
   <p>本政策如有變更，我們會更新本頁內容與上方的最後更新日期。</p>
   <p>若變更影響資訊的處理方式，我們會在生效之前於應用程式內或商店頁面說明，而不是僅更新日期。</p>
-  <h2>與我們聯絡</h2>
+  <h2 id="zh-hant-contact-us">與我們聯絡</h2>
   <p>關於本政策或你的資訊，可透過 Google Play 商品頁「開發人員聯絡資訊」中公布的開發人員電子郵件與我們聯絡。</p>
 </section>
 
@@ -380,40 +407,40 @@ section[hidden]{display:none}
   <nav class="toc">
     <h2>المحتويات</h2>
     <ul>
-      <li>من نحن</li>
-      <li>ما الذي تغطّيه هذه السياسة</li>
-      <li>ما لا نطلبه</li>
-      <li>معلومات يعالجها التطبيق على جهازك</li>
-      <li>الأذونات التي يستخدمها التطبيق</li>
-      <li>الإكرامية الاختيارية</li>
-      <li>معلومات التشخيص</li>
-      <li>مشاركة المعلومات</li>
-      <li>أمن المعلومات</li>
-      <li>الاحتفاظ والحذف</li>
-      <li>حقوقك</li>
-      <li>الأسس القانونية للمعالجة</li>
-      <li>الأطفال والبيانات الشخصية</li>
-      <li>لا بيع ولا مشاركة</li>
-      <li>تغييرات هذه السياسة</li>
-      <li>تواصل معنا</li>
+      <li><a href="#ar-who-we-are">من نحن</a></li>
+      <li><a href="#ar-what-this-policy-covers">ما الذي تغطّيه هذه السياسة</a></li>
+      <li><a href="#ar-what-we-do-not-ask-for">ما لا نطلبه</a></li>
+      <li><a href="#ar-information-the-app-processes">معلومات يعالجها التطبيق على جهازك</a></li>
+      <li><a href="#ar-permissions">الأذونات التي يستخدمها التطبيق</a></li>
+      <li><a href="#ar-optional-tips">الإكرامية الاختيارية</a></li>
+      <li><a href="#ar-diagnostic-information">معلومات التشخيص</a></li>
+      <li><a href="#ar-sharing">مشاركة المعلومات</a></li>
+      <li><a href="#ar-security">أمن المعلومات</a></li>
+      <li><a href="#ar-retention-and-deletion">الاحتفاظ والحذف</a></li>
+      <li><a href="#ar-your-rights">حقوقك</a></li>
+      <li><a href="#ar-legal-bases">الأسس القانونية للمعالجة</a></li>
+      <li><a href="#ar-children-and-personal-data">الأطفال والبيانات الشخصية</a></li>
+      <li><a href="#ar-no-sale-no-sharing">لا بيع ولا مشاركة</a></li>
+      <li><a href="#ar-changes-to-this-policy">تغييرات هذه السياسة</a></li>
+      <li><a href="#ar-contact-us">تواصل معنا</a></li>
     </ul>
   </nav>
   <hr>
-  <h2>من نحن</h2>
+  <h2 id="ar-who-we-are">من نحن</h2>
   <p>NielloPlayer («التطبيق») مشغّل موسيقى يعمل دون اتصال على Android، يقدّمه المطوّر المستقل لـ NielloPlayer.</p>
   <p>نحن المتحكّم في المعالجة الموصوفة في هذه السياسة. يمكنك مراسلتنا على البريد المنشور ضمن «معلومات الاتصال بالمطوّر» في صفحة Google Play؛ ويُرسل إلى العنوان نفسه أي طلب يتعلق بهذه السياسة أو بمعلوماتك.</p>
-  <h2>ما الذي تغطّيه هذه السياسة</h2>
+  <h2 id="ar-what-this-policy-covers">ما الذي تغطّيه هذه السياسة</h2>
   <p>توضّح هذه السياسة أي معلومات يعالجها التطبيق على جهازك، ولأي أغراض، وما الخيارات المتاحة لك. وهي تنطبق على إصدار Android.</p>
   <p>تُقدَّم هذه السياسة عبر الإنترنت فقط، ولا تُحفظ نسخة منها داخل التطبيق: ما تفتحه في التطبيق هو النسخة السارية دائمًا، وليس نسخة قديمة تَقدمت مع حزمة التثبيت.</p>
   <p>لا تغطّي ما يحدث بعد تسليم ملف إلى تطبيق آخر. فمن تلك اللحظة تنطبق سياسة التطبيق المستلِم — انظر «مشاركة المعلومات».</p>
-  <h2>ما لا نطلبه</h2>
+  <h2 id="ar-what-we-do-not-ask-for">ما لا نطلبه</h2>
   <p>لا يوجد في التطبيق حساب، ولا حاجة إلى تسجيل أو دخول. لا نطلب اسمك أو بريدك أو رقم هاتفك أو عنوانك البريدي، ولا نجمع جهات اتصالك أو رسائلك وسجلّ مكالماتك أو صورك ومقاطعك أو تقويمك أو موقعك أو معرّف الإعلانات.</p>
   <p>لا إعلانات في التطبيق، ولا تُدمج فيه أي حزمة تطوير خارجية للتحليلات أو الدخول الاجتماعي أو تتبّع السلوك. لا نبني ملفات تعريف للمستخدمين، ولا نقدّم توصيات موجّهة بناءً على سلوكك، ولا نتّخذ أي قرارات آلية.</p>
-  <h2>معلومات يعالجها التطبيق على جهازك</h2>
+  <h2 id="ar-information-the-app-processes">معلومات يعالجها التطبيق على جهازك</h2>
   <p><strong>المكتبة وحالة التشغيل.</strong> لتشغيل الموسيقى يقرأ التطبيق ملفات صوتية مخزّنة على جهازك. يُحفظ فهرس المكتبة وقائمة التشغيل وموضع التشغيل وإعدادات جودة الصوت والمعادل، وكذلك ربط الأغاني بكلماتها، في المساحة الخاصة بالتطبيق حتى تُستعاد حالتك السابقة في المرة التالية. تبقى هذه المعلومات على جهازك ولا تُرسل إلينا.</p>
   <p><strong>المجلدات التي تختارها.</strong> لا يمكن الوصول إلى المجلدات خارج مكتبة الوسائط في النظام — مثل مجلد موسيقى على بطاقة SD — إلا عبر منتقي الملفات في Android. ولا يستطيع التطبيق قراءة سوى المجلد الذي اخترته بنفسك، ولا أي موقع آخر، ولا يطلب الوصول إلى جميع الملفات. أما ملفات الكلمات التي تضيفها فتُصرَّح عبر المنتقي نفسه.</p>
   <p><strong>مجلد الاستلام.</strong> تُكتب الملفات المستلمة عبر Bluetooth أو الشبكة المحلية أو صفحة الويب في المجلد الذي تحدّده في «الإعدادات → المكتبة → مجلد الاستلام»، وهو افتراضيًا <code>Music/NielloPlayer</code> في التخزين المشترك للجهاز. وإدارة محتوى ذلك المجلد مسؤوليتك — انظر «مشاركة المعلومات».</p>
-  <h2>الأذونات التي يستخدمها التطبيق</h2>
+  <h2 id="ar-permissions">الأذونات التي يستخدمها التطبيق</h2>
   <p>لا يعمل أي إذن إلا عند استخدام الوظيفة المقابلة. لا نطلب مسبقًا شيئًا لم تستخدمه بعد، ورفض أي إذن اختياري لا يسلبك التشغيل الأساسي.</p>
   <p><strong>ملفات الصوت.</strong> يستخدم Android 13 وما بعده <code>READ_MEDIA_AUDIO</code>، ويستخدم Android 10 إلى 12 <code>READ_EXTERNAL_STORAGE</code>، وكلاهما لفحص موسيقاك وتشغيلها. أما <code>WRITE_EXTERNAL_STORAGE</code> فمُعلَن فقط لـ Android 10 وما دونه، لتذكّر المجلد الذي اخترته. ويمكنك سحب هذه الأذونات في أي وقت من إعدادات النظام؛ وبعدها يعرض التطبيق ما فُهرس سابقًا فقط.</p>
   <p><strong>الشبكة.</strong> يُستخدم <code>INTERNET</code> لأربعة أمور: استضافة صفحة ويب محلية صغيرة لنقل الأغاني، والعثور على الجهاز الآخر في الشبكة المحلية نفسها، والتواصل مع Google Play عند اختيارك إكرامية، وتحميل الصفحة الإلكترونية لهذه السياسة. لا يشغّل التطبيق أي خوادم خاصة به، ولا يرفع مكتبتك أو كلماتك أو إعداداتك.</p>
@@ -422,31 +449,31 @@ section[hidden]{display:none}
   <p>في Android 11 وما دونه يربط النظام فحص Bluetooth بإذن الموقع. ولا يُعلن التطبيق <code>ACCESS_FINE_LOCATION</code> إلا لتلك الإصدارات، ويسأل داخله مرة واحدة فقط عند فتح اكتشاف Bluetooth أو صفحة الاستلام. ويمكنك الرفض، وبعد الرفض يظل بإمكانك الإرسال إلى الأجهزة المقترنة. ولا يقرأ التطبيق أي قيمة موقع ولا يخزّنها ولا يرسلها.</p>
   <p><strong>خدمة المقدّمة والإشعارات.</strong> يُبقي <code>FOREGROUND_SERVICE</code> و<code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code> الموسيقى تعمل في الخلفية؛ ويعرض <code>POST_NOTIFICATIONS</code> أدوات التشغيل على شاشة القفل وفي لوحة الإشعارات.</p>
   <p><strong>الدفع.</strong> يُعدّ <code>com.android.vending.BILLING</code> ضروريًا للإكرامية الاختيارية التي يوفّرها Google Play.</p>
-  <h2>الإكرامية الاختيارية</h2>
+  <h2 id="ar-optional-tips">الإكرامية الاختيارية</h2>
   <p>الإكرامية تطوّع كامل، ويتولّاها بالكامل نظام الدفع في Google Play.</p>
   <p>يعمل Google متحكّمًا مستقلًا، ويستلم معلومات دفعك ويعالجها وفق سياسة الخصوصية الخاصة به (<a href="https://policies.google.com/privacy" rel="noopener">policies.google.com/privacy</a>). ولا نستلم في أي مرحلة رقم بطاقتك أو عنوان فوترتك أو حسابك في Google، ولا نطّلع عليه ولا نخزّنه، ولا تدخل سجلات الشراء إلى التطبيق.</p>
   <p>السجل المحلي الوحيد المتعلق بالإكرامية هو علامة «توجد إكرامية لم نشكرك عليها شخصيًا بعد»، تُستخدم لعرض كلمة الشكر المناسبة عند فتح صفحة الإكرامية في المرة القادمة. ولا تحتوي على مبلغ ولا على أي بيانات دفع، وتُحذف عند إزالة التطبيق.</p>
   <p>الإكرامية لا تفتح أي وظائف. كل شيء يعمل دون دفع.</p>
-  <h2>معلومات التشخيص</h2>
+  <h2 id="ar-diagnostic-information">معلومات التشخيص</h2>
   <p>لأن التطبيق يُوزَّع عبر Google Play، يجمع Google بيانات جودة التطبيق على مستوى المنصّة — Android vitals: حالات التعطّل وآثار المكدّس، وأحداث عدم الاستجابة (ANR)، وزمن بدء التشغيل، واستهلاك البطارية والذاكرة، ونتائج طلبات الأذونات، إضافة إلى إصدار التطبيق وإصدار Android وطراز الجهاز والبلد/المنطقة وقت الحدوث. ويجمع Google Play هذه البيانات مباشرة، ولا تحتاج إلى أي شيفرة داخل التطبيق، ولا تمرّ عبرنا. ويقتصر استخدامها على تقييم جودة التطبيق وتحسينها؛ ولا نرى في Play Console سوى نتائج مجمّعة، ولا نرى سجل مستخدم بعينه.</p>
   <p>تتولّى Google هذه المعالجة بوصفها متحكّمًا مستقلًا، وتخضع لسياسة الخصوصية الخاصة بها. ويمكنك إيقاف المشاركة من «الإعدادات → Google → الاستخدام والتشخيص»؛ وبعدها يتوقف Google عن جمع هذه البيانات من جهازك.</p>
-  <h2>مشاركة المعلومات</h2>
+  <h2 id="ar-sharing">مشاركة المعلومات</h2>
   <p>لا نبيع معلوماتك ولا نؤجّرها ولا نقايضها، ولا نشاركها لأغراض الإعلان أو التتبّع بين التطبيقات.</p>
   <p>هناك حالتان تخرج فيهما الملفات إلى تطبيق آخر، وكلتاهما تبدأها أنت:</p>
   <p><strong>النقل عبر Bluetooth.</strong> يفتح التطبيق ورقة المشاركة في Android وتختار أنت التطبيق المستلِم. وبعد تسليم الملف، يخضع تخزينه ونسخه وإعادة توزيعه لسياسة ذلك التطبيق وخارج نطاق هذه السياسة.</p>
   <p><strong>مجلد الاستلام.</strong> يقع المجلد الافتراضي <code>Music/NielloPlayer</code> في التخزين المشترك، حيث يسمح النظام لتطبيقات أخرى بقراءة محتواه. وإذا نقلت مجلد الاستلام إلى مكان آخر، فإن ما يمكن قراءته يحدّده نظام التخزين في Android والأذونات التي منحتها — وهو خيار تتخذه أنت.</p>
   <p>باستثناء الدفع عبر Google Play وبيانات Android vitals المذكورة أعلاه، لا نشارك معلوماتك مع أي طرف ثالث، ولا توجد حالة تستلزم نقل معلومات مكتبتك إلى خارج البلاد. تبقى مكتبتك وكلماتك وسجل تشغيلك وإعداداتك على جهازك، ولم تُنقل إلى أي مكان قطّ.</p>
-  <h2>أمن المعلومات</h2>
+  <h2 id="ar-security">أمن المعلومات</h2>
   <p>المساحة الخاصة بالتطبيق محمية بصندوق تطبيقات Android، ولا تستطيع التطبيقات الأخرى قراءتها.</p>
   <p>لا نشغّل أي خدمة خلفية تتلقّى بياناتك، والتشغيل لا يعتمد على الشبكة، لذا لا يمكن قراءة مكتبتك وإعداداتك عبر أي خادم لنا.</p>
   <p>البيانات الناتجة عن الروابط التي تفتحها في متصفحك يتولاها ذلك المتصفح.</p>
   <p>تُستضاف الصفحة الإلكترونية لهذه السياسة على GitHub Pages، وتُفتح داخل التطبيق كعلامة تبويب مخصّصة في متصفح النظام: يرسم المتصفح شريط العنوان، فتستطيع التأكد من أنك فعلًا على <code>arcanesparkle.github.io</code> وليس على واجهة داخل التطبيق. ويتلقّى GitHub بوصفه المستضيف المعلومات التقنية اللازمة لتسليم الصفحة، مثل عنوان IP ووقت الطلب؛ وقد يحتفظ المتصفح وفق إعداداته بسجل وزخرف لهذه الزيارة، كما تُحفظ لغة العرض التي تختارها في الصفحة على جانب المتصفح. وكل ذلك يحدث بين المتصفح والمستضيف: فالتطبيق لا يقرأ محتوى الصفحة ولا يتحكّم فيما يحتفظ به المتصفح.</p>
-  <h2>الاحتفاظ والحذف</h2>
+  <h2 id="ar-retention-and-deletion">الاحتفاظ والحذف</h2>
   <p>ما دمت تحتفظ بالتطبيق تبقى معلوماتك على جهازك.</p>
   <p>إزالة التطبيق تحذف فهرس المكتبة وقائمة التشغيل وكل الإعدادات في مساحته الخاصة. ولا نحتفظ بأي نسخة — فلا توجد بيانات سحابية عليك طلب حذفها بشكل منفصل.</p>
   <p>لا يوجد في التطبيق أمر منفصل «لتفريغ المكتبة». والطريقة الوحيدة حاليًا لإعادة بناء الفهرس من الصفر هي الإزالة ثم إعادة التثبيت.</p>
   <p>حالة التشغيل اللازمة للواجهة والتشغيل في الخلفية موجودة في الذاكرة فقط، وتُحرَّر عند مغادرة التطبيق.</p>
-  <h2>حقوقك</h2>
+  <h2 id="ar-your-rights">حقوقك</h2>
   <p>بحسب قانون بلدك، قد يكون لك حق الوصول إلى المعلومات التي نحتفظ بها عنك، وتصحيح المعلومات غير الدقيقة، وطلب حذفها، وتقييد المعالجة أو الاعتراض عليها، والحصول عليها بصيغة قابلة للنقل.</p>
   <p>ولأن معلوماتك لا توجد إلا على جهازك ولا نملك أي نسخة، فإن هذه الحقوق تمارس مباشرة:</p>
   <ul>
@@ -455,22 +482,22 @@ section[hidden]{display:none}
     <li><strong>سحب الموافقة:</strong> اسحب أي إذن ممنوح في أي وقت من إعدادات النظام؛ فتتوقف الوظيفة المقابلة ولا تتأثر البقية.</li>
   </ul>
   <p>إذا رأيت أن معالجتنا تخالف قوانين حماية البيانات، فلك الحق في تقديم شكوى إلى جهة إشرافية في مكان إقامتك أو عملك أو مكان المخالفة المزعومة. ويسعدنا أن تتواصل معنا أولًا؛ وسنبذل جهدنا لحلّ الأمر مباشرة.</p>
-  <h2>الأسس القانونية للمعالجة</h2>
+  <h2 id="ar-legal-bases">الأسس القانونية للمعالجة</h2>
   <p>حيث تُطبَّق اللائحة العامة لحماية البيانات (GDPR)، نعالج المعلومات على الأسس التالية:</p>
   <ul>
     <li><strong>تنفيذ عقد</strong> (المادة 6/1/ب): قراءة صوتك لتشغيله، وتذكّر موضع التشغيل وإعدادات الصوت، واستلام الملفات في المجلد الذي تحدّده. وهذه المعالجة ضرورية لتقديم الخدمة التي طلبتها.</li>
     <li><strong>موافقتك</strong> (المادة 6/1/أ): الأذونات الاختيارية مثل اكتشاف Bluetooth. ويمكنك سحبها في أي وقت دون أن يؤثر ذلك في مشروعية المعالجة السابقة.</li>
   </ul>
   <p>لا نستند إلى «المصالح المشروعة» في الإعلان أو التنميط أو تحليل السلوك، لأن التطبيق لا يفعل شيئًا من ذلك.</p>
-  <h2>الأطفال والبيانات الشخصية</h2>
+  <h2 id="ar-children-and-personal-data">الأطفال والبيانات الشخصية</h2>
   <p>التطبيق ليس موجّهًا إلى الأطفال دون 13 عامًا، ولا نجمع معلوماتهم عن علم.</p>
   <p>ولأن التطبيق لا يجمع بيانات شخصية من أي شخص، فلا حاجة لأن يجري الوالدان أي إعداد إضافي لاستخدام طفل له.</p>
-  <h2>لا بيع ولا مشاركة</h2>
+  <h2 id="ar-no-sale-no-sharing">لا بيع ولا مشاركة</h2>
   <p>وفق تعريفي «البيع» و«المشاركة» في قانون خصوصية المستهلك في كاليفورنيا بصيغته المعدّلة (CCPA/CPRA)، لا نبيع البيانات الشخصية ولا نشاركها. ولا إعلانات في التطبيق ولا حزمة تحليلات للإعلان أو التنميط؛ ولا نحقّق أي منفعة تجارية من معلوماتك. وهذا لا يتغيّر بمرور الوقت.</p>
-  <h2>تغييرات هذه السياسة</h2>
+  <h2 id="ar-changes-to-this-policy">تغييرات هذه السياسة</h2>
   <p>إذا تغيّرت هذه السياسة، فسنحدّث هذه الصفحة وتاريخ آخر تحديث أعلاه.</p>
   <p>وإذا أثّر تغيير في طريقة معالجة المعلومات، فسنوضّحه داخل التطبيق أو في صفحة المتجر قبل سريانه، لا أن نكتفي بتغيير التاريخ.</p>
-  <h2>تواصل معنا</h2>
+  <h2 id="ar-contact-us">تواصل معنا</h2>
   <p>لأي أمر يخص هذه السياسة أو معلوماتك، راسلنا على بريد المطوّر المنشور ضمن «معلومات الاتصال بالمطوّر» في صفحة Google Play.</p>
 </section>
 
@@ -483,40 +510,40 @@ section[hidden]{display:none}
   <nav class="toc">
     <h2>Indhold</h2>
     <ul>
-      <li>Hvem vi er</li>
-      <li>Hvad politikken dækker</li>
-      <li>Hvad vi ikke beder om</li>
-      <li>Oplysninger appen behandler på din enhed</li>
-      <li>Tilladelser appen bruger</li>
-      <li>Valgfri drikkepenge</li>
-      <li>Diagnostiske oplysninger</li>
-      <li>Deling af oplysninger</li>
-      <li>Sikkerhed</li>
-      <li>Opbevaring og sletning</li>
-      <li>Dine rettigheder</li>
-      <li>Retsgrundlag</li>
-      <li>Børn og personoplysninger</li>
-      <li>Intet salg, ingen deling</li>
-      <li>Ændringer i politikken</li>
-      <li>Kontakt os</li>
+      <li><a href="#da-who-we-are">Hvem vi er</a></li>
+      <li><a href="#da-what-this-policy-covers">Hvad politikken dækker</a></li>
+      <li><a href="#da-what-we-do-not-ask-for">Hvad vi ikke beder om</a></li>
+      <li><a href="#da-information-the-app-processes">Oplysninger appen behandler på din enhed</a></li>
+      <li><a href="#da-permissions">Tilladelser appen bruger</a></li>
+      <li><a href="#da-optional-tips">Valgfri drikkepenge</a></li>
+      <li><a href="#da-diagnostic-information">Diagnostiske oplysninger</a></li>
+      <li><a href="#da-sharing">Deling af oplysninger</a></li>
+      <li><a href="#da-security">Sikkerhed</a></li>
+      <li><a href="#da-retention-and-deletion">Opbevaring og sletning</a></li>
+      <li><a href="#da-your-rights">Dine rettigheder</a></li>
+      <li><a href="#da-legal-bases">Retsgrundlag</a></li>
+      <li><a href="#da-children-and-personal-data">Børn og personoplysninger</a></li>
+      <li><a href="#da-no-sale-no-sharing">Intet salg, ingen deling</a></li>
+      <li><a href="#da-changes-to-this-policy">Ændringer i politikken</a></li>
+      <li><a href="#da-contact-us">Kontakt os</a></li>
     </ul>
   </nav>
   <hr>
-  <h2>Hvem vi er</h2>
+  <h2 id="da-who-we-are">Hvem vi er</h2>
   <p>NielloPlayer («appen») er en offline-musikafspiller til Android, udbudt af den uafhængige udvikler bag NielloPlayer.</p>
   <p>Vi er dataansvarlig for den behandling, der beskrives her. Du når os på den e-mailadresse, der står under «Udviklerens kontaktoplysninger» på Google Play-siden; alle anmodninger om denne politik eller dine oplysninger kan sendes dertil.</p>
-  <h2>Hvad politikken dækker</h2>
+  <h2 id="da-what-this-policy-covers">Hvad politikken dækker</h2>
   <p>Politikken beskriver, hvilke oplysninger appen behandler på din enhed, til hvilke formål, og hvilke valg du har. Den gælder Android-versionen.</p>
   <p>Politikken findes kun online; der gemmes ingen kopi i appen. Det, du åbner i appen, er altid den gældende version, aldrig en kopi der er blevet forældet sammen med installationspakken.</p>
   <p>Den dækker ikke det, der sker, efter du har givet en fil til en anden app. Fra det øjeblik gælder modtagerappens politik – se «Deling af oplysninger».</p>
-  <h2>Hvad vi ikke beder om</h2>
+  <h2 id="da-what-we-do-not-ask-for">Hvad vi ikke beder om</h2>
   <p>Appen har ingen konto og kræver hverken tilmelding eller login. Vi beder ikke om dit navn, din e-mailadresse, dit telefonnummer eller din postadresse, og vi indsamler ikke kontakter, sms- og opkaldshistorik, billeder og videoer, kalender, placering eller annonce-ID.</p>
   <p>Der er ingen reklamer i appen, og der er ikke integreret tredjeparts-SDK til analyse, socialt login eller adfærdssporing. Vi laver ingen brugerprofiler, giver ingen målrettede anbefalinger ud fra din adfærd og træffer ingen automatiserede afgørelser.</p>
-  <h2>Oplysninger appen behandler på din enhed</h2>
+  <h2 id="da-information-the-app-processes">Oplysninger appen behandler på din enhed</h2>
   <p><strong>Bibliotek og afspilningstilstand.</strong> For at afspille musik læser appen lydfiler på din enhed. Biblioteksindeks, afspilningskø, position, lyd- og equalizerindstillinger samt koblingen mellem sange og tekster gemmes i appens private lager, så din tidligere tilstand gendannes næste gang. Oplysningerne bliver på din enhed og sendes ikke til os.</p>
   <p><strong>Mapper du vælger.</strong> Mapper uden for systemets mediebibliotek – for eksempel en musikmappe på et SD-kort – nås kun via Androids systemfilvælger. Appen kan kun læse den mappe, du selv har valgt, ingen andre steder, og anmoder ikke om adgang til alle filer. Tekstfiler, du selv tilføjer, godkendes via samme vælger.</p>
   <p><strong>Modtagelsesmappe.</strong> Filer, der modtages via Bluetooth, lokalnet eller websiden, skrives til den mappe, du vælger under Indstillinger → Bibliotek → Modtagelsesmappe, som standard <code>Music/NielloPlayer</code> i enhedens delte lager. Indholdet der administrerer du selv – se «Deling af oplysninger».</p>
-  <h2>Tilladelser appen bruger</h2>
+  <h2 id="da-permissions">Tilladelser appen bruger</h2>
   <p>Hver tilladelse virker kun, når den tilhørende funktion bruges. Vi beder ikke på forhånd om noget, du endnu ikke bruger, og et nej til en valgfri tilladelse fjerner aldrig den grundlæggende afspilning.</p>
   <p><strong>Lydfiler.</strong> Android 13 og nyere bruger <code>READ_MEDIA_AUDIO</code>; Android 10 til 12 bruger <code>READ_EXTERNAL_STORAGE</code>. Begge bruges til at scanne og afspille din musik. <code>WRITE_EXTERNAL_STORAGE</code> erklæres kun for Android 10 og ældre for at huske den valgte mappe. Du kan til enhver tid trække tilladelserne tilbage i systemindstillingerne; derefter viser appen kun det, der allerede er indekseret.</p>
   <p><strong>Netværk.</strong> <code>INTERNET</code> bruges til fire ting: at være vært for en lille lokal webside til sangoverførsel, at finde den anden enhed på samme lokalnet, at kommunikere med Google Play, når du vælger at give en drikkepenge, og at indlæse websiden for denne politik. Appen driver ingen egne servere og uploader ikke dit bibliotek, dine tekster eller indstillinger.</p>
@@ -525,31 +552,31 @@ section[hidden]{display:none}
   <p>I Android 11 og ældre knytter systemet Bluetooth-scanning til placeringstilladelse. Appen erklærer <code>ACCESS_FINE_LOCATION</code> kun for disse versioner og spørger én gang i appen, kun når du åbner Bluetooth-søgning eller modtagelsessiden. Du må gerne afslå; derefter kan du stadig sende til allerede parrede enheder. Appen læser, gemmer og sender aldrig nogen placeringsværdi.</p>
   <p><strong>Forgrundstjeneste og notifikationer.</strong> <code>FOREGROUND_SERVICE</code> og <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code> holder musikken kørende i baggrunden; <code>POST_NOTIFICATIONS</code> viser afspilningskontroller på låseskærmen og i notifikationspanelet.</p>
   <p><strong>Betaling.</strong> <code>com.android.vending.BILLING</code> kræves til den valgfrie drikkepenge via Google Play.</p>
-  <h2>Valgfri drikkepenge</h2>
+  <h2 id="da-optional-tips">Valgfri drikkepenge</h2>
   <p>Drikkepenge er helt frivillige og håndteres helt af Google Play Billing.</p>
   <p>Google optræder som uafhængig dataansvarlig og modtager og behandler dine betalingsoplysninger efter sin egen privatlivspolitik (<a href="https://policies.google.com/privacy" rel="noopener">policies.google.com/privacy</a>). Vi modtager, ser eller gemmer aldrig dit kortnummer, din faktureringsadresse eller din Google-konto, og købshistorik kommer ikke ind i appen.</p>
   <p>Den eneste lokale registrering omkring en drikkepenge er en markering «der er en drikkepenge, vi endnu ikke har takket dig personligt for», som bruges til at vise den rigtige tak næste gang, du åbner drikkepengesiden. Den indeholder hverken beløb eller betalingsbevis og forsvinder, når du afinstallerer appen.</p>
   <p>Drikkepenge låser ikke funktioner op. Alt virker uden at betale.</p>
-  <h2>Diagnostiske oplysninger</h2>
+  <h2 id="da-diagnostic-information">Diagnostiske oplysninger</h2>
   <p>Da appen distribueres via Google Play, indsamler Google kvalitetsdata på platformsniveau – Android vitals: nedbrud og stackspor, ANR-hændelser (svarer ikke), opstartstid, batteri- og hukommelsesforbrug, udfald af tilladelsesanmodninger samt appversion, Android-version, enhedsmodel og land/region på tidspunktet. Det indsamles direkte af Google Play, kræver ingen kode i appen og går ikke gennem os. Det bruges kun til at vurdere og forbedre appens kvalitet; vi ser kun aggregerede resultater i Play Console og aldrig en enkelt brugers post.</p>
   <p>Indsamlingen foretages af Google som uafhængig dataansvarlig og er omfattet af Googles egen privatlivspolitik. Du kan slå deling fra under Indstillinger → Google → Forbrug og diagnostik; derefter holder Google op med at indsamle disse data fra din enhed.</p>
-  <h2>Deling af oplysninger</h2>
+  <h2 id="da-sharing">Deling af oplysninger</h2>
   <p>Vi sælger, udlejer eller bytter ikke dine oplysninger og deler dem ikke til reklamer eller sporing mellem apps.</p>
   <p>Der er to situationer, hvor filer går videre til en anden app, og du starter begge:</p>
   <p><strong>Bluetooth-overførsel.</strong> Appen åbner Androids systemdelingsark, og du vælger modtagerappen. Når filen er overdraget, styres lagring, kopiering og videre distribution af den apps politik og falder uden for denne.</p>
   <p><strong>Modtagelsesmappe.</strong> Standardmappen <code>Music/NielloPlayer</code> ligger i enhedens delte lager, hvor systemet lader andre apps læse indholdet. Flytter du modtagelsesmappen et andet sted, afgør Androids lagerregler og de tilladelser, du har givet, hvad der kan læses – et valg, du tager.</p>
   <p>Ud over Google Play Billing og Android vitals beskrevet ovenfor deler vi ikke dine oplysninger med nogen tredjepart, og der er ingen situation, hvor dine biblioteksoplysninger skal overføres til udlandet. Dit bibliotek, dine tekster, din afspilningshistorik og dine indstillinger bliver på din enhed og er aldrig sendt nogen steder.</p>
-  <h2>Sikkerhed</h2>
+  <h2 id="da-security">Sikkerhed</h2>
   <p>Appens private lager beskyttes af Androids appsandkasse; andre apps kan ikke læse det.</p>
   <p>Vi driver ingen back-end-tjeneste, der modtager dine data, og afspilning afhænger ikke af netværket, så dit bibliotek og dine indstillinger kan ikke læses via nogen server hos os.</p>
   <p>Data, der opstår fra links, du åbner i din egen browser, håndteres af den browser.</p>
   <p>Websiden for denne politik ligger på GitHub Pages og åbnes i appen som systembrowserens faneblad af egen tilpasning: adresselinjen tegnes af browseren, så du kan bekræfte, at du faktisk er på <code>arcanesparkle.github.io</code> og ikke på en skal inde i appen. GitHub modtager som vært de tekniske oplysninger, der er nødvendige for at levere siden, fx din IP-adresse og tidspunktet for anmodningen; browseren kan også efter sine egne indstillinger beholde historik og cache fra besøget, og det visningssprog, du vælger på siden, gemmes også hos browseren. Alt dette sker mellem browseren og værten: appen læser ikke sideindholdet og kan ikke styre, hvad browseren beholder.</p>
-  <h2>Opbevaring og sletning</h2>
+  <h2 id="da-retention-and-deletion">Opbevaring og sletning</h2>
   <p>Så længe du beholder appen, bliver dine oplysninger på din enhed.</p>
   <p>Afinstallation sletter biblioteksindeks, afspilningskø og alle indstillinger i det private lager. Vi beholder ingen kopi – der findes ingen skydata, du skal anmode om sletning af separat.</p>
   <p>Appen har ingen særskilt kommando til at «rydde biblioteket». I dag er den eneste måde at genopbygge indekset helt fra bunden at afinstallere og geninstallere.</p>
   <p>Den afspilningstilstand, der er nødvendig for grænsefladen og baggrundsafspilning, findes kun i hukommelsen og frigives, når du forlader appen.</p>
-  <h2>Dine rettigheder</h2>
+  <h2 id="da-your-rights">Dine rettigheder</h2>
   <p>Afhængigt af loven i dit land kan du have ret til indsigt i de oplysninger, vi har om dig, til berigtigelse af urigtige oplysninger, til sletning, til begrænsning af eller indsigelse mod behandling og til at modtage oplysningerne i et portabelt format.</p>
   <p>Da dine oplysninger kun findes på din enhed, og vi ikke har nogen kopi, kan disse rettigheder udøves direkte:</p>
   <ul>
@@ -558,22 +585,22 @@ section[hidden]{display:none}
     <li><strong>Tilbagekaldelse af samtykke:</strong> træk givne tilladelser tilbage når som helst i systemindstillingerne; den tilhørende funktion stopper, og resten påvirkes ikke.</li>
   </ul>
   <p>Hvis du mener, at vores behandling overtræder databeskyttelseslovgivningen, har du ret til at klage til en tilsynsmyndighed der, hvor du bor, arbejder, eller hvor overtrædelsen menes at være sket. Du er også velkommen til at kontakte os først; vi gør vores bedste for at løse det direkte.</p>
-  <h2>Retsgrundlag</h2>
+  <h2 id="da-legal-bases">Retsgrundlag</h2>
   <p>Hvor databeskyttelsesforordningen (GDPR) gælder, behandler vi oplysninger på følgende grundlag:</p>
   <ul>
     <li><strong>Opfyldelse af en aftale</strong> (artikel 6, stk. 1, litra b): at læse din lyd for at afspille den, huske din afspilningsposition og dine lydindstillinger, at modtage filer i den mappe, du angiver. Behandlingen er nødvendig for at levere den tjeneste, du har bedt om.</li>
     <li><strong>Dit samtykke</strong> (artikel 6, stk. 1, litra a): valgfrie tilladelser som Bluetooth-søgning. Du kan trække det tilbage når som helst uden at påvirke lovligheden af tidligere behandling.</li>
   </ul>
   <p>Vi bygger ikke reklamer, profilering eller adfærdsanalyse på «legitim interesse», fordi appen ikke gør noget af det.</p>
-  <h2>Børn og personoplysninger</h2>
+  <h2 id="da-children-and-personal-data">Børn og personoplysninger</h2>
   <p>Appen henvender sig ikke til børn under 13 år, og vi indsamler ikke bevidst oplysninger fra dem.</p>
   <p>Da appen ikke indsamler personoplysninger fra nogen, behøver forældre ikke foretage særlige indstillinger, for at et barn kan bruge den.</p>
-  <h2>Intet salg, ingen deling</h2>
+  <h2 id="da-no-sale-no-sharing">Intet salg, ingen deling</h2>
   <p>Efter definitionerne af «sælge» og «dele» i California Consumer Privacy Act med ændringer (CCPA/CPRA) sælger og deler vi ikke personoplysninger. Appen har ingen reklamer og intet analyse-SDK til reklamer eller profilering; vi får ingen kommerciel gevinst af dine oplysninger. Det ændrer sig ikke over tid.</p>
-  <h2>Ændringer i politikken</h2>
+  <h2 id="da-changes-to-this-policy">Ændringer i politikken</h2>
   <p>Hvis politikken ændres, opdaterer vi denne side og datoen ovenfor.</p>
   <p>Hvis en ændring påvirker, hvordan oplysninger behandles, forklarer vi det i appen eller på butikssiden, før den træder i kraft, i stedet for kun at ændre datoen.</p>
-  <h2>Kontakt os</h2>
+  <h2 id="da-contact-us">Kontakt os</h2>
   <p>For alt om denne politik eller dine oplysninger, skriv til udvikleradressen under «Udviklerens kontaktoplysninger» på Google Play-siden.</p>
 </section>
 
@@ -586,40 +613,40 @@ section[hidden]{display:none}
   <nav class="toc">
     <h2>Inhoud</h2>
     <ul>
-      <li>Wie we zijn</li>
-      <li>Wat dit beleid dekt</li>
-      <li>Wat we niet vragen</li>
-      <li>Informatie die de app op je toestel verwerkt</li>
-      <li>Machtigingen die de app gebruikt</li>
-      <li>Optionele fooi</li>
-      <li>Diagnostische informatie</li>
-      <li>Delen van informatie</li>
-      <li>Beveiliging</li>
-      <li>Bewaren en verwijderen</li>
-      <li>Je rechten</li>
-      <li>Rechtsgronden voor verwerking</li>
-      <li>Kinderen en persoonsgegevens</li>
-      <li>Geen verkoop, geen deling</li>
-      <li>Wijzigingen in dit beleid</li>
-      <li>Contact</li>
+      <li><a href="#nl-who-we-are">Wie we zijn</a></li>
+      <li><a href="#nl-what-this-policy-covers">Wat dit beleid dekt</a></li>
+      <li><a href="#nl-what-we-do-not-ask-for">Wat we niet vragen</a></li>
+      <li><a href="#nl-information-the-app-processes">Informatie die de app op je toestel verwerkt</a></li>
+      <li><a href="#nl-permissions">Machtigingen die de app gebruikt</a></li>
+      <li><a href="#nl-optional-tips">Optionele fooi</a></li>
+      <li><a href="#nl-diagnostic-information">Diagnostische informatie</a></li>
+      <li><a href="#nl-sharing">Delen van informatie</a></li>
+      <li><a href="#nl-security">Beveiliging</a></li>
+      <li><a href="#nl-retention-and-deletion">Bewaren en verwijderen</a></li>
+      <li><a href="#nl-your-rights">Je rechten</a></li>
+      <li><a href="#nl-legal-bases">Rechtsgronden voor verwerking</a></li>
+      <li><a href="#nl-children-and-personal-data">Kinderen en persoonsgegevens</a></li>
+      <li><a href="#nl-no-sale-no-sharing">Geen verkoop, geen deling</a></li>
+      <li><a href="#nl-changes-to-this-policy">Wijzigingen in dit beleid</a></li>
+      <li><a href="#nl-contact-us">Contact</a></li>
     </ul>
   </nav>
   <hr>
-  <h2>Wie we zijn</h2>
+  <h2 id="nl-who-we-are">Wie we zijn</h2>
   <p>NielloPlayer (‘de app’) is een offline muziekspeler voor Android, aangeboden door de onafhankelijke ontwikkelaar van NielloPlayer.</p>
   <p>Wij zijn de verwerkingsverantwoordelijke voor de hier beschreven verwerking. Je bereikt ons via het e-mailadres onder ‘Contactgegevens van de ontwikkelaar’ in de Google Play-vermelding; alle verzoeken over dit beleid of je gegevens kun je daarheen sturen.</p>
-  <h2>Wat dit beleid dekt</h2>
+  <h2 id="nl-what-this-policy-covers">Wat dit beleid dekt</h2>
   <p>Dit beleid beschrijft welke informatie de app op je toestel verwerkt, met welk doel, en welke keuzes je hebt. Het geldt voor de Android-versie.</p>
   <p>Dit beleid is alleen online beschikbaar; in de app wordt geen kopie bewaard. Wat je in de app opent is altijd de actuele versie, nooit een kopie die met het installatiepakket verouderd is.</p>
   <p>Het gaat niet over wat er gebeurt nadat je een bestand aan een andere app hebt gegeven. Vanaf dat moment geldt het beleid van de ontvangende app — zie ‘Delen van informatie’.</p>
-  <h2>Wat we niet vragen</h2>
+  <h2 id="nl-what-we-do-not-ask-for">Wat we niet vragen</h2>
   <p>De app heeft geen account en vereist geen registratie of aanmelding. We vragen niet om je naam, e-mailadres, telefoonnummer of postadres en verzamelen geen contacten, sms- en gespreksgeschiedenis, foto’s en video’s, agenda, locatie of advertentie-ID.</p>
   <p>Er is geen reclame in de app en er is geen SDK van derden voor analyse, sociale login of gedragsregistratie ingebouwd. We maken geen gebruikersprofielen, geven geen gerichte aanbevelingen op basis van je gedrag en nemen geen geautomatiseerde beslissingen.</p>
-  <h2>Informatie die de app op je toestel verwerkt</h2>
+  <h2 id="nl-information-the-app-processes">Informatie die de app op je toestel verwerkt</h2>
   <p><strong>Bibliotheek en afspeelstatus.</strong> Om muziek af te spelen leest de app audiobestanden op je toestel. De bibliotheekindex, wachtrij, afspeelpositie, audio- en equalizerinstellingen en de koppeling tussen nummers en songteksten worden bewaard in de privéopslag van de app, zodat je vorige staat bij de volgende start terugkomt. Deze informatie blijft op je toestel en wordt niet naar ons verstuurd.</p>
   <p><strong>Mappen die je kiest.</strong> Mappen buiten de systeemmediabibliotheek — bijvoorbeeld een muziekmap op een SD-kaart — zijn alleen via de bestandskiezer van Android bereikbaar. De app kan uitsluitend de map lezen die je zelf hebt gekozen, geen andere locaties, en vraagt geen toegang tot alle bestanden. Songtekstbestanden die je zelf toevoegt, lopen via dezelfde kiezer.</p>
   <p><strong>Ontvangstmap.</strong> Bestanden die je via Bluetooth, het lokale netwerk of de webpagina ontvangt, worden geschreven naar de map die je kiest onder Instellingen → Bibliotheek → Ontvangstmap, standaard <code>Music/NielloPlayer</code> in de gedeelde opslag van het toestel. De inhoud van die map beheer je zelf — zie ‘Delen van informatie’.</p>
-  <h2>Machtigingen die de app gebruikt</h2>
+  <h2 id="nl-permissions">Machtigingen die de app gebruikt</h2>
   <p>Elke machtiging werkt alleen wanneer de bijbehorende functie wordt gebruikt. We vragen niets vooraf voor iets wat je nog niet gebruikt, en het weigeren van een optionele machtiging neemt nooit de basisweergave weg.</p>
   <p><strong>Audiobestanden.</strong> Android 13 en hoger gebruiken <code>READ_MEDIA_AUDIO</code>; Android 10 tot 12 gebruiken <code>READ_EXTERNAL_STORAGE</code>. Beide dienen om je muziek te scannen en af te spelen. <code>WRITE_EXTERNAL_STORAGE</code> wordt alleen voor Android 10 en lager gedeclareerd, om de gekozen map te onthouden. Je kunt deze machtigingen altijd intrekken in de systeeminstellingen; daarna toont de app alleen wat al geïndexeerd is.</p>
   <p><strong>Netwerk.</strong> <code>INTERNET</code> dient vier doelen: een kleine lokale webpagina hosten om nummers over te dragen, het andere toestel in hetzelfde lokale netwerk vinden, met Google Play communiceren wanneer je een fooi geeft, en de online pagina van dit beleid laden. De app draait geen eigen servers en uploadt je bibliotheek, songteksten of instellingen niet.</p>
@@ -628,31 +655,31 @@ section[hidden]{display:none}
   <p>Onder Android 11 en lager koppelt het systeem Bluetooth-scannen aan locatiemachtiging. De app declareert <code>ACCESS_FINE_LOCATION</code> alleen voor die versies en vraagt het één keer in de app, alleen wanneer je Bluetooth-ontdekking of de ontvangstpagina opent. Je mag weigeren; daarna kun je nog steeds naar al gekoppelde toestellen sturen. De app leest, bewaart en verstuurt nooit een locatiewaarde.</p>
   <p><strong>Voorgronddienst en meldingen.</strong> <code>FOREGROUND_SERVICE</code> en <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code> houden muziek op de achtergrond aan de gang; <code>POST_NOTIFICATIONS</code> toont de bediening op het vergrendelscherm en in de meldingenbalk.</p>
   <p><strong>Afrekening.</strong> <code>com.android.vending.BILLING</code> is nodig voor de optionele fooi via Google Play.</p>
-  <h2>Optionele fooi</h2>
+  <h2 id="nl-optional-tips">Optionele fooi</h2>
   <p>Een fooi is volledig vrijwillig en wordt volledig door Google Play Billing afgehandeld.</p>
   <p>Google treedt op als zelfstandige verwerkingsverantwoordelijke en ontvangt en verwerkt je betaalgegevens volgens zijn eigen privacybeleid (<a href="https://policies.google.com/privacy" rel="noopener">policies.google.com/privacy</a>). Wij ontvangen, bekijken en bewaren op geen enkel moment je kaartnummer, factuuradres of Google-account, en aankoopgegevens komen niet in de app.</p>
   <p>De enige lokale registratie rond een fooi is een markering ‘er is een fooi waarvoor we je nog niet persoonlijk hebben bedankt’, gebruikt om bij het volgende bezoek aan de fooipagina het bijpassende bedankje te tonen. Er zit geen bedrag en geen betaalbewijs in, en hij verdwijnt bij verwijdering van de app.</p>
   <p>Een fooi ontgrendelt geen functies. Alles werkt zonder te betalen.</p>
-  <h2>Diagnostische informatie</h2>
+  <h2 id="nl-diagnostic-information">Diagnostische informatie</h2>
   <p>Omdat de app via Google Play wordt verspreid, verzamelt Google op platformniveau kwaliteitsgegevens — Android vitals: crashes en stacktraces, ANR-gebeurtenissen (geen reactie), opstarttijd, batterij- en geheugengebruik, uitkomsten van machtigingsverzoeken, plus appversie, Android-versie, toestelmodel en land/regio op dat moment. Deze gegevens worden rechtstreeks door Google Play verzameld, vereisen geen code in de app en gaan niet via ons. Ze dienen alleen om de kwaliteit van de app te beoordelen en te verbeteren; wij zien in de Play Console alleen geaggregeerde resultaten en nooit het record van één gebruiker.</p>
   <p>Die verzameling gebeurt door Google als zelfstandige verwerkingsverantwoordelijke en valt onder Googles eigen privacybeleid. Je kunt het delen uitzetten in Instellingen → Google → Gebruik en diagnostische gegevens; daarna verzamelt Google deze gegevens niet meer van je toestel.</p>
-  <h2>Delen van informatie</h2>
+  <h2 id="nl-sharing">Delen van informatie</h2>
   <p>We verkopen, verhuren of verhandelen je informatie niet en delen die niet voor advertenties of tracking tussen apps.</p>
   <p>Er zijn twee situaties waarin bestanden naar een andere app gaan, en beide start jij:</p>
   <p><strong>Bluetooth-overdracht.</strong> De app opent het deelvenster van Android en jij kiest de ontvangende app. Zodra het bestand is overgedragen, vallen opslag, kopiëren en verdere verspreiding onder het beleid van die app en buiten dit beleid.</p>
   <p><strong>Ontvangstmap.</strong> De standaardmap <code>Music/NielloPlayer</code> staat in de gedeelde opslag, waar het systeem andere apps de inhoud laat lezen. Verplaats je de ontvangstmap elders, dan bepalen de opslagregels van Android en de door jou verleende machtigingen wat leesbaar is — een keuze van jou.</p>
   <p>Afgezien van Google Play Billing en de hierboven beschreven Android vitals delen we je informatie met geen enkele derde, en er is geen situatie waarin je bibliotheekgegevens naar het buitenland moeten worden overgedragen. Je bibliotheek, songteksten, afspeelgeschiedenis en instellingen blijven op je toestel en zijn nooit ergens heen gestuurd.</p>
-  <h2>Beveiliging</h2>
+  <h2 id="nl-security">Beveiliging</h2>
   <p>De privéopslag van de app is beschermd door de Android-app-sandbox; andere apps kunnen die niet lezen.</p>
   <p>We draaien geen back-enddienst die je gegevens ontvangt en weergave is niet afhankelijk van het netwerk, dus je bibliotheek en instellingen kunnen niet via een server van ons worden gelezen.</p>
   <p>Gegevens die ontstaan door links die je in je eigen browser opent, worden door die browser verwerkt.</p>
   <p>De online pagina van dit beleid wordt gehost op GitHub Pages en in de app geopend als aangepast tabblad van de systeembrowser: de adresbalk wordt door de browser getekend, zodat je kunt controleren dat je echt op <code>arcanesparkle.github.io</code> bent en niet op een schil binnen de app. GitHub ontvangt als host de technische gegevens die nodig zijn om de pagina te leveren, zoals je IP-adres en het tijdstip van het verzoek; de browser kan volgens zijn eigen instellingen ook een eigen geschiedenis en cache van dat bezoek bewaren, en de weergavetaal die je op de pagina kiest wordt ook aan de browserkant opgeslagen. Dat alles gebeurt tussen browser en host: de app leest de pagina-inhoud niet en kan niet bepalen wat de browser bewaart.</p>
-  <h2>Bewaren en verwijderen</h2>
+  <h2 id="nl-retention-and-deletion">Bewaren en verwijderen</h2>
   <p>Zolang je de app houdt, blijft je informatie op je toestel.</p>
   <p>Verwijderen van de app wist de bibliotheekindex, de wachtrij en alle instellingen in de privéopslag. Wij bewaren geen kopie — er zijn geen cloudgegevens waarvan je apart verwijdering moet vragen.</p>
   <p>De app heeft geen aparte opdracht ‘bibliotheek wissen’. De index helemaal opnieuw opbouwen kan op dit moment alleen door te verwijderen en opnieuw te installeren.</p>
   <p>De afspeelstatus die nodig is voor de interface en achtergrondweergave staat alleen in het geheugen en wordt vrijgegeven als je de app verlaat.</p>
-  <h2>Je rechten</h2>
+  <h2 id="nl-your-rights">Je rechten</h2>
   <p>Afhankelijk van het recht in jouw land heb je mogelijk het recht om de informatie over jou die wij hebben in te zien, onjuiste informatie te laten corrigeren, verwijdering te vragen, de verwerking te beperken of er bezwaar tegen te maken, en de informatie in een overdraagbaar formaat te ontvangen.</p>
   <p>Omdat je informatie alleen op je toestel staat en wij geen kopie hebben, kun je deze rechten direct uitoefenen:</p>
   <ul>
@@ -661,22 +688,22 @@ section[hidden]{display:none}
     <li><strong>Intrekken van toestemming:</strong> trek verleende machtigingen altijd in via de systeeminstellingen; de bijbehorende functie stopt en de rest blijft werken.</li>
   </ul>
   <p>Als je vindt dat onze verwerking in strijd is met de privacywetgeving, kun je een klacht indienen bij een toezichthoudende autoriteit in je woonplaats, werkplaats of de plaats van de vermeende inbreuk. Je kunt ook eerst contact met ons opnemen; we proberen het direct op te lossen.</p>
-  <h2>Rechtsgronden voor verwerking</h2>
+  <h2 id="nl-legal-bases">Rechtsgronden voor verwerking</h2>
   <p>Waar de Algemene verordening gegevensbescherming (AVG/GDPR) geldt, verwerken we informatie op deze grondslagen:</p>
   <ul>
     <li><strong>Uitvoering van een overeenkomst</strong> (artikel 6 lid 1 b): je audio lezen om af te spelen, je afspeelpositie en audio-instellingen onthouden, bestanden ontvangen in de door jou aangewezen map. Deze verwerking is nodig om de dienst te leveren die je hebt gevraagd.</li>
     <li><strong>Je toestemming</strong> (artikel 6 lid 1 a): optionele machtigingen zoals Bluetooth-ontdekking. Je kunt die altijd intrekken, zonder dat dit de rechtmatigheid van eerdere verwerking aantast.</li>
   </ul>
   <p>We baseren ons niet op ‘gerechtvaardigd belang’ voor advertenties, profilering of gedragsanalyse, omdat de app dat allemaal niet doet.</p>
-  <h2>Kinderen en persoonsgegevens</h2>
+  <h2 id="nl-children-and-personal-data">Kinderen en persoonsgegevens</h2>
   <p>De app is niet gericht op kinderen onder de 13 en we verzamelen bewust geen informatie van hen.</p>
   <p>Omdat de app van niemand persoonsgegevens verzamelt, hoeven ouders niets extra in te stellen voor gebruik door een kind.</p>
-  <h2>Geen verkoop, geen deling</h2>
+  <h2 id="nl-no-sale-no-sharing">Geen verkoop, geen deling</h2>
   <p>Volgens de definities van ‘verkopen’ en ‘delen’ in de California Consumer Privacy Act zoals gewijzigd (CCPA/CPRA) verkopen en delen wij geen persoonsgegevens. De app bevat geen advertenties en geen analyse-SDK voor advertenties of profilering; we halen geen commercieel voordeel uit je informatie. Dat verandert niet in de loop van de tijd.</p>
-  <h2>Wijzigingen in dit beleid</h2>
+  <h2 id="nl-changes-to-this-policy">Wijzigingen in dit beleid</h2>
   <p>Als dit beleid verandert, werken we deze pagina en de datum hierboven bij.</p>
   <p>Raakt een wijziging de manier waarop informatie wordt verwerkt, dan leggen we dat vóór het ingaan uit in de app of in de store-vermelding, in plaats van alleen de datum te wijzigen.</p>
-  <h2>Contact</h2>
+  <h2 id="nl-contact-us">Contact</h2>
   <p>Voor alles over dit beleid of je gegevens kun je mailen naar het ontwikkelaarsadres onder ‘Contactgegevens van de ontwikkelaar’ in de Google Play-vermelding.</p>
 </section>
 
@@ -689,40 +716,40 @@ section[hidden]{display:none}
   <nav class="toc">
     <h2>Sommaire</h2>
     <ul>
-      <li>Qui nous sommes</li>
-      <li>Ce que couvre cette politique</li>
-      <li>Ce que nous ne demandons pas</li>
-      <li>Informations traitées par l’application sur votre appareil</li>
-      <li>Autorisations utilisées</li>
-      <li>Pourboire facultatif</li>
-      <li>Informations de diagnostic</li>
-      <li>Partage d’informations</li>
-      <li>Sécurité</li>
-      <li>Conservation et suppression</li>
-      <li>Vos droits</li>
-      <li>Bases légales du traitement</li>
-      <li>Enfants et données personnelles</li>
-      <li>Ni vente, ni partage</li>
-      <li>Modifications de cette politique</li>
-      <li>Nous contacter</li>
+      <li><a href="#fr-who-we-are">Qui nous sommes</a></li>
+      <li><a href="#fr-what-this-policy-covers">Ce que couvre cette politique</a></li>
+      <li><a href="#fr-what-we-do-not-ask-for">Ce que nous ne demandons pas</a></li>
+      <li><a href="#fr-information-the-app-processes">Informations traitées par l’application sur votre appareil</a></li>
+      <li><a href="#fr-permissions">Autorisations utilisées</a></li>
+      <li><a href="#fr-optional-tips">Pourboire facultatif</a></li>
+      <li><a href="#fr-diagnostic-information">Informations de diagnostic</a></li>
+      <li><a href="#fr-sharing">Partage d’informations</a></li>
+      <li><a href="#fr-security">Sécurité</a></li>
+      <li><a href="#fr-retention-and-deletion">Conservation et suppression</a></li>
+      <li><a href="#fr-your-rights">Vos droits</a></li>
+      <li><a href="#fr-legal-bases">Bases légales du traitement</a></li>
+      <li><a href="#fr-children-and-personal-data">Enfants et données personnelles</a></li>
+      <li><a href="#fr-no-sale-no-sharing">Ni vente, ni partage</a></li>
+      <li><a href="#fr-changes-to-this-policy">Modifications de cette politique</a></li>
+      <li><a href="#fr-contact-us">Nous contacter</a></li>
     </ul>
   </nav>
   <hr>
-  <h2>Qui nous sommes</h2>
+  <h2 id="fr-who-we-are">Qui nous sommes</h2>
   <p>NielloPlayer (« l’application ») est un lecteur de musique hors ligne pour Android, fourni par le développeur indépendant de NielloPlayer.</p>
   <p>Nous sommes le responsable du traitement décrit dans cette politique. Vous pouvez nous joindre à l’adresse e-mail publiée sous « Coordonnées du développeur » sur la fiche Google Play ; toute demande relative à cette politique ou à vos informations peut y être envoyée.</p>
-  <h2>Ce que couvre cette politique</h2>
+  <h2 id="fr-what-this-policy-covers">Ce que couvre cette politique</h2>
   <p>Cette politique précise quelles informations l’application traite sur votre appareil, à quelles fins, et quels choix vous avez. Elle s’applique à la version Android.</p>
   <p>Cette politique n’est fournie qu’en ligne ; aucune copie n’est stockée dans l’application : ce que vous ouvrez dans l’application est toujours la version en vigueur, jamais une copie devenue obsolète avec le paquet d’installation.</p>
   <p>Elle ne couvre pas ce qui se passe après que vous avez remis un fichier à une autre application. À partir de ce moment, la politique de l’application destinataire s’applique — voir « Partage d’informations ».</p>
-  <h2>Ce que nous ne demandons pas</h2>
+  <h2 id="fr-what-we-do-not-ask-for">Ce que nous ne demandons pas</h2>
   <p>L’application n’a pas de compte et ne demande ni inscription ni connexion. Nous ne demandons ni votre nom, ni votre adresse e-mail, ni votre numéro de téléphone, ni votre adresse postale, et nous ne collectons ni vos contacts, ni vos SMS et journaux d’appels, ni vos photos et vidéos, ni votre agenda, ni votre position, ni d’identifiant publicitaire.</p>
   <p>L’application ne contient pas de publicité et n’intègre aucun SDK tiers d’analyse, de connexion sociale ou de suivi comportemental. Nous ne créons pas de profils, ne faisons pas de recommandations ciblées à partir de votre comportement et ne prenons aucune décision automatisée.</p>
-  <h2>Informations traitées par l’application sur votre appareil</h2>
+  <h2 id="fr-information-the-app-processes">Informations traitées par l’application sur votre appareil</h2>
   <p><strong>Bibliothèque et état de lecture.</strong> Pour lire la musique, l’application lit les fichiers audio stockés sur votre appareil. L’index de la bibliothèque, la file de lecture, la position de lecture, les réglages de qualité audio et d’égaliseur, ainsi que la correspondance entre morceaux et paroles sont conservés dans le stockage privé de l’application afin de restaurer votre état précédent à la prochaine ouverture. Ces informations restent sur votre appareil et ne nous sont pas envoyées.</p>
   <p><strong>Dossiers que vous choisissez.</strong> Les dossiers hors de la médiathèque système — par exemple un dossier de musique sur une carte SD — ne sont accessibles que via le sélecteur de fichiers d’Android. L’application ne peut lire que le dossier que vous avez vous-même sélectionné, aucun autre emplacement, et ne demande pas d’accès à tous les fichiers. Les fichiers de paroles que vous ajoutez passent par le même sélecteur.</p>
   <p><strong>Dossier de réception.</strong> Les fichiers reçus par Bluetooth, par le réseau local ou par la page web sont écrits dans le dossier que vous choisissez dans Réglages → Bibliothèque → Dossier de réception, par défaut <code>Music/NielloPlayer</code> dans le stockage partagé de l’appareil. Le contenu de ce dossier est à gérer par vous — voir « Partage d’informations ».</p>
-  <h2>Autorisations utilisées</h2>
+  <h2 id="fr-permissions">Autorisations utilisées</h2>
   <p>Chaque autorisation n’agit que lorsque la fonction correspondante est utilisée. Nous ne demandons rien à l’avance pour une fonction que vous n’utilisez pas encore, et refuser une autorisation facultative ne retire jamais la lecture de base.</p>
   <p><strong>Fichiers audio.</strong> Android 13 et versions ultérieures utilisent <code>READ_MEDIA_AUDIO</code> ; Android 10 à 12 utilisent <code>READ_EXTERNAL_STORAGE</code>. Les deux servent à analyser et lire votre musique. <code>WRITE_EXTERNAL_STORAGE</code> n’est déclarée que pour Android 10 et antérieurs, afin de mémoriser le dossier choisi. Vous pouvez révoquer ces autorisations à tout moment dans les réglages système ; ensuite l’application n’affiche que ce qui a déjà été indexé.</p>
   <p><strong>Réseau.</strong> <code>INTERNET</code> sert à quatre choses : héberger une petite page web locale pour transférer des morceaux, découvrir l’autre appareil sur le même réseau local, communiquer avec Google Play lorsque vous choisissez de laisser un pourboire, et charger la page en ligne de cette politique. L’application n’exploite aucun serveur propre et ne téléverse ni votre bibliothèque, ni vos paroles, ni vos réglages.</p>
@@ -731,31 +758,31 @@ section[hidden]{display:none}
   <p>Sous Android 11 et antérieurs, le système lie l’analyse Bluetooth à l’autorisation de localisation. L’application ne déclare <code>ACCESS_FINE_LOCATION</code> que pour ces versions et ne le demande qu’une fois, dans l’application, lorsque vous ouvrez la découverte Bluetooth ou la page de réception. Vous pouvez refuser ; vous pourrez toujours envoyer vers des appareils déjà appairés. L’application ne lit, ne stocke et ne transmet aucune valeur de localisation.</p>
   <p><strong>Service de premier plan et notifications.</strong> <code>FOREGROUND_SERVICE</code> et <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code> maintiennent la musique en arrière-plan ; <code>POST_NOTIFICATIONS</code> affiche les commandes de lecture sur l’écran verrouillé et dans le volet de notifications.</p>
   <p><strong>Facturation.</strong> <code>com.android.vending.BILLING</code> est nécessaire au pourboire facultatif fourni par Google Play.</p>
-  <h2>Pourboire facultatif</h2>
+  <h2 id="fr-optional-tips">Pourboire facultatif</h2>
   <p>Le pourboire est entièrement volontaire et entièrement traité par la facturation Google Play.</p>
   <p>Google agit en responsable indépendant et reçoit et traite vos informations de paiement selon sa propre politique de confidentialité (<a href="https://policies.google.com/privacy" rel="noopener">policies.google.com/privacy</a>). Nous ne recevons, ne consultons et ne stockons à aucun moment votre numéro de carte, votre adresse de facturation ou votre compte Google, et aucun historique d’achat n’entre dans l’application.</p>
   <p>La seule trace locale liée au pourboire est un indicateur « il y a un pourboire pour lequel nous ne vous avons pas encore remercié de vive voix », utilisé pour afficher le remerciement correspondant à la prochaine ouverture de la page de pourboire. Il ne contient ni montant ni justificatif de paiement et disparaît à la désinstallation.</p>
   <p>Le pourboire ne débloque aucune fonction. Tout fonctionne sans payer.</p>
-  <h2>Informations de diagnostic</h2>
+  <h2 id="fr-diagnostic-information">Informations de diagnostic</h2>
   <p>L’application étant distribuée par Google Play, Google collecte au niveau de la plateforme des données de qualité — Android vitals : plantages et traces de pile, événements ANR (absence de réponse), durée de démarrage, consommation de batterie et de mémoire, issues des demandes d’autorisation, ainsi que la version de l’application, la version d’Android, le modèle d’appareil et le pays/région au moment des faits. Ces données sont collectées directement par Google Play, n’exigent aucun code dans l’application et ne passent pas par nous. Elles servent uniquement à évaluer et améliorer la qualité de l’application ; nous ne voyons dans la Play Console que des résultats agrégés, jamais l’enregistrement d’un utilisateur particulier.</p>
   <p>Cette collecte est effectuée par Google en tant que responsable indépendant et relève de sa propre politique. Vous pouvez désactiver le partage dans Réglages → Google → Utilisation et diagnostics ; ensuite Google ne collecte plus ces données depuis votre appareil.</p>
-  <h2>Partage d’informations</h2>
+  <h2 id="fr-sharing">Partage d’informations</h2>
   <p>Nous ne vendons, ne louons et n’échangeons pas vos informations, et nous ne les partageons pas à des fins publicitaires ou de suivi entre applications.</p>
   <p>Deux situations font sortir des fichiers vers une autre application, et vous les déclenchez toutes les deux :</p>
   <p><strong>Transfert Bluetooth.</strong> L’application ouvre la feuille de partage du système Android et vous choisissez l’application destinataire. Une fois le fichier remis, son stockage, sa copie et sa redistribution relèvent de la politique de cette application et sortent du champ de celle-ci.</p>
   <p><strong>Dossier de réception.</strong> Le dossier par défaut <code>Music/NielloPlayer</code> se trouve dans le stockage partagé, où le système permet aux autres applications de lire son contenu. Si vous déplacez le dossier de réception ailleurs, ce qui est lisible dépend des règles de stockage d’Android et des autorisations que vous avez accordées — un choix qui vous revient.</p>
   <p>En dehors de la facturation Google Play et des Android vitals décrits ci-dessus, nous ne partageons vos informations avec aucun tiers, et aucune situation n’exige de transférer vos informations de bibliothèque à l’étranger. Votre bibliothèque, vos paroles, votre historique de lecture et vos réglages restent sur votre appareil et n’ont jamais été transmis où que ce soit.</p>
-  <h2>Sécurité</h2>
+  <h2 id="fr-security">Sécurité</h2>
   <p>Le stockage privé de l’application est protégé par le bac à sable Android ; les autres applications ne peuvent pas le lire.</p>
   <p>Nous n’exploitons aucun service back-end recevant vos données et la lecture ne dépend pas du réseau : votre bibliothèque et vos réglages ne peuvent donc pas être lus via un serveur qui nous appartiendrait.</p>
   <p>Les données produites par les liens ouverts dans votre propre navigateur sont traitées par ce navigateur.</p>
   <p>La page en ligne de cette politique est hébergée sur GitHub Pages et ouverte dans l’application comme onglet personnalisé du navigateur système : la barre d’adresse est rendue par le navigateur, ce qui vous permet de vérifier que vous êtes bien sur <code>arcanesparkle.github.io</code> et non sur une coque interne à l’application. GitHub, en tant qu’hébergeur, reçoit les informations techniques nécessaires à la livraison de la page, comme votre adresse IP et l’heure de la requête ; le navigateur peut aussi conserver son propre historique et cache de cette visite selon ses réglages, et la langue d’affichage que vous choisissez sur la page est également stockée côté navigateur. Tout cela se passe entre le navigateur et l’hébergeur : l’application ne lit pas le contenu de la page et ne contrôle pas ce que le navigateur conserve.</p>
-  <h2>Conservation et suppression</h2>
+  <h2 id="fr-retention-and-deletion">Conservation et suppression</h2>
   <p>Tant que vous gardez l’application, vos informations restent sur votre appareil.</p>
   <p>La désinstallation supprime l’index de la bibliothèque, la file de lecture et tous les réglages du stockage privé. Nous ne conservons aucune copie : il n’existe pas de données cloud dont vous devriez demander la suppression.</p>
   <p>L’application n’a pas de commande « vider la bibliothèque ». À ce jour, la seule façon de reconstruire l’index de zéro est de désinstaller puis réinstaller.</p>
   <p>L’état de lecture nécessaire à l’affichage et à la lecture en arrière-plan ne vit qu’en mémoire et est libéré à la sortie de l’application.</p>
-  <h2>Vos droits</h2>
+  <h2 id="fr-your-rights">Vos droits</h2>
   <p>Selon la loi de votre pays, vous pouvez disposer du droit d’accéder aux informations vous concernant que nous détenons, de faire rectifier des informations inexactes, d’en obtenir l’effacement, de limiter ou de vous opposer au traitement, et de les recevoir dans un format portable.</p>
   <p>Comme vos informations n’existent que sur votre appareil et que nous n’en détenons aucune copie, ces droits s’exercent directement :</p>
   <ul>
@@ -764,22 +791,22 @@ section[hidden]{display:none}
     <li><strong>Retrait du consentement :</strong> révoquez à tout moment toute autorisation accordée dans les réglages système ; la fonction correspondante s’arrête, le reste n’est pas affecté.</li>
   </ul>
   <p>Si vous estimez que notre traitement enfreint la législation sur la protection des données, vous pouvez introduire une réclamation auprès d’une autorité de contrôle de votre lieu de résidence, de votre lieu de travail ou du lieu de l’infraction alléguée. Vous pouvez aussi nous contacter d’abord ; nous ferons de notre mieux pour résoudre la question directement.</p>
-  <h2>Bases légales du traitement</h2>
+  <h2 id="fr-legal-bases">Bases légales du traitement</h2>
   <p>Lorsque le règlement général sur la protection des données (RGPD) s’applique, nous traitons les informations sur les bases suivantes :</p>
   <ul>
     <li><strong>Exécution d’un contrat</strong> (article 6, paragraphe 1, point b) : lire vos fichiers audio pour les restituer, mémoriser votre position de lecture et vos réglages audio, recevoir des fichiers dans le dossier que vous indiquez. Ce traitement est nécessaire à la fourniture du service que vous avez demandé.</li>
     <li><strong>Votre consentement</strong> (article 6, paragraphe 1, point a) : autorisations facultatives telles que la découverte Bluetooth. Vous pouvez le retirer à tout moment, sans affecter la licéité du traitement antérieur.</li>
   </ul>
   <p>Nous ne nous appuyons pas sur l’« intérêt légitime » pour la publicité, le profilage ou l’analyse comportementale, car l’application ne fait rien de tout cela.</p>
-  <h2>Enfants et données personnelles</h2>
+  <h2 id="fr-children-and-personal-data">Enfants et données personnelles</h2>
   <p>L’application ne s’adresse pas aux enfants de moins de 13 ans et nous ne collectons pas sciemment leurs informations.</p>
   <p>Comme l’application ne collecte de données personnelles auprès de personne, les parents n’ont aucun réglage particulier à faire pour qu’un enfant l’utilise.</p>
-  <h2>Ni vente, ni partage</h2>
+  <h2 id="fr-no-sale-no-sharing">Ni vente, ni partage</h2>
   <p>Selon les définitions de « vente » et de « partage » du California Consumer Privacy Act tel que modifié (CCPA/CPRA), nous ne vendons pas et ne partageons pas de données personnelles. L’application ne contient pas de publicité et n’intègre aucun SDK d’analyse à des fins publicitaires ou de profilage ; nous ne tirons aucun bénéfice commercial de vos informations. Cela ne change pas avec le temps.</p>
-  <h2>Modifications de cette politique</h2>
+  <h2 id="fr-changes-to-this-policy">Modifications de cette politique</h2>
   <p>En cas de modification, nous mettrons à jour cette page et la date de dernière mise à jour ci-dessus.</p>
   <p>Si une modification touche la manière dont les informations sont traitées, nous l’expliquerons dans l’application ou sur la fiche du store avant son entrée en vigueur, et pas seulement en changeant la date.</p>
-  <h2>Nous contacter</h2>
+  <h2 id="fr-contact-us">Nous contacter</h2>
   <p>Pour toute question sur cette politique ou vos informations, écrivez à l’adresse du développeur publiée sous « Coordonnées du développeur » sur la fiche Google Play.</p>
 </section>
 
@@ -792,40 +819,40 @@ section[hidden]{display:none}
   <nav class="toc">
     <h2>Inhalt</h2>
     <ul>
-      <li>Wer wir sind</li>
-      <li>Was diese Erklärung abdeckt</li>
-      <li>Welche Informationen wir nicht verlangen</li>
-      <li>Informationen, die die App auf Ihrem Gerät verarbeitet</li>
-      <li>Berechtigungen der App</li>
-      <li>Optionales Trinkgeld</li>
-      <li>Diagnoseinformationen</li>
-      <li>Weitergabe von Informationen</li>
-      <li>Sicherheit</li>
-      <li>Aufbewahrung und Löschung</li>
-      <li>Ihre Rechte</li>
-      <li>Rechtsgrundlagen der Verarbeitung</li>
-      <li>Kinder und personenbezogene Daten</li>
-      <li>Kein Verkauf, keine Weitergabe</li>
-      <li>Änderungen dieser Erklärung</li>
-      <li>Kontakt</li>
+      <li><a href="#de-who-we-are">Wer wir sind</a></li>
+      <li><a href="#de-what-this-policy-covers">Was diese Erklärung abdeckt</a></li>
+      <li><a href="#de-what-we-do-not-ask-for">Welche Informationen wir nicht verlangen</a></li>
+      <li><a href="#de-information-the-app-processes">Informationen, die die App auf Ihrem Gerät verarbeitet</a></li>
+      <li><a href="#de-permissions">Berechtigungen der App</a></li>
+      <li><a href="#de-optional-tips">Optionales Trinkgeld</a></li>
+      <li><a href="#de-diagnostic-information">Diagnoseinformationen</a></li>
+      <li><a href="#de-sharing">Weitergabe von Informationen</a></li>
+      <li><a href="#de-security">Sicherheit</a></li>
+      <li><a href="#de-retention-and-deletion">Aufbewahrung und Löschung</a></li>
+      <li><a href="#de-your-rights">Ihre Rechte</a></li>
+      <li><a href="#de-legal-bases">Rechtsgrundlagen der Verarbeitung</a></li>
+      <li><a href="#de-children-and-personal-data">Kinder und personenbezogene Daten</a></li>
+      <li><a href="#de-no-sale-no-sharing">Kein Verkauf, keine Weitergabe</a></li>
+      <li><a href="#de-changes-to-this-policy">Änderungen dieser Erklärung</a></li>
+      <li><a href="#de-contact-us">Kontakt</a></li>
     </ul>
   </nav>
   <hr>
-  <h2>Wer wir sind</h2>
+  <h2 id="de-who-we-are">Wer wir sind</h2>
   <p>NielloPlayer („die App“) ist ein Offline-Musikplayer für Android, bereitgestellt vom unabhängigen Entwickler von NielloPlayer.</p>
   <p>Wir sind der Verantwortliche für die hier beschriebene Verarbeitung. Sie erreichen uns unter der E-Mail-Adresse, die im Play-Store-Eintrag unter „Kontaktdaten des Entwicklers“ angegeben ist; alle Anliegen zu dieser Erklärung oder zu Ihren Informationen können dorthin gesendet werden.</p>
-  <h2>Was diese Erklärung abdeckt</h2>
+  <h2 id="de-what-this-policy-covers">Was diese Erklärung abdeckt</h2>
   <p>Diese Erklärung beschreibt, welche Informationen die App auf Ihrem Gerät verarbeitet, zu welchen Zwecken und welche Wahlmöglichkeiten Sie haben. Sie gilt für die Android-Version.</p>
   <p>Diese Erklärung wird ausschließlich online bereitgestellt; in der App wird keine Kopie gespeichert. Was Sie in der App öffnen, ist stets die aktuelle Fassung und niemals eine Kopie, die mit dem Installationspaket veraltet ist.</p>
   <p>Sie gilt nicht für das, was geschieht, nachdem Sie eine Datei an eine andere App weitergegeben haben. Ab diesem Moment gilt die Erklärung der empfangenden App – siehe „Weitergabe von Informationen“.</p>
-  <h2>Welche Informationen wir nicht verlangen</h2>
+  <h2 id="de-what-we-do-not-ask-for">Welche Informationen wir nicht verlangen</h2>
   <p>Die App hat kein Konto und erfordert weder Registrierung noch Anmeldung. Wir verlangen weder Namen, E-Mail-Adresse, Telefonnummer noch Postanschrift und erheben weder Kontakte, SMS- und Anrufverläufe, Fotos und Videos, Kalender, Standort noch Werbe-IDs.</p>
   <p>In der App gibt es keine Werbung, und es ist kein SDK Dritter für Analyse, soziale Anmeldung oder Verhaltensverfolgung eingebunden. Wir erstellen keine Nutzerprofile, treffen keine zielgerichteten Empfehlungen auf Basis Ihres Verhaltens und keine automatisierten Entscheidungen.</p>
-  <h2>Informationen, die die App auf Ihrem Gerät verarbeitet</h2>
+  <h2 id="de-information-the-app-processes">Informationen, die die App auf Ihrem Gerät verarbeitet</h2>
   <p><strong>Bibliothek und Wiedergabestatus.</strong> Um Musik abzuspielen, liest die App auf Ihrem Gerät gespeicherte Audiodateien. Bibliotheksindex, Warteschlange, Wiedergabeposition, Klang- und Equalizer-Einstellungen sowie die Zuordnung von Titeln zu Liedtexten werden im privaten Speicher der App gehalten, damit Ihr vorheriger Zustand beim nächsten Start wiederhergestellt wird. Diese Informationen bleiben auf Ihrem Gerät und werden nicht an uns gesendet.</p>
   <p><strong>Ordner, die Sie auswählen.</strong> Ordner außerhalb der System-Mediathek – etwa ein Musikordner auf einer SD-Karte – sind nur über die Android-Systemdateiauswahl erreichbar. Die App kann ausschließlich den von Ihnen selbst ausgewählten Ordner lesen, keine anderen Orte, und fordert keinen umfassenden Dateizugriff an. Selbst hinzugefügte Liedtextdateien werden über dieselbe Auswahl freigegeben.</p>
   <p><strong>Empfangsordner.</strong> Über Bluetooth, lokales Netzwerk oder Webseite empfangene Dateien werden in den Ordner geschrieben, den Sie unter Einstellungen → Bibliothek → Empfangsordner wählen; standardmäßig <code>Music/NielloPlayer</code> im gemeinsamen Gerätespeicher. Die Inhalte dieses Ordners verwalten Sie selbst – siehe „Weitergabe von Informationen“.</p>
-  <h2>Berechtigungen der App</h2>
+  <h2 id="de-permissions">Berechtigungen der App</h2>
   <p>Jede Berechtigung wirkt nur, wenn die zugehörige Funktion genutzt wird. Wir fragen nichts im Voraus ab, was Sie noch nicht verwenden, und die Ablehnung einer optionalen Berechtigung nimmt Ihnen nie die grundlegende Wiedergabe.</p>
   <p><strong>Audiodateien.</strong> Ab Android 13 wird <code>READ_MEDIA_AUDIO</code> genutzt, unter Android 10 bis 12 <code>READ_EXTERNAL_STORAGE</code>; beides dient dem Durchsuchen und Abspielen Ihrer Musik. <code>WRITE_EXTERNAL_STORAGE</code> wird nur für Android 10 und älter deklariert, um den von Ihnen gewählten Ordner zu merken. Sie können diese Berechtigungen jederzeit in den Systemeinstellungen entziehen; danach zeigt die App nur bereits indizierte Inhalte.</p>
   <p><strong>Netzwerk.</strong> <code>INTERNET</code> dient vier Dingen: einer kleinen lokalen Webseite zum Übertragen von Titeln, dem Finden des anderen Geräts im selben lokalen Netzwerk, der Kommunikation mit Google Play, wenn Sie ein Trinkgeld geben möchten, und dem Laden der Online-Seite dieser Erklärung. Die App betreibt keine eigenen Server und lädt weder Ihre Bibliothek noch Liedtexte oder Einstellungen hoch.</p>
@@ -834,31 +861,31 @@ section[hidden]{display:none}
   <p>Unter Android 11 und älter bindet das System das Bluetooth-Scannen an die Standortberechtigung. Die App deklariert <code>ACCESS_FINE_LOCATION</code> nur für diese Versionen und fragt in der App genau einmal, wenn Sie die Bluetooth-Suche oder die Empfangsseite öffnen. Sie können ablehnen; danach können Sie weiterhin an bereits gekoppelte Geräte senden. Die App liest, speichert und überträgt keine Standortwerte.</p>
   <p><strong>Vordergrunddienst und Benachrichtigungen.</strong> <code>FOREGROUND_SERVICE</code> und <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code> halten die Musik im Hintergrund am Laufen; <code>POST_NOTIFICATIONS</code> zeigt die Wiedergabesteuerung auf dem Sperrbildschirm und in der Benachrichtigungsleiste.</p>
   <p><strong>Abrechnung.</strong> <code>com.android.vending.BILLING</code> ist für das optionale Trinkgeld über Google Play erforderlich.</p>
-  <h2>Optionales Trinkgeld</h2>
+  <h2 id="de-optional-tips">Optionales Trinkgeld</h2>
   <p>Ein Trinkgeld ist völlig freiwillig und wird vollständig über Google Play Billing abgewickelt.</p>
   <p>Google handelt als eigenständiger Verantwortlicher und empfängt und verarbeitet Ihre Zahlungsinformationen nach seiner eigenen Datenschutzerklärung (<a href="https://policies.google.com/privacy" rel="noopener">policies.google.com/privacy</a>). Wir erhalten, sehen und speichern zu keinem Zeitpunkt Ihre Kartennummer, Rechnungsadresse oder Ihr Google-Konto, und Kaufinformationen gelangen nicht in die App.</p>
   <p>Der einzige lokale Vermerk zum Trinkgeld ist eine Markierung „es gibt ein Trinkgeld, für das wir uns noch nicht persönlich bedankt haben“, mit der beim nächsten Öffnen der Trinkgeld-Seite der passende Dank erscheint. Sie enthält weder einen Betrag noch Zahlungsnachweise und wird beim Deinstallieren gelöscht.</p>
   <p>Ein Trinkgeld schaltet keine Funktionen frei. Alles funktioniert ohne Zahlung.</p>
-  <h2>Diagnoseinformationen</h2>
+  <h2 id="de-diagnostic-information">Diagnoseinformationen</h2>
   <p>Da die App über Google Play vertrieben wird, erhebt Google auf Plattformebene Qualitätsdaten der App – Android vitals: Abstürze und Stack-Traces, ANR-Ereignisse (keine Reaktion), Startzeit, Akku- und Speicherverbrauch, Ergebnisse von Berechtigungsanfragen sowie App-Version, Android-Version, Gerätemodell und Land/Region zum Zeitpunkt. Diese Daten erhebt Google Play direkt, sie benötigen keinen Code in der App und laufen nicht über uns. Sie dienen ausschließlich der Bewertung und Verbesserung der App-Qualität; wir sehen in der Play Console nur aggregierte Ergebnisse und niemals den Datensatz eines einzelnen Nutzers.</p>
   <p>Diese Erhebung erfolgt durch Google als eigenständigen Verantwortlichen und unterliegt Googles eigener Datenschutzerklärung. Sie können die Freigabe unter Einstellungen → Google → Nutzung und Diagnose deaktivieren; danach erhebt Google diese Daten nicht mehr von Ihrem Gerät.</p>
-  <h2>Weitergabe von Informationen</h2>
+  <h2 id="de-sharing">Weitergabe von Informationen</h2>
   <p>Wir verkaufen, vermieten oder tauschen Ihre Informationen nicht und geben sie nicht für Werbung oder app-übergreifende Verfolgung weiter.</p>
   <p>In zwei Fällen verlassen Dateien die App zu einer anderen, und beide starten Sie:</p>
   <p><strong>Bluetooth-Übertragung.</strong> Die App öffnet die System-Freigabe von Android, und Sie wählen die empfangende App. Nach der Übergabe richten sich Speicherung, Vervielfältigung und Weitergabe nach der Erklärung jener App und liegen außerhalb dieser hier.</p>
   <p><strong>Empfangsordner.</strong> Der Standardordner <code>Music/NielloPlayer</code> liegt im gemeinsamen Gerätespeicher, wo das System anderen Apps das Lesen erlaubt. Wenn Sie den Empfangsordner anderswohin legen, bestimmen Androids Speicherregeln und die von Ihnen erteilten Berechtigungen, was lesbar ist – eine Entscheidung von Ihnen.</p>
   <p>Außer Google Play Billing und den oben beschriebenen Android vitals geben wir Ihre Informationen an keinen Dritten weiter, und es gibt keine Situation, in der Ihre Bibliotheksinformationen ins Ausland übertragen werden müssten. Bibliothek, Liedtexte, Wiedergabeverlauf und Einstellungen bleiben auf Ihrem Gerät und wurden nie irgendwohin übertragen.</p>
-  <h2>Sicherheit</h2>
+  <h2 id="de-security">Sicherheit</h2>
   <p>Der private Speicher der App ist durch die Android-App-Sandbox geschützt; andere Apps können ihn nicht lesen.</p>
   <p>Wir betreiben keinen Backend-Dienst, der Ihre Daten empfängt, und die Wiedergabe hängt nicht vom Netzwerk ab; Ihre Bibliothek und Einstellungen können daher nicht über einen Server von uns gelesen werden.</p>
   <p>Daten, die durch Links in Ihrem eigenen Browser entstehen, verarbeitet dieser Browser.</p>
   <p>Die Online-Seite dieser Erklärung wird auf GitHub Pages gehostet und in der App als benutzerdefinierter Tab des Systembrowsers geöffnet: Die Adressleiste wird vom Browser gezeichnet, sodass Sie prüfen können, dass Sie sich tatsächlich auf <code>arcanesparkle.github.io</code> befinden und nicht auf einer Hülle innerhalb der App. GitHub als Hoster erhält die zur Auslieferung nötigen technischen Informationen, etwa Ihre IP-Adresse und den Zeitpunkt der Anfrage; der Browser kann zudem nach seinen Einstellungen einen eigenen Verlauf und Cache dieses Besuchs behalten, und die von Ihnen gewählte Anzeigesprache wird ebenfalls im Browser gespeichert. All das geschieht zwischen Browser und Hoster: Die App liest die Seiteninhalte nicht und kann nicht steuern, was der Browser behält.</p>
-  <h2>Aufbewahrung und Löschung</h2>
+  <h2 id="de-retention-and-deletion">Aufbewahrung und Löschung</h2>
   <p>Solange Sie die App behalten, bleiben Ihre Informationen auf Ihrem Gerät.</p>
   <p>Beim Deinstallieren werden Bibliotheksindex, Warteschlange und alle Einstellungen im privaten Speicher gelöscht. Wir behalten keine Kopie – es gibt keine Cloud-Daten, deren Löschung Sie gesondert beantragen müssten.</p>
   <p>Die App hat keinen eigenen Befehl „Bibliothek leeren“. Der Index lässt sich derzeit nur durch Deinstallieren und Neuinstallieren von Grund auf neu aufbauen.</p>
   <p>Der für Anzeige und Hintergrundwiedergabe nötige Wiedergabestatus liegt nur im Arbeitsspeicher und wird beim Verlassen der App freigegeben.</p>
-  <h2>Ihre Rechte</h2>
+  <h2 id="de-your-rights">Ihre Rechte</h2>
   <p>Je nach Recht Ihres Landes haben Sie möglicherweise das Recht, die über Sie gespeicherten Informationen einzusehen, unrichtige Angaben berichtigen zu lassen, deren Löschung zu verlangen, die Verarbeitung einzuschränken oder ihr zu widersprechen und die Informationen in einem übertragbaren Format zu erhalten.</p>
   <p>Da Ihre Informationen nur auf Ihrem Gerät existieren und wir keine Kopie besitzen, lassen sich diese Rechte unmittelbar ausüben:</p>
   <ul>
@@ -867,22 +894,22 @@ section[hidden]{display:none}
     <li><strong>Widerruf der Einwilligung:</strong> erteilte Berechtigungen jederzeit in den Systemeinstellungen entziehen; die zugehörige Funktion endet, der Rest bleibt unberührt.</li>
   </ul>
   <p>Wenn Sie der Ansicht sind, dass unsere Verarbeitung gegen Datenschutzrecht verstößt, können Sie sich bei einer Aufsichtsbehörde an Ihrem Wohnort, Arbeitsplatz oder am Ort des mutmaßlichen Verstoßes beschweren. Sie können sich auch zuerst an uns wenden; wir bemühen uns um eine direkte Lösung.</p>
-  <h2>Rechtsgrundlagen der Verarbeitung</h2>
+  <h2 id="de-legal-bases">Rechtsgrundlagen der Verarbeitung</h2>
   <p>Soweit die Datenschutz-Grundverordnung (DSGVO) gilt, verarbeiten wir Informationen auf folgenden Grundlagen:</p>
   <ul>
     <li><strong>Vertragserfüllung</strong> (Art. 6 Abs. 1 lit. b): Lesen Ihrer Audiodateien zum Abspielen, Merken von Wiedergabeposition und Klangeinstellungen, Empfang von Dateien in den von Ihnen bestimmten Ordner. Diese Verarbeitung ist zur Erbringung der von Ihnen gewünschten Leistung erforderlich.</li>
     <li><strong>Ihre Einwilligung</strong> (Art. 6 Abs. 1 lit. a): optionale Berechtigungen wie die Bluetooth-Suche. Sie können sie jederzeit widerrufen, ohne dass die Rechtmäßigkeit der bisherigen Verarbeitung berührt wird.</li>
   </ul>
   <p>Wir stützen uns nicht auf „berechtigte Interessen“ für Werbung, Profilbildung oder Verhaltensanalyse, weil die App all das nicht tut.</p>
-  <h2>Kinder und personenbezogene Daten</h2>
+  <h2 id="de-children-and-personal-data">Kinder und personenbezogene Daten</h2>
   <p>Die App richtet sich nicht an Kinder unter 13 Jahren, und wir erheben wissentlich keine Informationen von ihnen.</p>
   <p>Da die App von niemandem personenbezogene Daten erhebt, müssen Eltern für die Nutzung durch ein Kind nichts zusätzlich einstellen.</p>
-  <h2>Kein Verkauf, keine Weitergabe</h2>
+  <h2 id="de-no-sale-no-sharing">Kein Verkauf, keine Weitergabe</h2>
   <p>Nach den Definitionen von „Verkauf“ und „Weitergabe“ im kalifornischen Verbraucherdatenschutzgesetz in der geänderten Fassung (CCPA/CPRA) verkaufen wir keine personenbezogenen Daten und geben sie nicht weiter. Die App enthält keine Werbung und kein Analyse-SDK für Werbung oder Profilbildung; aus Ihren Informationen ziehen wir keinen kommerziellen Nutzen. Das ändert sich nicht mit der Zeit.</p>
-  <h2>Änderungen dieser Erklärung</h2>
+  <h2 id="de-changes-to-this-policy">Änderungen dieser Erklärung</h2>
   <p>Ändert sich diese Erklärung, aktualisieren wir diese Seite und das Datum der letzten Aktualisierung oben.</p>
   <p>Betrifft eine Änderung die Art der Verarbeitung, erläutern wir sie vor dem Wirksamwerden in der App oder im Store-Eintrag und ändern nicht nur das Datum.</p>
-  <h2>Kontakt</h2>
+  <h2 id="de-contact-us">Kontakt</h2>
   <p>Zu dieser Erklärung oder zu Ihren Informationen erreichen Sie uns unter der Entwickler-E-Mail, die im Play-Store-Eintrag unter „Kontaktdaten des Entwicklers“ angegeben ist.</p>
 </section>
 
@@ -895,40 +922,40 @@ section[hidden]{display:none}
   <nav class="toc">
     <h2>目次</h2>
     <ul>
-      <li>私たちについて</li>
-      <li>本ポリシーが対象とする範囲</li>
-      <li>私たちが求めない情報</li>
-      <li>本アプリが端末上で取り扱う情報</li>
-      <li>本アプリが使用する権限</li>
-      <li>任意の投げ銭</li>
-      <li>診断情報</li>
-      <li>情報の共有</li>
-      <li>情報の安全</li>
-      <li>保存と削除</li>
-      <li>あなたの権利</li>
-      <li>取り扱いの法的根拠</li>
-      <li>子どもと個人データ</li>
-      <li>販売も共有もしません</li>
-      <li>本ポリシーの変更</li>
-      <li>お問い合わせ</li>
+      <li><a href="#ja-who-we-are">私たちについて</a></li>
+      <li><a href="#ja-what-this-policy-covers">本ポリシーが対象とする範囲</a></li>
+      <li><a href="#ja-what-we-do-not-ask-for">私たちが求めない情報</a></li>
+      <li><a href="#ja-information-the-app-processes">本アプリが端末上で取り扱う情報</a></li>
+      <li><a href="#ja-permissions">本アプリが使用する権限</a></li>
+      <li><a href="#ja-optional-tips">任意の投げ銭</a></li>
+      <li><a href="#ja-diagnostic-information">診断情報</a></li>
+      <li><a href="#ja-sharing">情報の共有</a></li>
+      <li><a href="#ja-security">情報の安全</a></li>
+      <li><a href="#ja-retention-and-deletion">保存と削除</a></li>
+      <li><a href="#ja-your-rights">あなたの権利</a></li>
+      <li><a href="#ja-legal-bases">取り扱いの法的根拠</a></li>
+      <li><a href="#ja-children-and-personal-data">子どもと個人データ</a></li>
+      <li><a href="#ja-no-sale-no-sharing">販売も共有もしません</a></li>
+      <li><a href="#ja-changes-to-this-policy">本ポリシーの変更</a></li>
+      <li><a href="#ja-contact-us">お問い合わせ</a></li>
     </ul>
   </nav>
   <hr>
-  <h2>私たちについて</h2>
+  <h2 id="ja-who-we-are">私たちについて</h2>
   <p>NielloPlayer（以下「本アプリ」）は、NielloPlayer の個人開発者が提供する Android 向けのオフライン音楽プレーヤーです。</p>
   <p>本ポリシーに記載する取り扱いの管理者は私たちです。Google Play の商品ページ「デベロッパーの連絡先情報」に掲載しているメールアドレスでご連絡いただけます。本ポリシーやあなたの情報に関するご請求も、そのアドレスへお送りください。</p>
-  <h2>本ポリシーが対象とする範囲</h2>
+  <h2 id="ja-what-this-policy-covers">本ポリシーが対象とする範囲</h2>
   <p>本ポリシーは、本アプリがあなたの端末上でどの情報を、どのような目的で取り扱い、あなたにどのような選択肢があるかを説明します。対象は Android 版です。</p>
   <p>本ポリシーはオンラインでのみ提供され、アプリ内に複製は保存しません。アプリ内で開くのは常に現在の版であり、インストールパッケージとともに古くなった版を読むことはありません。</p>
   <p>ファイルを他のアプリに渡した後に起きることには及びません。その時点からは受け取り側アプリのポリシーが適用されます（「情報の共有」参照）。</p>
-  <h2>私たちが求めない情報</h2>
+  <h2 id="ja-what-we-do-not-ask-for">私たちが求めない情報</h2>
   <p>本アプリにアカウントはなく、登録もログインも不要です。氏名、メールアドレス、電話番号、住所を求めることはなく、連絡先、SMS や通話履歴、写真や動画、カレンダー、位置情報、広告 ID を収集することもありません。</p>
   <p>アプリ内に広告はなく、解析・ソーシャルログイン・行動追跡のサードパーティ SDK も組み込んでいません。利用者プロファイルを作成せず、利用行動に基づくターゲティングも行わず、自動化された意思決定も行いません。</p>
-  <h2>本アプリが端末上で取り扱う情報</h2>
+  <h2 id="ja-information-the-app-processes">本アプリが端末上で取り扱う情報</h2>
   <p><strong>ライブラリと再生状態。</strong> 音楽を再生するため、本アプリは端末に保存された音声ファイルを読み取ります。ライブラリの索引、再生キュー、再生位置、音質とイコライザーの設定、曲と歌詞の対応は、次回起動時に以前の状態を復元できるよう、アプリの専用領域に保存されます。これらの情報は端末内に留まり、私たちに送信されることはありません。</p>
   <p><strong>あなたが選択したフォルダー。</strong> システムのメディアライブラリ外のフォルダー（SD カード上の音楽フォルダーなど）には、Android のシステムファイル選択ツールを通してのみアクセスできます。本アプリが読み取れるのはあなた自身が選択したフォルダーだけで、他の場所は読めず、全ファイルへのアクセス権限も要求しません。ご自身で追加する歌詞ファイルも同じ選択ツールで許可されます。</p>
   <p><strong>受信フォルダー。</strong> Bluetooth、ローカルネットワーク、Web ページで受け取ったファイルは、「設定 → ライブラリ → 受信フォルダー」で指定したフォルダーに書き込まれます。既定は端末の共有ストレージ内の <code>Music/NielloPlayer</code> です。そのフォルダーの中身はご自身で管理するもので、詳細は「情報の共有」を参照してください。</p>
-  <h2>本アプリが使用する権限</h2>
+  <h2 id="ja-permissions">本アプリが使用する権限</h2>
   <p>各権限は対応する機能を使うときにのみ働きます。まだ使っていない機能のために先に要求することはなく、任意の権限を拒否しても基本的な再生機能が制限されることはありません。</p>
   <p><strong>音声ファイル。</strong> Android 13 以降は <code>READ_MEDIA_AUDIO</code>、Android 10〜12 は <code>READ_EXTERNAL_STORAGE</code> を使用し、音楽のスキャンと再生に用います。<code>WRITE_EXTERNAL_STORAGE</code> は Android 10 以下にのみ宣言し、選択したフォルダーを記憶するために使います。これらの権限はシステム設定でいつでも取り消せます。取り消した後は、既に索引済みの内容のみが表示されます。</p>
   <p><strong>ネットワーク。</strong> <code>INTERNET</code> は 4 つの用途に使います。端末上でローカルネットワーク用の小さな Web ページを提供する（Web 転送）、同じローカルネットワーク内で相手端末を見つける、投げ銭を選んだときに Google Play と通信する、本ポリシーのオンラインページを読み込む。本アプリは自前のサーバーを運用せず、あなたのライブラリ、歌詞、設定をアップロードしません。</p>
@@ -937,31 +964,31 @@ section[hidden]{display:none}
   <p>Android 11 以下では、システムが Bluetooth スキャンと位置情報権限を結び付けています。本アプリはこれらのバージョンに限り <code>ACCESS_FINE_LOCATION</code> を宣言し、Bluetooth の検出または受信ページを開いたときにアプリ内で一度だけ確認します。拒否しても構いません。拒否後もペア設定済みの端末へは送信できます。本アプリは位置情報の値を読み取りも保存も送信もしません。</p>
   <p><strong>フォアグラウンドサービスと通知。</strong> <code>FOREGROUND_SERVICE</code> と <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code> はバックグラウンドでの再生継続に、<code>POST_NOTIFICATIONS</code> はロック画面と通知領域に再生コントロールを表示するために使います。</p>
   <p><strong>課金。</strong> <code>com.android.vending.BILLING</code> は Google Play による任意の投げ銭に必要な権限です。</p>
-  <h2>任意の投げ銭</h2>
+  <h2 id="ja-optional-tips">任意の投げ銭</h2>
   <p>投げ銭はまったく任意であり、すべて Google Play の課金で処理されます。</p>
   <p>Google は独立した管理者として、Google 自身のプライバシーポリシー（<a href="https://policies.google.com/privacy" rel="noopener">policies.google.com/privacy</a>）に基づき支払い情報を受け取り処理します。私たちはどの段階でもカード番号、請求先住所、Google アカウントを受け取らず、閲覧せず、保存しません。購入記録が本アプリに入ることもありません。</p>
   <p>投げ銭に関する唯一のローカルな記録は「まだ直接お礼を伝えていない投げ銭がある」という印で、次に投げ銭ページを開いたときに対応するお礼を表示するために使います。金額も支払い資格情報も含まず、アプリをアンインストールすると削除されます。</p>
   <p>投げ銭で機能が解放されることはありません。支払わなくてもすべての機能を使えます。</p>
-  <h2>診断情報</h2>
+  <h2 id="ja-diagnostic-information">診断情報</h2>
   <p>本アプリは Google Play を通じて配布されるため、Google はプラットフォームのレベルでアプリの品質データ（Android vitals）を収集します。クラッシュの回数とスタックトレース、ANR（応答なし）イベント、起動時間、消費電力とメモリ使用量、権限の許可・拒否の状況、および発生時のアプリのバージョン、Android のバージョン、端末の機種、国／地域です。これは Google Play が直接収集するもので、アプリにコードを組み込む必要はなく、私たちを経由しません。用途はアプリ品質の評価と改善に限られ、私たちは Play Console で集計結果のみを確認でき、個々の利用者の記録は見えません。</p>
   <p>この収集は Google が独立した管理者として行い、Google 自身のプライバシーポリシーに従います。端末の「設定 → Google → 使用状況と診断情報」で共有をオフにできます。オフにすると、Google はこの端末からこれらのデータを収集しなくなります。</p>
-  <h2>情報の共有</h2>
+  <h2 id="ja-sharing">情報の共有</h2>
   <p>私たちはあなたの情報を販売、貸与、交換せず、広告やアプリ間追跡のために共有することもありません。</p>
   <p>ファイルが他のアプリに渡るのは次の 2 つの場合で、いずれもあなたが開始します。</p>
   <p><strong>Bluetooth 転送。</strong> 本アプリは Android のシステム共有シートを開き、受け取り側アプリはあなたが選びます。渡した後の保存、複製、再配布はそのアプリのポリシーに従い、本ポリシーの範囲外です。</p>
   <p><strong>受信フォルダー。</strong> 既定の <code>Music/NielloPlayer</code> は端末の共有ストレージにあり、システムは他のアプリにその中身の読み取りを許します。受信フォルダーを別の場所に変えた場合、読み取り可能な範囲は Android のストレージ規則とあなたが付与した権限で決まり、それはあなたの選択です。</p>
   <p>Google Play の課金と上記の Android vitals を除き、私たちは第三者とあなたの情報を共有せず、あなたのライブラリ情報を国外へ移転する必要が生じる状況もありません。ライブラリ、歌詞、再生履歴、設定は常に端末内にあり、どこかへ送信されたことはありません。</p>
-  <h2>情報の安全</h2>
+  <h2 id="ja-security">情報の安全</h2>
   <p>アプリの専用領域は Android のアプリサンドボックスで保護され、他のアプリからは読み取れません。</p>
   <p>私たちはあなたのデータを受け取るバックエンドサービスを運用しておらず、再生はネットワークに依存しないため、あなたのライブラリと設定が私たちのサーバー経由で読まれることはありません。</p>
   <p>あなた自身のブラウザーで開いたリンクが生むデータは、そのブラウザーが扱います。</p>
   <p>本ポリシーのオンラインページは GitHub Pages でホストされ、アプリ内ではシステムブラウザーの「カスタムタブ」として開きます。アドレスバーはブラウザーが描画するため、自分が確かに <code>arcanesparkle.github.io</code> 上にいること（アプリ内の偽装ページではないこと）を確認できます。ホストである GitHub は、ページ配信に必要な技術情報（IP アドレスやリクエスト時刻など）を受け取ります。ブラウザーも自身の設定に従ってこの訪問の記録やキャッシュを保持することがあり、ページで選んだ表示言語もブラウザー側に保存されます。これらはブラウザーとホストの間で起きることであり、本アプリはページ内容を読み取らず、ブラウザーが何を保持するかを制御できません。</p>
-  <h2>保存と削除</h2>
+  <h2 id="ja-retention-and-deletion">保存と削除</h2>
   <p>本アプリを保持している限り、あなたの情報は端末上に残ります。</p>
   <p>アプリをアンインストールすると、専用領域のライブラリ索引、再生キュー、すべての設定が削除されます。私たちは複製を保持しません。別途削除を申請すべきクラウドデータは存在しません。</p>
   <p>本アプリに独立した「ライブラリを消去」コマンドはありません。現時点で索引を一から作り直す方法は、アンインストールして再インストールすることです。</p>
   <p>画面表示とバックグラウンド再生に必要な再生状態はメモリ内にのみ存在し、アプリを終了すると解放されます。</p>
-  <h2>あなたの権利</h2>
+  <h2 id="ja-your-rights">あなたの権利</h2>
   <p>お住まいの地域の法律により、私たちが保有するあなたに関する情報へのアクセス、不正確な情報の訂正、削除、取り扱いの制限や異議、および持ち運び可能な形式での取得を求める権利がある場合があります。</p>
   <p>あなたの情報は端末上にのみ存在し、私たちは複製を保有していないため、これらの権利は直接行使できます。</p>
   <ul>
@@ -970,22 +997,22 @@ section[hidden]{display:none}
     <li><strong>同意の撤回</strong>：付与した権限はシステム設定でいつでも取り消せます。取り消すと対応機能は停止しますが、他の機能には影響しません。</li>
   </ul>
   <p>私たちの取り扱いがデータ保護法に違反すると考える場合、居住地、勤務地、または侵害が疑われる場所の監督機関に苦情を申し立てる権利があります。まず私たちにご連絡いただければ、直接解決できるよう努めます。</p>
-  <h2>取り扱いの法的根拠</h2>
+  <h2 id="ja-legal-bases">取り扱いの法的根拠</h2>
   <p>EU 一般データ保護規則（GDPR）が適用される場合、私たちは次の根拠に基づいて情報を取り扱います。</p>
   <ul>
     <li><strong>契約の履行</strong>（第 6 条 1 項 b）：再生のための音声の読み取り、再生位置と音質設定の記憶、指定されたフォルダーへのファイル受信。これらはあなたが求めたサービスの提供に必要な取り扱いです。</li>
     <li><strong>あなたの同意</strong>（第 6 条 1 項 a）：Bluetooth 検出などの任意の権限。いつでも撤回でき、撤回前の取り扱いの適法性には影響しません。</li>
   </ul>
   <p>私たちは「正当な利益」を根拠として広告、プロファイリング、行動分析を行うことはありません。本アプリはそれらを行わないためです。</p>
-  <h2>子どもと個人データ</h2>
+  <h2 id="ja-children-and-personal-data">子どもと個人データ</h2>
   <p>本アプリは 13 歳未満の子どもを対象としておらず、意図的に彼らの情報を収集することもありません。</p>
   <p>本アプリは誰からも個人情報を収集しないため、子どもが使用するために保護者が特別な設定をする必要はありません。</p>
-  <h2>販売も共有もしません</h2>
+  <h2 id="ja-no-sale-no-sharing">販売も共有もしません</h2>
   <p>改正カリフォルニア州消費者プライバシー法（CCPA/CPRA）の「販売」および「共有」の定義において、私たちは個人情報を販売せず、共有もしません。本アプリに広告はなく、広告やプロファイリングのための解析 SDK も組み込んでおらず、あなたの情報から商業的利益を得ることはありません。この状態は時間が経っても変わりません。</p>
-  <h2>本ポリシーの変更</h2>
+  <h2 id="ja-changes-to-this-policy">本ポリシーの変更</h2>
   <p>本ポリシーを変更する場合は、このページの内容と上部の最終更新日を更新します。</p>
   <p>情報の取り扱いに影響する変更の場合は、日付の更新だけでなく、効力発生前にアプリ内またはストアページで説明します。</p>
-  <h2>お問い合わせ</h2>
+  <h2 id="ja-contact-us">お問い合わせ</h2>
   <p>本ポリシーやあなたの情報については、Google Play の商品ページ「デベロッパーの連絡先情報」に掲載しているデベロッパーのメールアドレスまでご連絡ください。</p>
 </section>
 
@@ -998,40 +1025,40 @@ section[hidden]{display:none}
   <nav class="toc">
     <h2>목차</h2>
     <ul>
-      <li>우리는 누구인가</li>
-      <li>이 방침이 다루는 범위</li>
-      <li>우리가 요구하지 않는 정보</li>
-      <li>앱이 기기에서 처리하는 정보</li>
-      <li>앱이 사용하는 권한</li>
-      <li>선택적 후원</li>
-      <li>진단 정보</li>
-      <li>정보 공유</li>
-      <li>정보의 안전</li>
-      <li>보관과 삭제</li>
-      <li>귀하의 권리</li>
-      <li>처리의 법적 근거</li>
-      <li>아동과 개인정보</li>
-      <li>판매하지 않고 공유하지 않습니다</li>
-      <li>방침의 변경</li>
-      <li>문의</li>
+      <li><a href="#ko-who-we-are">우리는 누구인가</a></li>
+      <li><a href="#ko-what-this-policy-covers">이 방침이 다루는 범위</a></li>
+      <li><a href="#ko-what-we-do-not-ask-for">우리가 요구하지 않는 정보</a></li>
+      <li><a href="#ko-information-the-app-processes">앱이 기기에서 처리하는 정보</a></li>
+      <li><a href="#ko-permissions">앱이 사용하는 권한</a></li>
+      <li><a href="#ko-optional-tips">선택적 후원</a></li>
+      <li><a href="#ko-diagnostic-information">진단 정보</a></li>
+      <li><a href="#ko-sharing">정보 공유</a></li>
+      <li><a href="#ko-security">정보의 안전</a></li>
+      <li><a href="#ko-retention-and-deletion">보관과 삭제</a></li>
+      <li><a href="#ko-your-rights">귀하의 권리</a></li>
+      <li><a href="#ko-legal-bases">처리의 법적 근거</a></li>
+      <li><a href="#ko-children-and-personal-data">아동과 개인정보</a></li>
+      <li><a href="#ko-no-sale-no-sharing">판매하지 않고 공유하지 않습니다</a></li>
+      <li><a href="#ko-changes-to-this-policy">방침의 변경</a></li>
+      <li><a href="#ko-contact-us">문의</a></li>
     </ul>
   </nav>
   <hr>
-  <h2>우리는 누구인가</h2>
+  <h2 id="ko-who-we-are">우리는 누구인가</h2>
   <p>NielloPlayer(이하 “본 앱”)는 NielloPlayer의 개인 개발자가 제공하는 Android용 오프라인 음악 플레이어입니다.</p>
   <p>이 방침에 설명된 처리의 관리자는 우리입니다. Google Play 상품 페이지의 “개발자 연락처 정보”에 공개된 이메일로 연락할 수 있으며, 이 방침이나 귀하의 정보에 관한 모든 요청도 그 주소로 보내면 됩니다.</p>
-  <h2>이 방침이 다루는 범위</h2>
+  <h2 id="ko-what-this-policy-covers">이 방침이 다루는 범위</h2>
   <p>이 방침은 본 앱이 귀하의 기기에서 어떤 정보를 어떤 목적으로 처리하는지, 그리고 귀하에게 어떤 선택권이 있는지 설명합니다. Android 버전에 적용됩니다.</p>
   <p>이 방침은 온라인으로만 제공되며 앱 안에 사본을 저장하지 않습니다. 앱에서 여는 것은 항상 현재 버전이며, 설치 파일과 함께 오래된 사본을 읽게 되는 일은 없습니다.</p>
   <p>파일을 다른 앱에 넘긴 뒤에 일어나는 일은 다루지 않습니다. 그 시점부터는 받는 앱의 방침이 적용됩니다(“정보 공유” 참조).</p>
-  <h2>우리가 요구하지 않는 정보</h2>
+  <h2 id="ko-what-we-do-not-ask-for">우리가 요구하지 않는 정보</h2>
   <p>본 앱에는 계정이 없고 가입이나 로그인도 필요하지 않습니다. 이름, 이메일 주소, 전화번호, 우편 주소를 요구하지 않으며, 연락처·문자 및 통화 기록·사진과 동영상·캘린더·위치·광고 식별자를 수집하지 않습니다.</p>
   <p>앱 안에 광고가 없고, 분석·소셜 로그인·행태 추적용 제3자 SDK도 넣지 않았습니다. 이용자 프로파일을 만들지 않고, 이용 행태로 맞춤 추천을 하지 않으며, 자동화된 의사결정도 하지 않습니다.</p>
-  <h2>앱이 기기에서 처리하는 정보</h2>
+  <h2 id="ko-information-the-app-processes">앱이 기기에서 처리하는 정보</h2>
   <p><strong>라이브러리와 재생 상태.</strong> 음악을 재생하기 위해 앱은 기기에 저장된 오디오 파일을 읽습니다. 라이브러리 색인, 재생 대기열, 재생 위치, 음질과 이퀄라이저 설정, 곡과 가사의 연결 정보는 다음 실행 때 이전 상태를 복원할 수 있도록 앱 전용 저장소에 보관됩니다. 이 정보는 기기에 남으며 우리에게 전송되지 않습니다.</p>
   <p><strong>귀하가 고른 폴더.</strong> 시스템 미디어 라이브러리 밖의 폴더(예: SD 카드의 음악 폴더)는 Android 시스템 파일 선택기를 통해서만 접근할 수 있습니다. 앱이 읽을 수 있는 것은 귀하가 직접 고른 폴더뿐이며, 다른 위치는 읽을 수 없고 전체 파일 접근 권한도 요구하지 않습니다. 직접 추가하는 가사 파일도 같은 선택기로 허용됩니다.</p>
   <p><strong>수신 폴더.</strong> Bluetooth, 근거리 네트워크, 웹 페이지로 받은 파일은 “설정 → 라이브러리 → 수신 폴더”에서 지정한 폴더에 기록되며, 기본값은 기기 공용 저장소의 <code>Music/NielloPlayer</code>입니다. 그 폴더의 내용은 귀하가 관리하며, 자세한 내용은 “정보 공유”를 참조하세요.</p>
-  <h2>앱이 사용하는 권한</h2>
+  <h2 id="ko-permissions">앱이 사용하는 권한</h2>
   <p>각 권한은 해당 기능을 쓸 때만 작동합니다. 아직 쓰지 않는 기능의 권한을 미리 요구하지 않고, 선택 권한을 거부해도 기본 재생 기능이 제한되지 않습니다.</p>
   <p><strong>오디오 파일.</strong> Android 13 이상은 <code>READ_MEDIA_AUDIO</code>, Android 10~12는 <code>READ_EXTERNAL_STORAGE</code>를 사용해 음악을 검색하고 재생합니다. <code>WRITE_EXTERNAL_STORAGE</code>는 Android 10 이하에만 선언하며, 선택한 폴더를 기억하는 데 씁니다. 이 권한은 시스템 설정에서 언제든 취소할 수 있고, 취소하면 이미 색인된 내용만 표시됩니다.</p>
   <p><strong>네트워크.</strong> <code>INTERNET</code>은 네 가지에 쓰입니다. 기기에서 근거리 네트워크용 작은 웹 페이지를 제공하고(웹 전송), 같은 근거리 네트워크에서 상대 기기를 찾고, 후원을 선택할 때 Google Play와 통신하고, 이 방침의 온라인 페이지를 불러옵니다. 앱은 자체 서버를 운영하지 않으며 라이브러리·가사·설정을 업로드하지 않습니다.</p>
@@ -1040,31 +1067,31 @@ section[hidden]{display:none}
   <p>Android 11 이하에서 시스템은 Bluetooth 검색과 위치 권한을 묶어 둡니다. 앱은 해당 버전에만 <code>ACCESS_FINE_LOCATION</code>을 선언하고, Bluetooth 검색이나 수신 페이지를 열 때 앱 안에서 한 번만 묻습니다. 거부해도 되며, 거부 후에도 페어링된 기기로는 전송할 수 있습니다. 앱은 위치 값을 읽거나 저장하거나 전송하지 않습니다.</p>
   <p><strong>포그라운드 서비스와 알림.</strong> <code>FOREGROUND_SERVICE</code>와 <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code>은 백그라운드 재생 유지에, <code>POST_NOTIFICATIONS</code>는 잠금 화면과 알림 창에 재생 컨트롤을 표시하는 데 쓰입니다.</p>
   <p><strong>결제.</strong> <code>com.android.vending.BILLING</code>은 Google Play가 제공하는 선택적 후원에 필요한 권한입니다.</p>
-  <h2>선택적 후원</h2>
+  <h2 id="ko-optional-tips">선택적 후원</h2>
   <p>후원은 전적으로 자발적이며 전적으로 Google Play 결제로 처리됩니다.</p>
   <p>Google은 독립적인 관리자로서 자체 개인정보 처리방침(<a href="https://policies.google.com/privacy" rel="noopener">policies.google.com/privacy</a>)에 따라 결제 정보를 받고 처리합니다. 우리는 어떤 단계에서도 카드 번호, 청구지 주소, Google 계정을 받거나 열람하거나 저장하지 않으며, 구매 기록이 앱에 들어오지도 않습니다.</p>
   <p>후원과 관련된 유일한 로컬 기록은 “아직 직접 감사 인사를 전하지 못한 후원이 있음”을 나타내는 표시이며, 다음에 후원 페이지를 열 때 해당 감사 문구를 보여 주는 데 쓰입니다. 금액도 결제 자격 정보도 포함하지 않고, 앱을 삭제하면 함께 삭제됩니다.</p>
   <p>후원으로 어떤 기능도 해제되지 않습니다. 결제하지 않아도 모든 기능을 쓸 수 있습니다.</p>
-  <h2>진단 정보</h2>
+  <h2 id="ko-diagnostic-information">진단 정보</h2>
   <p>앱이 Google Play를 통해 배포되므로 Google은 플랫폼 차원에서 앱 품질 데이터(Android vitals)를 수집합니다. 비정상 종료 횟수와 스택 트레이스, ANR(응답 없음) 이벤트, 시작 시간, 배터리와 메모리 사용량, 권한 허용·거부 상황, 그리고 발생 시점의 앱 버전, Android 버전, 기기 모델, 국가/지역입니다. 이 데이터는 Google Play가 직접 수집하며 앱에 코드를 넣을 필요가 없고 우리를 거치지 않습니다. 용도는 앱 품질 평가와 개선으로 한정되며, 우리는 Play Console에서 집계된 결과만 보고 개별 이용자의 기록은 볼 수 없습니다.</p>
   <p>이 수집은 Google이 독립적인 관리자로서 수행하며 Google 자체 개인정보 처리방침의 적용을 받습니다. 기기의 “설정 → Google → 사용 및 진단 정보”에서 공유를 끌 수 있으며, 끄면 Google은 이 기기에서 해당 데이터를 더 이상 수집하지 않습니다.</p>
-  <h2>정보 공유</h2>
+  <h2 id="ko-sharing">정보 공유</h2>
   <p>우리는 귀하의 정보를 판매·대여·교환하지 않으며, 광고나 앱 간 추적을 위해 공유하지도 않습니다.</p>
   <p>파일이 다른 앱으로 넘어가는 경우는 두 가지이며, 둘 다 귀하가 시작합니다.</p>
   <p><strong>Bluetooth 전송.</strong> 앱이 Android 시스템 공유 시트를 열고 받는 앱은 귀하가 고릅니다. 파일을 넘긴 뒤의 저장·복사·재배포는 그 앱의 방침을 따르며 이 방침의 범위 밖입니다.</p>
   <p><strong>수신 폴더.</strong> 기본 <code>Music/NielloPlayer</code>는 기기 공용 저장소에 있어 시스템이 다른 앱에 내용 열람을 허용합니다. 수신 폴더를 다른 곳으로 바꾸면 읽을 수 있는 범위는 Android 저장 규칙과 귀하가 부여한 권한으로 정해지며, 그 선택은 귀하의 몫입니다.</p>
   <p>Google Play 결제와 위에 설명한 Android vitals를 제외하고 우리는 어떤 제3자와도 귀하의 정보를 공유하지 않으며, 귀하의 라이브러리 정보를 국외로 이전해야 하는 상황도 없습니다. 라이브러리, 가사, 재생 기록, 설정은 항상 기기에 남아 있으며 어디로도 전송된 적이 없습니다.</p>
-  <h2>정보의 안전</h2>
+  <h2 id="ko-security">정보의 안전</h2>
   <p>앱 전용 저장소는 Android 앱 샌드박스로 보호되어 다른 앱이 읽을 수 없습니다.</p>
   <p>우리는 귀하의 데이터를 받는 백엔드 서비스를 운영하지 않고 재생은 네트워크에 의존하지 않으므로, 귀하의 라이브러리와 설정이 우리 서버를 통해 읽힐 수 없습니다.</p>
   <p>귀하의 브라우저에서 연 링크가 만들어 내는 데이터는 그 브라우저가 처리합니다.</p>
   <p>이 방침의 온라인 페이지는 GitHub Pages에 호스팅되며 앱 안에서는 시스템 브라우저의 “커스텀 탭”으로 열립니다. 주소 표시줄은 브라우저가 그리므로, 자신이 정말 <code>arcanesparkle.github.io</code>에 있는지(앱 안의 위장 페이지가 아닌지) 확인할 수 있습니다. 호스트인 GitHub는 페이지 전달에 필요한 기술 정보(IP 주소, 요청 시각 등)를 받습니다. 브라우저 또한 자체 설정에 따라 이 방문의 기록과 캐시를 보관할 수 있고, 페이지에서 고른 표시 언어도 브라우저 쪽에 저장됩니다. 이 모든 일은 브라우저와 호스트 사이에서 일어나며, 앱은 페이지 내용을 읽지 않고 브라우저가 무엇을 보관하는지 통제할 수 없습니다.</p>
-  <h2>보관과 삭제</h2>
+  <h2 id="ko-retention-and-deletion">보관과 삭제</h2>
   <p>앱을 보관하는 동안 귀하의 정보는 기기에 남습니다.</p>
   <p>앱을 삭제하면 전용 저장소의 라이브러리 색인, 재생 대기열, 모든 설정이 삭제되며 우리는 사본을 보관하지 않습니다. 별도로 삭제를 요청할 클라우드 데이터는 없습니다.</p>
   <p>앱에는 별도의 “라이브러리 비우기” 명령이 없습니다. 현재 색인을 처음부터 다시 만드는 방법은 삭제 후 재설치입니다.</p>
   <p>화면 표시와 백그라운드 재생에 필요한 재생 상태는 메모리에만 존재하며 앱을 나가면 해제됩니다.</p>
-  <h2>귀하의 권리</h2>
+  <h2 id="ko-your-rights">귀하의 권리</h2>
   <p>거주 지역의 법률에 따라 귀하는 우리가 보유한 귀하 관련 정보에 접근하고, 부정확한 정보를 정정하고, 삭제를 요구하고, 처리를 제한하거나 반대하고, 이동 가능한 형태로 제공받을 권리를 가질 수 있습니다.</p>
   <p>귀하의 정보는 기기에만 존재하고 우리는 사본을 갖고 있지 않으므로 이 권리는 직접 행사할 수 있습니다.</p>
   <ul>
@@ -1073,22 +1100,22 @@ section[hidden]{display:none}
     <li><strong>동의 철회</strong>: 부여한 권한은 시스템 설정에서 언제든 취소할 수 있으며, 취소하면 해당 기능이 멈추고 나머지 기능은 영향을 받지 않습니다.</li>
   </ul>
   <p>우리의 처리가 데이터 보호법을 위반한다고 생각되면 거주지, 근무지 또는 침해가 의심되는 곳의 감독 기관에 이의를 제기할 권리가 있습니다. 먼저 우리에게 연락하시면 직접 해결하도록 노력하겠습니다.</p>
-  <h2>처리의 법적 근거</h2>
+  <h2 id="ko-legal-bases">처리의 법적 근거</h2>
   <p>EU 일반개인정보보호규정(GDPR)이 적용되는 경우, 우리는 다음 근거로 정보를 처리합니다.</p>
   <ul>
     <li><strong>계약 이행</strong>(제6조 1항 b): 재생을 위한 오디오 읽기, 재생 위치와 음질 설정 기억, 지정한 폴더로 파일 받기. 이러한 처리는 귀하가 요청한 서비스 제공에 필요합니다.</li>
     <li><strong>귀하의 동의</strong>(제6조 1항 a): Bluetooth 검색 등 선택 권한. 언제든 철회할 수 있으며, 철회 전 처리의 적법성에는 영향을 주지 않습니다.</li>
   </ul>
   <p>우리는 “정당한 이익”을 근거로 광고, 프로파일링, 행태 분석을 하지 않습니다. 본 앱이 그런 일을 하지 않기 때문입니다.</p>
-  <h2>아동과 개인정보</h2>
+  <h2 id="ko-children-and-personal-data">아동과 개인정보</h2>
   <p>본 앱은 만 13세 미만 아동을 대상으로 하지 않으며, 이들의 정보를 의도적으로 수집하지 않습니다.</p>
   <p>앱이 누구에게서도 개인정보를 수집하지 않으므로, 보호자가 아동의 사용을 위해 별도로 설정할 것은 없습니다.</p>
-  <h2>판매하지 않고 공유하지 않습니다</h2>
+  <h2 id="ko-no-sale-no-sharing">판매하지 않고 공유하지 않습니다</h2>
   <p>개정 캘리포니아 소비자 개인정보 보호법(CCPA/CPRA)의 “판매”와 “공유” 정의에 따라 우리는 개인정보를 판매하지 않고 공유하지도 않습니다. 앱에는 광고가 없고 광고나 프로파일링을 위한 분석 SDK도 넣지 않았으며, 귀하의 정보로 어떤 상업적 이익도 얻지 않습니다. 이 상황은 시간이 지나도 변하지 않습니다.</p>
-  <h2>방침의 변경</h2>
+  <h2 id="ko-changes-to-this-policy">방침의 변경</h2>
   <p>이 방침이 바뀌면 이 페이지의 내용과 위의 마지막 업데이트 날짜를 갱신합니다.</p>
   <p>정보 처리 방식에 영향을 주는 변경이라면 날짜만 고치지 않고, 시행 전에 앱 안이나 스토어 페이지에서 설명합니다.</p>
-  <h2>문의</h2>
+  <h2 id="ko-contact-us">문의</h2>
   <p>이 방침이나 귀하의 정보에 관해서는 Google Play 상품 페이지의 “개발자 연락처 정보”에 공개된 개발자 이메일로 문의해 주세요.</p>
 </section>
 
@@ -1101,40 +1128,40 @@ section[hidden]{display:none}
   <nav class="toc">
     <h2>Innhold</h2>
     <ul>
-      <li>Hvem vi er</li>
-      <li>Hva erklæringen dekker</li>
-      <li>Hva vi ikke ber om</li>
-      <li>Informasjon appen behandler på enheten din</li>
-      <li>Tillatelser appen bruker</li>
-      <li>Valgfri tipping</li>
-      <li>Diagnoseinformasjon</li>
-      <li>Deling av informasjon</li>
-      <li>Sikkerhet</li>
-      <li>Lagring og sletting</li>
-      <li>Dine rettigheter</li>
-      <li>Rettslig grunnlag</li>
-      <li>Barn og personopplysninger</li>
-      <li>Ingen salg, ingen deling</li>
-      <li>Endringer i erklæringen</li>
-      <li>Kontakt oss</li>
+      <li><a href="#no-who-we-are">Hvem vi er</a></li>
+      <li><a href="#no-what-this-policy-covers">Hva erklæringen dekker</a></li>
+      <li><a href="#no-what-we-do-not-ask-for">Hva vi ikke ber om</a></li>
+      <li><a href="#no-information-the-app-processes">Informasjon appen behandler på enheten din</a></li>
+      <li><a href="#no-permissions">Tillatelser appen bruker</a></li>
+      <li><a href="#no-optional-tips">Valgfri tipping</a></li>
+      <li><a href="#no-diagnostic-information">Diagnoseinformasjon</a></li>
+      <li><a href="#no-sharing">Deling av informasjon</a></li>
+      <li><a href="#no-security">Sikkerhet</a></li>
+      <li><a href="#no-retention-and-deletion">Lagring og sletting</a></li>
+      <li><a href="#no-your-rights">Dine rettigheter</a></li>
+      <li><a href="#no-legal-bases">Rettslig grunnlag</a></li>
+      <li><a href="#no-children-and-personal-data">Barn og personopplysninger</a></li>
+      <li><a href="#no-no-sale-no-sharing">Ingen salg, ingen deling</a></li>
+      <li><a href="#no-changes-to-this-policy">Endringer i erklæringen</a></li>
+      <li><a href="#no-contact-us">Kontakt oss</a></li>
     </ul>
   </nav>
   <hr>
-  <h2>Hvem vi er</h2>
+  <h2 id="no-who-we-are">Hvem vi er</h2>
   <p>NielloPlayer («appen») er en frakoblet musikkavspiller for Android, levert av den uavhengige utvikleren bak NielloPlayer.</p>
   <p>Vi er behandlingsansvarlig for behandlingen som beskrives her. Du når oss på e-postadressen som står under «Utviklerens kontaktinformasjon» på Google Play-siden; alle forespørsler om denne erklæringen eller informasjonen din kan sendes dit.</p>
-  <h2>Hva erklæringen dekker</h2>
+  <h2 id="no-what-this-policy-covers">Hva erklæringen dekker</h2>
   <p>Erklæringen beskriver hvilken informasjon appen behandler på enheten din, til hvilke formål, og hvilke valg du har. Den gjelder Android-versjonen.</p>
   <p>Erklæringen finnes bare på nettet; ingen kopi lagres i appen. Det du åpner i appen er alltid gjeldende versjon, aldri en kopi som er blitt gammel sammen med installasjonspakken.</p>
   <p>Den dekker ikke det som skjer etter at du har gitt en fil til en annen app. Fra da av gjelder mottakerappens erklæring – se «Deling av informasjon».</p>
-  <h2>Hva vi ikke ber om</h2>
+  <h2 id="no-what-we-do-not-ask-for">Hva vi ikke ber om</h2>
   <p>Appen har ingen konto og krever verken registrering eller innlogging. Vi ber ikke om navn, e-postadresse, telefonnummer eller postadresse, og vi samler ikke inn kontakter, SMS- og anropslogg, bilder og videoer, kalender, posisjon eller annonse-ID.</p>
   <p>Det er ingen annonser i appen, og det er ikke integrert tredjeparts-SDK for analyse, sosial innlogging eller atferdssporing. Vi lager ingen brukerprofiler, gir ingen målrettede anbefalinger ut fra atferden din og tar ingen automatiserte beslutninger.</p>
-  <h2>Informasjon appen behandler på enheten din</h2>
+  <h2 id="no-information-the-app-processes">Informasjon appen behandler på enheten din</h2>
   <p><strong>Bibliotek og avspillingsstatus.</strong> For å spille musikk leser appen lydfiler på enheten din. Bibliotekindeks, avspillingskø, posisjon, lyd- og equalizerinnstillinger og koblingen mellom sanger og tekster lagres i appens private lagring, slik at forrige tilstand gjenopprettes neste gang. Informasjonen blir på enheten din og sendes ikke til oss.</p>
   <p><strong>Mapper du velger.</strong> Mapper utenfor systemets mediebibliotek – for eksempel en musikkmappe på et SD-kort – nås bare via Androids systemfilvelger. Appen kan bare lese mappen du selv valgte, ingen andre steder, og ber ikke om tilgang til alle filer. Tekstfiler du legger til selv, godkjennes via samme velger.</p>
   <p><strong>Mottaksmappe.</strong> Filer som mottas via Bluetooth, lokalnett eller nettsiden, skrives til mappen du velger under Innstillinger → Bibliotek → Mottaksmappe, som standard <code>Music/NielloPlayer</code> i enhetens delte lagring. Innholdet der administrerer du selv – se «Deling av informasjon».</p>
-  <h2>Tillatelser appen bruker</h2>
+  <h2 id="no-permissions">Tillatelser appen bruker</h2>
   <p>Hver tillatelse virker bare når den tilhørende funksjonen brukes. Vi ber ikke på forhånd om noe du ennå ikke bruker, og å avslå en valgfri tillatelse fjerner aldri den grunnleggende avspillingen.</p>
   <p><strong>Lydfiler.</strong> Android 13 og nyere bruker <code>READ_MEDIA_AUDIO</code>; Android 10 til 12 bruker <code>READ_EXTERNAL_STORAGE</code>. Begge brukes til å skanne og spille musikken din. <code>WRITE_EXTERNAL_STORAGE</code> deklareres bare for Android 10 og eldre, for å huske mappen du valgte. Du kan trekke tilbake tillatelsene når som helst i systeminnstillingene; etterpå viser appen bare det som allerede er indeksert.</p>
   <p><strong>Nettverk.</strong> <code>INTERNET</code> brukes til fire ting: å være vert for en liten lokal nettside for sangoverføring, å finne den andre enheten i samme lokalnett, å kommunisere med Google Play når du velger å gi en tips, og å laste nettsiden for denne erklæringen. Appen driver ingen egne servere og laster aldri opp biblioteket, tekstene eller innstillingene dine.</p>
@@ -1143,31 +1170,31 @@ section[hidden]{display:none}
   <p>I Android 11 og eldre knytter systemet Bluetooth-skanning til posisjonstillatelse. Appen deklarerer <code>ACCESS_FINE_LOCATION</code> bare for disse versjonene og spør én gang i appen, bare når du åpner Bluetooth-søk eller mottakssiden. Du kan avslå; etterpå kan du fortsatt sende til allerede pairede enheter. Appen leser, lagrer og sender aldri noen posisjonsverdi.</p>
   <p><strong>Forgrunnstjeneste og varsler.</strong> <code>FOREGROUND_SERVICE</code> og <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code> holder musikken i gang i bakgrunnen; <code>POST_NOTIFICATIONS</code> viser avspillingskontroller på låseskjermen og i varselfeltet.</p>
   <p><strong>Betaling.</strong> <code>com.android.vending.BILLING</code> kreves for den valgfrie tippingen via Google Play.</p>
-  <h2>Valgfri tipping</h2>
+  <h2 id="no-optional-tips">Valgfri tipping</h2>
   <p>Tipping er helt frivillig og håndteres helt av Google Play Billing.</p>
   <p>Google opptrer som uavhengig behandlingsansvarlig og mottar og behandler betalingsinformasjonen din etter sin egen personvernerklæring (<a href="https://policies.google.com/privacy" rel="noopener">policies.google.com/privacy</a>). Vi mottar, ser eller lagrer aldri kortnummeret, fakturaadressen eller Google-kontoen din, og kjøpshistorikk havner ikke i appen.</p>
   <p>Den eneste lokale registreringen knyttet til en tipping er et merke «det finnes en tips vi ennå ikke har takket deg personlig for», som brukes til å vise riktig takk neste gang du åpner tipssiden. Det inneholder ingen beløp og ingen betalingsbevis, og det slettes når du avinstallerer appen.</p>
   <p>Tipping låser ikke opp noen funksjoner. Alt virker uten å betale.</p>
-  <h2>Diagnoseinformasjon</h2>
+  <h2 id="no-diagnostic-information">Diagnoseinformasjon</h2>
   <p>Siden appen distribueres via Google Play, samler Google inn kvalitetsdata på plattformnivå – Android vitals: krasj og stackspor, ANR-hendelser (svarer ikke), oppstartstid, batteri- og minnebruk, utfall av tillatelsesforespørsler, samt appversjon, Android-versjon, enhetsmodell og land/region på tidspunktet. Dette samles inn direkte av Google Play, krever ingen kode i appen og går ikke via oss. Det brukes bare til å vurdere og forbedre appkvaliteten; vi ser bare aggregerte resultater i Play Console og aldri en enkelt brukers post.</p>
   <p>Innsamlingen gjøres av Google som uavhengig behandlingsansvarlig og omfattes av Googles egen personvernerklæring. Du kan slå av deling under Innstillinger → Google → Bruk og diagnostikk; etterpå slutter Google å samle inn disse dataene fra enheten din.</p>
-  <h2>Deling av informasjon</h2>
+  <h2 id="no-sharing">Deling av informasjon</h2>
   <p>Vi selger, leier ut eller bytter ikke informasjonen din, og deler den ikke for annonsering eller sporing mellom apper.</p>
   <p>Det er to situasjoner der filer går til en annen app, og begge starter du:</p>
   <p><strong>Bluetooth-overføring.</strong> Appen åpner Androids systemdelingsark og du velger mottakerappen. Når filen er overlevert, styres lagring, kopiering og videre distribusjon av den appens erklæring, utenfor denne.</p>
   <p><strong>Mottaksmappe.</strong> Standardmappen <code>Music/NielloPlayer</code> ligger i enhetens delte lagring, der systemet lar andre apper lese innholdet. Flytter du mottaksmappen et annet sted, avgjør Androids lagringsregler og tillatelsene du har gitt hva som er lesbart – et valg du tar.</p>
   <p>Utover Google Play Billing og Android vitals beskrevet over deler vi ikke informasjonen din med noen tredjepart, og det finnes ingen situasjon der bibliotekinformasjonen din må overføres ut av landet. Biblioteket, tekstene, avspillingshistorikken og innstillingene dine blir på enheten din og har aldri blitt sendt noe sted.</p>
-  <h2>Sikkerhet</h2>
+  <h2 id="no-security">Sikkerhet</h2>
   <p>Appens private lagring beskyttes av Androids appsandkasse; andre apper kan ikke lese den.</p>
   <p>Vi driver ingen backend-tjeneste som mottar dataene dine, og avspilling er ikke avhengig av nettverket, så biblioteket og innstillingene dine kan ikke leses via noen server hos oss.</p>
   <p>Data som oppstår fra lenker du åpner i din egen nettleser, håndteres av den nettleseren.</p>
   <p>Nettsiden for denne erklæringen ligger på GitHub Pages og åpnes i appen som systemnettleserens egendefinerte fane: adressefeltet tegnes av nettleseren, så du kan kontrollere at du virkelig er på <code>arcanesparkle.github.io</code> og ikke på et skall inne i appen. GitHub mottar som vert den tekniske informasjonen som trengs for å levere siden, som IP-adressen din og tidspunktet for forespørselen; nettleseren kan også etter egne innstillinger beholde historikk og hurtigbuffer fra besøket, og visningsspråket du velger på siden lagres også hos nettleseren. Alt dette skjer mellom nettleseren og verten: appen leser ikke sideinnholdet og kan ikke styre hva nettleseren beholder.</p>
-  <h2>Lagring og sletting</h2>
+  <h2 id="no-retention-and-deletion">Lagring og sletting</h2>
   <p>Så lenge du beholder appen, blir informasjonen din på enheten din.</p>
   <p>Avinstallering sletter bibliotekindeks, avspillingskø og alle innstillinger i den private lagringen. Vi beholder ingen kopi – det finnes ingen skydata du må be om å få slettet separat.</p>
   <p>Appen har ingen egen kommando for å «tømme biblioteket». Per i dag er eneste måte å bygge indeksen helt på nytt å avinstallere og installere på nytt.</p>
   <p>Avspillingstilstanden som trengs for grensesnittet og bakgrunnsavspilling finnes bare i minnet og frigis når du forlater appen.</p>
-  <h2>Dine rettigheter</h2>
+  <h2 id="no-your-rights">Dine rettigheter</h2>
   <p>Avhengig av loven der du bor, kan du ha rett til innsyn i informasjonen vi har om deg, retting av uriktig informasjon, sletting, begrensning av eller innsigelse mot behandling, og til å få informasjonen i et portabelt format.</p>
   <p>Siden informasjonen din bare finnes på enheten din og vi ikke har noen kopi, kan disse rettighetene brukes direkte:</p>
   <ul>
@@ -1176,22 +1203,22 @@ section[hidden]{display:none}
     <li><strong>Trekke samtykke:</strong> trekk tilbake gitte tillatelser når som helst i systeminnstillingene; funksjonen slutter å virke og resten påvirkes ikke.</li>
   </ul>
   <p>Hvis du mener behandlingen vår bryter med personvernlovgivningen, har du rett til å klage til en tilsynsmyndighet der du bor, arbeider eller der overtredelsen skal ha skjedd. Du kan også kontakte oss først; vi gjør vårt beste for å løse det direkte.</p>
-  <h2>Rettslig grunnlag</h2>
+  <h2 id="no-legal-bases">Rettslig grunnlag</h2>
   <p>Der personvernforordningen (GDPR) gjelder, behandler vi informasjon på følgende grunnlag:</p>
   <ul>
     <li><strong>Oppfyllelse av avtale</strong> (artikkel 6 nr. 1 bokstav b): lese lyden din for avspilling, huske avspillingsposisjon og lydinnstillinger, motta filer i mappen du angir. Behandlingen er nødvendig for å levere tjenesten du ba om.</li>
     <li><strong>Ditt samtykke</strong> (artikkel 6 nr. 1 bokstav a): valgfrie tillatelser som Bluetooth-søk. Du kan trekke det tilbake når som helst, uten at det påvirker lovligheten av tidligere behandling.</li>
   </ul>
   <p>Vi bygger ikke annonsering, profilering eller atferdsanalyse på «berettiget interesse», fordi appen ikke gjør noe av dette.</p>
-  <h2>Barn og personopplysninger</h2>
+  <h2 id="no-children-and-personal-data">Barn og personopplysninger</h2>
   <p>Appen er ikke rettet mot barn under 13 år, og vi samler ikke bevisst inn informasjon fra dem.</p>
   <p>Siden appen ikke samler inn personopplysninger fra noen, trenger foreldre ikke gjøre noen ekstra innstillinger for at et barn skal bruke den.</p>
-  <h2>Ingen salg, ingen deling</h2>
+  <h2 id="no-no-sale-no-sharing">Ingen salg, ingen deling</h2>
   <p>Etter definisjonene av «selge» og «dele» i California Consumer Privacy Act med endringer (CCPA/CPRA), selger og deler vi ikke personopplysninger. Appen har ingen annonser og ingen analyse-SDK for annonsering eller profilering; vi tjener ingenting kommersielt på informasjonen din. Dette endrer seg ikke over tid.</p>
-  <h2>Endringer i erklæringen</h2>
+  <h2 id="no-changes-to-this-policy">Endringer i erklæringen</h2>
   <p>Hvis erklæringen endres, oppdaterer vi denne siden og datoen over.</p>
   <p>Hvis en endring påvirker hvordan informasjon behandles, forklarer vi det i appen eller på butikksiden før den trer i kraft, i stedet for bare å endre datoen.</p>
-  <h2>Kontakt oss</h2>
+  <h2 id="no-contact-us">Kontakt oss</h2>
   <p>For alt om denne erklæringen eller informasjonen din, send e-post til utvikleradressen som står under «Utviklerens kontaktinformasjon» på Google Play-siden.</p>
 </section>
 
@@ -1204,40 +1231,40 @@ section[hidden]{display:none}
   <nav class="toc">
     <h2>Innehåll</h2>
     <ul>
-      <li>Vilka vi är</li>
-      <li>Vad policyn omfattar</li>
-      <li>Vad vi inte begär</li>
-      <li>Information appen behandlar på din enhet</li>
-      <li>Behörigheter appen använder</li>
-      <li>Valfri dricks</li>
-      <li>Diagnostikinformation</li>
-      <li>Delning av information</li>
-      <li>Säkerhet</li>
-      <li>Lagring och radering</li>
-      <li>Dina rättigheter</li>
-      <li>Rättslig grund för behandlingen</li>
-      <li>Barn och personuppgifter</li>
-      <li>Ingen försäljning, ingen delning</li>
-      <li>Ändringar av policyn</li>
-      <li>Kontakta oss</li>
+      <li><a href="#sv-who-we-are">Vilka vi är</a></li>
+      <li><a href="#sv-what-this-policy-covers">Vad policyn omfattar</a></li>
+      <li><a href="#sv-what-we-do-not-ask-for">Vad vi inte begär</a></li>
+      <li><a href="#sv-information-the-app-processes">Information appen behandlar på din enhet</a></li>
+      <li><a href="#sv-permissions">Behörigheter appen använder</a></li>
+      <li><a href="#sv-optional-tips">Valfri dricks</a></li>
+      <li><a href="#sv-diagnostic-information">Diagnostikinformation</a></li>
+      <li><a href="#sv-sharing">Delning av information</a></li>
+      <li><a href="#sv-security">Säkerhet</a></li>
+      <li><a href="#sv-retention-and-deletion">Lagring och radering</a></li>
+      <li><a href="#sv-your-rights">Dina rättigheter</a></li>
+      <li><a href="#sv-legal-bases">Rättslig grund för behandlingen</a></li>
+      <li><a href="#sv-children-and-personal-data">Barn och personuppgifter</a></li>
+      <li><a href="#sv-no-sale-no-sharing">Ingen försäljning, ingen delning</a></li>
+      <li><a href="#sv-changes-to-this-policy">Ändringar av policyn</a></li>
+      <li><a href="#sv-contact-us">Kontakta oss</a></li>
     </ul>
   </nav>
   <hr>
-  <h2>Vilka vi är</h2>
+  <h2 id="sv-who-we-are">Vilka vi är</h2>
   <p>NielloPlayer (”appen”) är en offlinemusikspelare för Android som tillhandahålls av NielloPlayers oberoende utvecklare.</p>
   <p>Vi är personuppgiftsansvarig för den behandling som beskrivs här. Du når oss på den e-postadress som publiceras under ”Utvecklarens kontaktuppgifter” på Google Play-sidan; alla förfrågningar om policyn eller din information kan skickas dit.</p>
-  <h2>Vad policyn omfattar</h2>
+  <h2 id="sv-what-this-policy-covers">Vad policyn omfattar</h2>
   <p>Policyn beskriver vilken information appen behandlar på din enhet, i vilka syften och vilka val du har. Den gäller Android-versionen.</p>
   <p>Policyn finns endast online; ingen kopia lagras i appen. Det du öppnar i appen är alltid aktuell version, aldrig en kopia som blivit gammal tillsammans med installationspaketet.</p>
   <p>Den omfattar inte vad som händer efter att du lämnat en fil till en annan app. Från det ögonblicket gäller mottagande apps policy – se ”Delning av information”.</p>
-  <h2>Vad vi inte begär</h2>
+  <h2 id="sv-what-we-do-not-ask-for">Vad vi inte begär</h2>
   <p>Appen har inget konto och kräver varken registrering eller inloggning. Vi begär inte ditt namn, din e-postadress, ditt telefonnummer eller din postadress, och vi samlar inte in kontakter, sms- och samtalshistorik, foton och videor, kalender, plats eller annons-ID.</p>
   <p>Appen innehåller ingen reklam och inget tredjeparts-SDK för analys, social inloggning eller beteendespårning. Vi skapar inga användarprofiler, gör inga riktade rekommendationer utifrån ditt beteende och fattar inga automatiserade beslut.</p>
-  <h2>Information appen behandlar på din enhet</h2>
+  <h2 id="sv-information-the-app-processes">Information appen behandlar på din enhet</h2>
   <p><strong>Bibliotek och uppspelningsläge.</strong> För att spela musik läser appen ljudfiler på din enhet. Biblioteksindex, uppspelningskö, uppspelningsposition, ljud- och equalizerinställningar samt kopplingen mellan låtar och texter sparas i appens privata lagring så att ditt tidigare läge återställs nästa gång. Informationen stannar på din enhet och skickas inte till oss.</p>
   <p><strong>Mappar du väljer.</strong> Mappar utanför systemets mediebibliotek – till exempel en musikmapp på ett SD-kort – nås endast via Androids systemfilsväljare. Appen kan bara läsa den mapp du själv valt, inga andra platser, och begär ingen åtkomst till alla filer. Textfiler du själv lägger till godkänns via samma väljare.</p>
   <p><strong>Mottagningsmapp.</strong> Filer som tas emot via Bluetooth, lokalnät eller webbsidan skrivs till den mapp du väljer under Inställningar → Bibliotek → Mottagningsmapp, som standard <code>Music/NielloPlayer</code> i enhetens delade lagring. Innehållet i mappen hanterar du själv – se ”Delning av information”.</p>
-  <h2>Behörigheter appen använder</h2>
+  <h2 id="sv-permissions">Behörigheter appen använder</h2>
   <p>Varje behörighet verkar bara när motsvarande funktion används. Vi begär inget i förväg för något du ännu inte använder, och att neka en valfri behörighet tar aldrig bort den grundläggande uppspelningen.</p>
   <p><strong>Ljudfiler.</strong> Android 13 och senare använder <code>READ_MEDIA_AUDIO</code>; Android 10 till 12 använder <code>READ_EXTERNAL_STORAGE</code>. Båda används för att skanna och spela din musik. <code>WRITE_EXTERNAL_STORAGE</code> deklareras endast för Android 10 och äldre, för att komma ihåg mappen du valt. Du kan återkalla behörigheterna när som helst i systeminställningarna; därefter visar appen bara det som redan indexerats.</p>
   <p><strong>Nätverk.</strong> <code>INTERNET</code> används till fyra saker: att tillhandahålla en liten lokal webbsida för låtöverföring, att hitta den andra enheten i samma lokalnät, att kommunicera med Google Play när du väljer att ge en dricks, och att läsa in den online-sida som är denna policy. Appen driver inga egna servrar och laddar aldrig upp ditt bibliotek, dina texter eller inställningar.</p>
@@ -1246,31 +1273,31 @@ section[hidden]{display:none}
   <p>I Android 11 och äldre kopplar systemet Bluetooth-skanning till platsbehörighet. Appen deklarerar <code>ACCESS_FINE_LOCATION</code> endast för dessa versioner och frågar en gång i appen, bara när du öppnar Bluetooth-sökning eller mottagningssidan. Du får neka; efter ett nej kan du fortfarande skicka till redan parade enheter. Appen läser, sparar och skickar aldrig något platsvärde.</p>
   <p><strong>Förgrundstjänst och aviseringar.</strong> <code>FOREGROUND_SERVICE</code> och <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code> håller musiken igång i bakgrunden; <code>POST_NOTIFICATIONS</code> visar uppspelningskontroller på låsskärmen och i aviseringsfältet.</p>
   <p><strong>Betalning.</strong> <code>com.android.vending.BILLING</code> krävs för den valfria dricksen via Google Play.</p>
-  <h2>Valfri dricks</h2>
+  <h2 id="sv-optional-tips">Valfri dricks</h2>
   <p>Dricks är helt frivilligt och hanteras helt av Google Play Billing.</p>
   <p>Google agerar oberoende personuppgiftsansvarig och tar emot och behandlar dina betalningsuppgifter enligt sin egen integritetspolicy (<a href="https://policies.google.com/privacy" rel="noopener">policies.google.com/privacy</a>). Vi tar aldrig emot, tittar på eller sparar ditt kortnummer, din faktureringsadress eller ditt Google-konto, och köphistorik hamnar aldrig i appen.</p>
   <p>Den enda lokala anteckningen om en dricks är en markering ”det finns en dricks vi ännu inte tackat dig för personligen”, som används för att visa rätt tacktal nästa gång du öppnar drickssidan. Den innehåller inget belopp och inget betalningsbevis, och den försvinner när du avinstallerar appen.</p>
   <p>Dricks låser inte upp några funktioner. Allt fungerar utan att betala.</p>
-  <h2>Diagnostikinformation</h2>
+  <h2 id="sv-diagnostic-information">Diagnostikinformation</h2>
   <p>Eftersom appen distribueras via Google Play samlar Google in kvalitetsdata på plattformsnivå – Android vitals: krascher och stackspårningar, ANR-händelser (svarar inte), starttid, batteri- och minnesanvändning, utfall av behörighetsförfrågningar samt appversion, Android-version, enhetsmodell och land/region vid tillfället. Uppgifterna samlas in direkt av Google Play, kräver ingen kod i appen och passerar inte oss. De används endast för att bedöma och förbättra appens kvalitet; vi ser bara aggregerade resultat i Play Console och aldrig en enskild användares post.</p>
   <p>Insamlingen görs av Google som oberoende personuppgiftsansvarig och omfattas av Googles egen integritetspolicy. Du kan stänga av delningen under Inställningar → Google → Användning och diagnostik; därefter slutar Google samla in dessa uppgifter från din enhet.</p>
-  <h2>Delning av information</h2>
+  <h2 id="sv-sharing">Delning av information</h2>
   <p>Vi säljer, hyr ut eller byter inte din information och delar den inte för reklam eller spårning mellan appar.</p>
   <p>Det finns två situationer där filer lämnar appen till en annan app, och båda startar du:</p>
   <p><strong>Bluetooth-överföring.</strong> Appen öppnar Androids systemdelning och du väljer mottagande app. När filen lämnats styr den appens policy lagring, kopiering och vidare spridning, utanför denna policy.</p>
   <p><strong>Mottagningsmapp.</strong> Standardmappen <code>Music/NielloPlayer</code> ligger i enhetens delade lagring, där systemet låter andra appar läsa innehållet. Flyttar du mottagningsmappen någon annanstans avgör Androids lagringsregler och de behörigheter du gett vad som är läsbart – ett val du gör.</p>
   <p>Utöver Google Play Billing och Android vitals ovan delar vi inte din information med någon tredje part, och det finns ingen situation där dina biblioteksuppgifter behöver föras utomlands. Ditt bibliotek, dina texter, din uppspelningshistorik och dina inställningar stannar på din enhet och har aldrig skickats någonstans.</p>
-  <h2>Säkerhet</h2>
+  <h2 id="sv-security">Säkerhet</h2>
   <p>Appens privata lagring skyddas av Androids appsandlåda; andra appar kan inte läsa den.</p>
   <p>Vi driver ingen backend-tjänst som tar emot dina data och uppspelningen är inte nätberoende, så ditt bibliotek och dina inställningar kan inte läsas via någon server hos oss.</p>
   <p>Data som uppstår genom länkar du öppnar i din egen webbläsare hanteras av den webbläsaren.</p>
   <p>Online-sidan för denna policy ligger på GitHub Pages och öppnas i appen som systemwebbläsarens anpassade flik: adressfältet ritas av webbläsaren, så du kan kontrollera att du verkligen är på <code>arcanesparkle.github.io</code> och inte på ett skal inne i appen. GitHub tar som värd emot den tekniska information som behövs för att leverera sidan, till exempel din IP-adress och tidpunkten för begäran; webbläsaren kan också enligt sina egna inställningar behålla historik och cache från besöket, och det visningsspråk du väljer på sidan sparas också hos webbläsaren. Allt detta sker mellan webbläsaren och värden: appen läser inte sidinnehållet och kan inte styra vad webbläsaren behåller.</p>
-  <h2>Lagring och radering</h2>
+  <h2 id="sv-retention-and-deletion">Lagring och radering</h2>
   <p>Så länge du behåller appen stannar din information på din enhet.</p>
   <p>Avinstallation raderar biblioteksindex, uppspelningskö och alla inställningar i den privata lagringen. Vi behåller ingen kopia – det finns inga molndata som du behöver begära radering av separat.</p>
   <p>Appen har inget separat kommando för att ”rensa biblioteket”. Just nu är enda sättet att bygga upp indexet från grunden att avinstallera och installera om.</p>
   <p>Det uppspelningsläge som behövs för gränssnittet och bakgrundsuppspelning finns bara i minnet och släpps när du lämnar appen.</p>
-  <h2>Dina rättigheter</h2>
+  <h2 id="sv-your-rights">Dina rättigheter</h2>
   <p>Beroende på lagstiftningen där du bor kan du ha rätt att få tillgång till informationen om dig som vi har, få felaktig information rättad, få den raderad, begränsa eller invända mot behandlingen och få den i ett portabelt format.</p>
   <p>Eftersom din information bara finns på din enhet och vi inte har någon kopia kan dessa rättigheter utövas direkt:</p>
   <ul>
@@ -1279,22 +1306,22 @@ section[hidden]{display:none}
     <li><strong>Återkalla samtycke:</strong> återkalla beviljade behörigheter när som helst i systeminställningarna; motsvarande funktion slutar fungera och resten påverkas inte.</li>
   </ul>
   <p>Om du anser att vår behandling bryter mot dataskyddslagstiftningen har du rätt att klaga till en tillsynsmyndighet där du bor, arbetar eller där överträdelsen påstås ha skett. Du kan också kontakta oss först; vi gör vårt bästa för att lösa det direkt.</p>
-  <h2>Rättslig grund för behandlingen</h2>
+  <h2 id="sv-legal-bases">Rättslig grund för behandlingen</h2>
   <p>Där dataskyddsförordningen (GDPR) gäller behandlar vi information på följande grunder:</p>
   <ul>
     <li><strong>Fullgörande av avtal</strong> (artikel 6.1 b): läsa ditt ljud för att spela upp, komma ihåg din uppspelningsposition och dina ljudinställningar, ta emot filer i den mapp du anger. Behandlingen är nödvändig för att tillhandahålla den tjänst du begärt.</li>
     <li><strong>Ditt samtycke</strong> (artikel 6.1 a): valfria behörigheter som Bluetooth-sökning. Du kan återkalla det när som helst, utan att det påverkar lagligheten av tidigare behandling.</li>
   </ul>
   <p>Vi grundar inte reklam, profilering eller beteendeanalys på ”berättigat intresse”, eftersom appen inte gör något av detta.</p>
-  <h2>Barn och personuppgifter</h2>
+  <h2 id="sv-children-and-personal-data">Barn och personuppgifter</h2>
   <p>Appen riktar sig inte till barn under 13 år och vi samlar inte medvetet in information från dem.</p>
   <p>Eftersom appen inte samlar in personuppgifter från någon behöver föräldrar inte göra några särskilda inställningar för att ett barn ska kunna använda den.</p>
-  <h2>Ingen försäljning, ingen delning</h2>
+  <h2 id="sv-no-sale-no-sharing">Ingen försäljning, ingen delning</h2>
   <p>Enligt definitionerna av ”sälja” och ”dela” i California Consumer Privacy Act i ändrad lydelse (CCPA/CPRA) säljer och delar vi inte personuppgifter. Appen innehåller ingen reklam och inget analys-SDK för reklam eller profilering; vi får ingen kommersiell vinst av din information. Detta förändras inte över tid.</p>
-  <h2>Ändringar av policyn</h2>
+  <h2 id="sv-changes-to-this-policy">Ändringar av policyn</h2>
   <p>Om policyn ändras uppdaterar vi denna sida och datumet ovan.</p>
   <p>Om en ändring påverkar hur information behandlas förklarar vi det i appen eller på butikssidan innan det träder i kraft, i stället för att bara byta datum.</p>
-  <h2>Kontakta oss</h2>
+  <h2 id="sv-contact-us">Kontakta oss</h2>
   <p>För allt om denna policy eller din information, mejla utvecklaradressen som publiceras under ”Utvecklarens kontaktuppgifter” på Google Play-sidan.</p>
 </section>
 
@@ -1322,6 +1349,24 @@ section[hidden]{display:none}
     return true;
   }
 
+  // 目录锚点形如 `#zh-who-we-are`（192 个 id 都带语言前缀，否则 12 份章节
+  // 同名 id 会互相抢，而命中那份多半是 display:none 的英文节 —— 浏览器
+  // 对隐藏元素的锚点滚动是不生效的，表现就是"点了没反应"）。
+  // ⇒ 打开带 hash 的链接时，**先按 hash 决定语言**，再谈 localStorage。
+  function langFromHash() {
+    var hh = String(location.hash || '').replace(/^#/, '').toLowerCase();
+    if (!hh) return null;
+    var best = null;
+    for (var i = 0; i < secs.length; i++) {
+      var code = secs[i].getAttribute('data-lang');
+      var pre = code.toLowerCase() + '-';
+      if (hh.indexOf(pre) === 0 && (!best || pre.length > best.pre.length)) {
+        best = { code: code, pre: pre };
+      }
+    }
+    return best ? best.code : null;
+  }
+
   // 「跟随系统」：按浏览器语言逐个尝试，找不到再退回英文
   function fromSystem() {
     var langs = navigator.languages || [navigator.language || 'en'];
@@ -1341,13 +1386,24 @@ section[hidden]{display:none}
   try { saved = localStorage.getItem('niello.policy.lang'); } catch (e) {}
 
   // 首次进入：按用户要求默认英文；此前选过则沿用
-  var initial = saved === null ? 'en' : (saved === '' ? fromSystem() : saved);
+  var fromHash = langFromHash();
+  var initial = fromHash || (saved === null ? 'en' : (saved === '' ? fromSystem() : saved));
   if (!show(initial)) show('en');
-  sel.value = saved === null ? 'en' : saved;
+  // hash 指定了语言时，下拉框跟它走（否则会显示"上次选的"，与正文不符）
+  sel.value = fromHash || (saved === null ? 'en' : saved);
 
   sel.addEventListener('change', function () {
     var v = sel.value;
-    show(v === '' ? fromSystem() : v);
+    var code = v === '' ? fromSystem() : v;
+    show(code);
+    // 地址栏里的锚点属于**上一个**语言时，它现在指向一个隐藏元素 ——
+    // 留着会让"复制链接给别人"变成一条跳到半截的 URL。清掉；属于本语言的保留。
+    if (location.hash) {
+      var pre = code.toLowerCase() + '-';
+      if (String(location.hash).toLowerCase().indexOf('#' + pre) !== 0) {
+        try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
+      }
+    }
     try { localStorage.setItem('niello.policy.lang', v); } catch (e) {}
   });
 })();
